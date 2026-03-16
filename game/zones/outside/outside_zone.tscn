@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://dbepe4i2q62yy" path="res://game/items/crate/crate.tscn" id="13_mtgv7"]
 [ext_resource type="PackedScene" uid="uid://c33bpwxnrb0gr" path="res://game/items/toolbox/toolbox.tscn" id="14_68l3l"]
 [ext_resource type="Script" uid="uid://dpgch83oh88gv" path="res://game/replay.gd" id="15_vljgg"]
+[ext_resource type="Script" uid="uid://cu8tlp5udl3hq" path="res://game/zones/outside/pressure_plate.gd" id="16_tk2pl"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vljgg"]
 animation = &"Grip"
@@ -119,6 +120,15 @@ size = Vector3(1, 3, 0.1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_wdgkd"]
 size = Vector3(1, 3, 0.2)
 
+[sub_resource type="BoxMesh" id="BoxMesh_jodmb"]
+size = Vector3(1, 0.1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ixvyx"]
+size = Vector3(1, 0.1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_twjr1"]
+size = Vector3(0.9, 0.1, 0.9)
+
 [node name="OutsideZone" unique_id=802691697 instance=ExtResource("1_sk0kv")]
 zone_info = ExtResource("3_wyepd")
 
@@ -130,6 +140,8 @@ transform = Transform3D(1.30801e-07, -1, 7.6194e-09, -0.0871558, -3.8097e-09, 0.
 
 [node name="AnimationTree" parent="XROrigin3D/RightHand/CollisionHandRight/RightHand" parent_id_path=PackedInt32Array(1823018386) index="1"]
 tree_root = SubResource("AnimationNodeBlendTree_qimua")
+
+[node name="PlayerBody" parent="XROrigin3D" index="3" unique_id=1003560517 groups=["clone_body"]]
 
 [node name="World" type="Node3D" parent="." index="1" unique_id=800103096]
 
@@ -297,6 +309,28 @@ autostart = true
 [node name="TickTimer" type="Timer" parent="Replay" index="1" unique_id=901998448]
 wait_time = 0.05
 autostart = true
+
+[node name="PressurePlate" type="Node3D" parent="." index="16" unique_id=266472405 node_paths=PackedStringArray("top", "plate")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7909614, 0, -2.4640694)
+script = ExtResource("16_tk2pl")
+top = NodePath("Area3D")
+plate = NodePath("StaticBody3D")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="PressurePlate" index="0" unique_id=606484295]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PressurePlate/StaticBody3D" index="0" unique_id=1657490218]
+mesh = SubResource("BoxMesh_jodmb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PressurePlate/StaticBody3D" index="1" unique_id=1722627317]
+shape = SubResource("BoxShape3D_ixvyx")
+
+[node name="Area3D" type="Area3D" parent="PressurePlate" index="1" unique_id=247849046]
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PressurePlate/Area3D" index="0" unique_id=754712533]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.20768127, 0)
+shape = SubResource("BoxShape3D_twjr1")
+debug_color = Color(0, 0.6, 0.69803923, 0.99607843)
 
 [connection signal="timeout" from="Replay/TickTimer" to="Replay" method="_on_tick_timer_timeout"]
 
