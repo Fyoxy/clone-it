@@ -52,6 +52,9 @@ var _last_pocket : PersistentPocket
 # Auto-return timer node
 var _auto_return_timer : Timer
 
+# Toggled if object is grabbed or not
+var _object_grabbed: bool = false
+
 
 # Add support for is_xr_class
 func is_xr_class(p_name : String) -> bool:
@@ -200,6 +203,9 @@ func _start_auto_return_timer() -> void:
 
 # Called when this object is picked up
 func _on_picked_up(_pickable) -> void:
+	
+	_object_grabbed = true
+	
 	# Save the last pocket
 	if get_picked_up_by() is PersistentPocket:
 		_last_pocket = get_picked_up_by()

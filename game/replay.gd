@@ -3,6 +3,7 @@ extends Node3D
 @export var timer: Timer
 
 var tracked_bodies: Dictionary = {}
+var persistent_objects: Array[Node] = []
 var clone_num: int = 0
 var tickCounter: int = 0
 var maxTicks: = 999999999999999999
@@ -17,7 +18,8 @@ func add_data(node_name: String, pos: Vector3):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var persistent_objects = get_tree().get_nodes_in_group("tracked")
+	persistent_objects = get_tree().get_nodes_in_group("tracked")
+	
 	tracked_bodies[clone_num] = []
 	for body in persistent_objects:
 		tracked_bodies[clone_num].append({
@@ -43,8 +45,21 @@ func print_tracked_bodies():
 			print("")
 
 func play():
+	for body in tracked_bodies[clone_num]:
+		body["node"]._object_grabbed = false
+		
 	clone_num += 1
-	#print_tracked_bodies()
+	
+	tracked_bodies[clone_num] = []
+	for body in persistent_objects:
+		tracked_bodies[clone_num].append({
+			"name": body.name,
+			"node": body,
+			"data": []  # will hold [Vector3] pairs
+		})
+	print(clone_num)
+
+	print_tracked_bodies()
 	
 	#rock_4.freeze_mode = RigidBody3D.FREEZE_MODE_KINEMATIC
 	#rock_4.freeze = true
@@ -61,13 +76,6 @@ func play():
 func _input(event):
 	if event is InputEventKey and event.pressed and event.keycode == KEY_4:
 		pass
-		#print("RECORD TOGGLE")
-		#if !record:5
-			#print("POSITIONS RESET!")
-			#positions = []
-			#times = []
-		#
-		#record = !record
 		
 	if event is InputEventKey and event.pressed and event.keycode == KEY_5:
 		play()
@@ -82,14 +90,16 @@ func _input(event):
 func _on_tick_timer_timeout():
 	if tickCounter >= maxTicks:
 		return
-		
-	var tween = get_tree().create_tween()
-	
-	for body in tracked_bodies[0]:
-		if !clone_num:
+
+	for body in tracked_bodies[tracked_bodies.size()-1]:
 			add_data(body["name"], body["node"].global_position)
-		else:
-			body["node"].freeze = true
-			tween.tween_property(body["node"], "global_position", body["data"][tickCounter], 0.05)
+			#body["node"].freeze = true
+			
+	if tracked_bodies.size() > 1:
+		for body in tracked_bodies[tracked_bodies.size()-2]:
+			if body["node"] is PersistentItem and !body["node"]._object_grabbed:
+				var tween = get_tree().create_tween()
+				tween.tween_property(body["node"], "global_position", body["data"][tickCounter], 0.05)
+
 	
 	tickCounter += 1
