@@ -246,6 +246,10 @@ func _ready():
 	# Get the movement providers ordered by increasing order
 	_movement_providers = get_tree().get_nodes_in_group("movement_providers")
 	_movement_providers.sort_custom(sort_by_order)
+	
+	# Disable collision with hands
+	add_collision_exception_with($"../RightHand/CollisionHandRight")
+	add_collision_exception_with($"../LeftHand/CollisionHandLeft")
 
 	# Propagate defaults
 	_update_enabled()
