@@ -26,21 +26,21 @@ size = Vector2(12, 4)
 [sub_resource type="BoxShape3D" id="BoxShape3D_w6gh2"]
 size = Vector3(12, 4, 1)
 
-[sub_resource type="QuadMesh" id="QuadMesh_o3q1p"]
+[sub_resource type="QuadMesh" id="QuadMesh_mmkt7"]
 resource_local_to_scene = true
 size = Vector2(3, 2)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_mmkt7"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_vljj3"]
 viewport_path = NodePath("Screen/Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vljj3"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mbxkw"]
 transparency = 1
 cull_mode = 2
 shading_mode = 0
-albedo_texture = SubResource("ViewportTexture_mmkt7")
+albedo_texture = SubResource("ViewportTexture_vljj3")
 texture_filter = 1
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_mbxkw"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_gawvq"]
 resource_local_to_scene = true
 size = Vector3(3, 2, 0.02)
 
@@ -133,19 +133,18 @@ shape = SubResource("BoxShape3D_3ap0s")
 
 [node name="Screen" parent="." index="2" unique_id=785019571 instance=ExtResource("4_7pgy0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -3)
+scene = ExtResource("5_grt1o")
 update_mode = 2
 throttle_fps = 15.0
 transparent = 1
 unshaded = true
-scene_properties_keys = PackedStringArray()
+scene_properties_keys = PackedStringArray("start_ui.gd")
 
-[node name="StartUI" parent="Screen/Viewport" index="0" unique_id=3917473 instance=ExtResource("5_grt1o")]
+[node name="Screen" parent="Screen" index="1" unique_id=1634186392]
+mesh = SubResource("QuadMesh_mmkt7")
+surface_material_override/0 = SubResource("StandardMaterial3D_mbxkw")
 
-[node name="Screen" parent="Screen" index="1"]
-mesh = SubResource("QuadMesh_o3q1p")
-surface_material_override/0 = SubResource("StandardMaterial3D_vljj3")
-
-[node name="CollisionShape3D" parent="Screen/StaticBody3D" index="0"]
-shape = SubResource("BoxShape3D_mbxkw")
+[node name="CollisionShape3D" parent="Screen/StaticBody3D" parent_id_path=PackedInt32Array(785019571, 1828148951) index="0" unique_id=216327737]
+shape = SubResource("BoxShape3D_gawvq")
 
 [editable path="Screen"]

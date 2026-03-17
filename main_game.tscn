@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://drkbskm5a70nk"]
+
+[ext_resource type="Script" uid="uid://bhiqj6m5dq6p1" path="res://main_game.gd" id="1_ykeeq"]
+[ext_resource type="PackedScene" uid="uid://cvn48xcmsmkrb" path="res://game/zones/zone_base.tscn" id="2_6bm6p"]
+[ext_resource type="Material" uid="uid://ccdofvku4c7w3" path="res://assets/prototype_materials/stone_grey.tres" id="2_dugkq"]
+[ext_resource type="PackedScene" uid="uid://c4rpcr7s5pt3v" path="res://game/items/rock/rock.tscn" id="3_dugkq"]
+[ext_resource type="PackedScene" uid="uid://ih3vbe87mk4l" path="res://door.tscn" id="5_2pltu"]
+[ext_resource type="PackedScene" uid="uid://c321ptldlqtnj" path="res://pressure_plate.tscn" id="6_2pltu"]
+
+[sub_resource type="Environment" id="Environment_ig7tw"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_7dm0k"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0xm2m"]
+size = Vector3(44.393646, 1, 47.572998)
+
+[node name="level_one" type="Node3D" unique_id=234103059 node_paths=PackedStringArray("zone_base")]
+script = ExtResource("1_ykeeq")
+zone_base = NodePath("ZoneBase")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1638608878]
+environment = SubResource("Environment_ig7tw")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1233885843]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 414.93835, 0)
+
+[node name="staticbody3d" type="StaticBody3D" parent="." unique_id=1605837469]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.078706026, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="staticbody3d" unique_id=1547046964]
+transform = Transform3D(44, 0, 0, 0, 0.165, 0, 0, 0, 48.255, -0.028918505, 0.044080734, -0.0070226192)
+layers = 1023
+material_override = ExtResource("2_dugkq")
+mesh = SubResource("BoxMesh_7dm0k")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="staticbody3d" unique_id=2101192161]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07322693, -0.4425708, -0.07434082)
+shape = SubResource("BoxShape3D_0xm2m")
+
+[node name="ZoneBase" parent="." unique_id=1616403681 instance=ExtResource("2_6bm6p")]
+
+[node name="Rock" parent="." unique_id=1097290245 instance=ExtResource("3_dugkq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4044933, -4.4107456)
+
+[node name="PressurePlate" parent="." unique_id=1494942572 instance=ExtResource("6_2pltu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.178393)
+
+[node name="door" parent="." unique_id=1633390491 instance=ExtResource("5_2pltu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, -11.137557)

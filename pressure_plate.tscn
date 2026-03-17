@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://c321ptldlqtnj"]
+
+[ext_resource type="Script" uid="uid://cu8tlp5udl3hq" path="res://game/zones/outside/pressure_plate.gd" id="1_uot4y"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_jodmb"]
+size = Vector3(1, 0.1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ixvyx"]
+size = Vector3(1, 0.1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_twjr1"]
+size = Vector3(0.9, 0.2727539, 0.9)
+
+[node name="PressurePlate" type="Node3D" unique_id=1494942572 node_paths=PackedStringArray("top", "plate")]
+script = ExtResource("1_uot4y")
+top = NodePath("Area3D")
+plate = NodePath("StaticBody3D")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1616913905]
+collision_layer = 0
+collision_mask = 0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=401438601]
+mesh = SubResource("BoxMesh_jodmb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=61423713]
+shape = SubResource("BoxShape3D_ixvyx")
+disabled = true
+
+[node name="Area3D" type="Area3D" parent="." unique_id=2076339699]
+collision_layer = 3
+collision_mask = 524416
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=796320175]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.12130432, 0)
+shape = SubResource("BoxShape3D_twjr1")
+debug_color = Color(0, 0.6, 0.69803923, 0.99607843)
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="area_exited" from="Area3D" to="." method="_on_area_3d_area_exited"]

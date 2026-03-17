@@ -1,9 +1,10 @@
 extends PanelContainer
+@export var replay: Node3D
 
+signal rewind_pressed
 
 func _on_rewind_button_button_down() -> void:
-	print("REWIND hehe")
-	pass # Replace with function body.
+	rewind_pressed.emit()
 
 
 func _on_delete_button_button_down() -> void:
