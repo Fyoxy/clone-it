@@ -2,13 +2,12 @@ extends Node3D
 
 @export var timer: Timer
 
-var tracked_bodies: Dictionary = {}
-var persistent_objects: Array[Node] = []
-var clone_num: int = 0
-var tickCounter: int = 0
-var maxTicks: = 999999999999999999
+var tracked_bodies: Dictionary = {}			# Write object and clone data into
+var persistent_objects: Array[Node] = [] 	# Holds all objects that will be tracked
 
-var record: bool = false
+var clone_num: int = 0						# Currently active clone that is being recroded to
+var tickCounter: int = 0					# Tick counter for syncing objects to
+var maxTicks: = 999999999999999999			# Max ticks so tweening would not go over limit
 
 func add_data(node_name: String, pos: Vector3):
 	for entry in tracked_bodies[clone_num]:
@@ -20,12 +19,15 @@ func add_data(node_name: String, pos: Vector3):
 func _ready():
 	persistent_objects = get_tree().get_nodes_in_group("tracked")
 	
-	tracked_bodies[clone_num] = []
+	tracked_bodies[clone_num] = [] # Init emtpy array to record into
+	
+	# TODO: Add rotation tracking
+	# Fills in base object data into dictionary
 	for body in persistent_objects:
 		tracked_bodies[clone_num].append({
 			"name": body.name,
 			"node": body,
-			"data": []  # will hold [Vector3] pairs
+			"data": []  # will hold [position: Vector3]
 		})
 
 
@@ -43,63 +45,60 @@ func print_tracked_bodies():
 			for pair in entry["data"]:
 				print("    Pos: %s" % pair[0])
 			print("")
-
+			
+# Advances clone number and creates new clone with base data
+# Resets all bodies grabbed to false so they would not be ignored every tick
 func play():
+	
 	for body in tracked_bodies[clone_num]:
 		body["node"]._object_grabbed = false
 		
 	clone_num += 1
 	
+	# Init new clone
 	tracked_bodies[clone_num] = []
 	for body in persistent_objects:
 		tracked_bodies[clone_num].append({
 			"name": body.name,
 			"node": body,
-			"data": []  # will hold [Vector3] pairs
+			"data": []
 		})
-	print(clone_num)
 
-	print_tracked_bodies()
-	
-	#rock_4.freeze_mode = RigidBody3D.FREEZE_MODE_KINEMATIC
-	#rock_4.freeze = true
-	#counter = 0
 
-	#for index in deltaTimes.size():
-		#var correctTim = deltaTimes[index] / 1000.0
-		#var nextPos = positions[counter]
-		#tween.chain().tween_property(rock_4, "position", positions[counter], correctTim)
-		#counter += 1
-
-	#rock_4.freeze = false
 	
 func _input(event):
 	if event is InputEventKey and event.pressed and event.keycode == KEY_4:
 		pass
 		
+	# Advances clone and resets the movement tracking ticks
 	if event is InputEventKey and event.pressed and event.keycode == KEY_5:
 		play()
 		maxTicks = tickCounter
 		tickCounter = 0
 		
+	# idk wtf this is
 	if event is InputEventKey and event.pressed and event.keycode == KEY_6:
 		timer.start()
 		tickCounter = 0
 
 
 func _on_tick_timer_timeout():
+	# TODO: Maybe just stop timer, but this check also for extra safety
 	if tickCounter >= maxTicks:
 		return
 
 	for body in tracked_bodies[tracked_bodies.size()-1]:
 			add_data(body["name"], body["node"].global_position)
-			#body["node"].freeze = true
 			
+	# TODO: Should also freeze bodies when force moving rigidbody objects
+	# body["node"].freeze = true
+	# and unfreeze if no longer playing or object grabbed?
+	
 	if tracked_bodies.size() > 1:
 		for body in tracked_bodies[tracked_bodies.size()-2]:
 			if body["node"] is PersistentItem and !body["node"]._object_grabbed:
 				var tween = get_tree().create_tween()
 				tween.tween_property(body["node"], "global_position", body["data"][tickCounter], 0.05)
 
-	
+	# TODO: If tick counter 0 then set position rather than tweening it
 	tickCounter += 1
