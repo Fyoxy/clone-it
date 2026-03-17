@@ -1,9 +1,12 @@
 extends Node3D
 
 @export var timer: Timer
+@export var tick_timer: Timer
+@export var clone: PackedScene
 
 var tracked_bodies: Dictionary = {}			# Write object and clone data into
 var persistent_objects: Array[Node] = [] 	# Holds all objects that will be tracked
+var clones: Array[Node] = []
 
 var clone_num: int = 0						# Currently active clone that is being recroded to
 var tickCounter: int = 0					# Tick counter for syncing objects to
@@ -49,9 +52,13 @@ func print_tracked_bodies():
 # Advances clone number and creates new clone with base data
 # Resets all bodies grabbed to false so they would not be ignored every tick
 func play():
+	var newClone = clone.instantiate()
+	clones.append(newClone)
+	add_child(newClone)
 	
 	for body in tracked_bodies[clone_num]:
-		body["node"]._object_grabbed = false
+		if body["node"] is PersistentItem:
+			body["node"]._object_grabbed = false
 		
 	clone_num += 1
 	
@@ -63,18 +70,19 @@ func play():
 			"node": body,
 			"data": []
 		})
+		
+	maxTicks = tickCounter
+	tickCounter = 0
 
 
 	
 func _input(event):
 	if event is InputEventKey and event.pressed and event.keycode == KEY_4:
-		pass
+		print_tracked_bodies()
 		
 	# Advances clone and resets the movement tracking ticks
 	if event is InputEventKey and event.pressed and event.keycode == KEY_5:
 		play()
-		maxTicks = tickCounter
-		tickCounter = 0
 		
 	# idk wtf this is
 	if event is InputEventKey and event.pressed and event.keycode == KEY_6:
@@ -95,10 +103,20 @@ func _on_tick_timer_timeout():
 	# and unfreeze if no longer playing or object grabbed?
 	
 	if tracked_bodies.size() > 1:
+		# First loop through PersistentItems and follow set path
 		for body in tracked_bodies[tracked_bodies.size()-2]:
 			if body["node"] is PersistentItem and !body["node"]._object_grabbed:
 				var tween = get_tree().create_tween()
 				tween.tween_property(body["node"], "global_position", body["data"][tickCounter], 0.05)
+		
+		# Secondly loop through the clone bodies
+		for key in tracked_bodies:
+			for body in tracked_bodies[key]:
+				# If tracking clone movement now and with key ignore the current player movement
+				# since tracked_bodies also contains currently tracked movement
+				if body["node"] is XRToolsPlayerBody and key != clones.size():
+					var tween = get_tree().create_tween()
+					tween.tween_property(clones[key], "global_position", body["data"][tickCounter], 0.05)
 
 	# TODO: If tick counter 0 then set position rather than tweening it
 	tickCounter += 1
