@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ccgk42ncykgfo"]
 
-[ext_resource type="Script" path="res://game/zones/outside/anti_rock_wall.gd" id="1_oo0g1"]
+[ext_resource type="Script" uid="uid://da3677rlbasqv" path="res://game/objects/anti_rock_wall.gd" id="1_oo0g1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_03wo2"]
 transparency = 1

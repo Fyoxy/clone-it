@@ -1,18 +1,18 @@
 [gd_scene format=3 uid="uid://bsb7i42nbkdp2"]
 
 [ext_resource type="PackedScene" uid="uid://cvn48xcmsmkrb" path="res://game/zones/zone_base.tscn" id="1_4sjqh"]
+[ext_resource type="Script" uid="uid://dpgch83oh88gv" path="res://game/replay.gd" id="2_4agua"]
 [ext_resource type="Environment" uid="uid://er867l7dl10j" path="res://default_env.tres" id="2_42k30"]
 [ext_resource type="Material" uid="uid://c386ygo86nqfc" path="res://assets/prototype_materials/wood_brown.tres" id="2_rhoo2"]
 [ext_resource type="Material" uid="uid://cjylinr1vdjcw" path="res://assets/prototype_materials/dark_brown.tres" id="3_f5fy3"]
-[ext_resource type="Resource" uid="uid://d1lgdwh7pv220" path="res://game/zones/house_interior/house_interior_zone_info.tres" id="3_x42ux"]
 [ext_resource type="Material" uid="uid://csepeix2yvih" path="res://assets/prototype_materials/grass.tres" id="4_8oeg0"]
 [ext_resource type="Material" uid="uid://c7prktlpm7tmm" path="res://assets/prototype_materials/forest.tres" id="5_60arm"]
 [ext_resource type="Script" uid="uid://d0bvs2b3oa3q7" path="res://components/helpers/scatter.gd" id="6_sr5e8"]
 [ext_resource type="PackedScene" uid="uid://vm423o6hdlya" path="res://components/helpers/zone_switch_area.tscn" id="7_jpwgk"]
-[ext_resource type="PackedScene" uid="uid://k42y4vphy1t8" path="res://game/zones/outside/rock_checker.tscn" id="8_jwofx"]
+[ext_resource type="PackedScene" uid="uid://k42y4vphy1t8" path="res://game/objects/rock_checker.tscn" id="8_jwofx"]
 [ext_resource type="PackedScene" uid="uid://ih3vbe87mk4l" path="res://door.tscn" id="11_2m2tq"]
 [ext_resource type="PackedScene" uid="uid://c4rpcr7s5pt3v" path="res://game/items/rock/rock.tscn" id="12_vu5sp"]
-[ext_resource type="PackedScene" uid="uid://ckwx6qn8g5axg" path="res://game/zones/outside/anti_rock_wall.tscn" id="13_4agua"]
+[ext_resource type="PackedScene" uid="uid://ccgk42ncykgfo" path="res://game/objects/anti_rock_wall.tscn" id="13_4agua"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4agua"]
 animation = &"Grip"
@@ -148,13 +148,14 @@ size = Vector3(1, 2.875, 0.1)
 size = Vector3(1, 3, 0.2)
 
 [node name="HouseInteriorZone" unique_id=766160075 instance=ExtResource("1_4sjqh")]
-zone_info = ExtResource("3_x42ux")
+script = ExtResource("2_4agua")
+clone = null
 
 [node name="AnimationTree" parent="XROrigin3D/LeftHand/CollisionHandLeft/LeftHand" parent_id_path=PackedInt32Array(1262692693) index="1"]
 tree_root = SubResource("AnimationNodeBlendTree_qjplw")
 
 [node name="WristUI" parent="XROrigin3D/LeftHand/CollisionHandLeft" parent_id_path=PackedInt32Array(77907517) index="6" unique_id=1543098121]
-scene_properties_keys = PackedStringArray("zone_wrist_ui.gd", "replay")
+unshaded = false
 
 [node name="AnimationTree" parent="XROrigin3D/RightHand/CollisionHandRight/RightHand" parent_id_path=PackedInt32Array(1823018386) index="1"]
 tree_root = SubResource("AnimationNodeBlendTree_784yq")

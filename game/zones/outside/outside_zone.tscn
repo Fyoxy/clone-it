@@ -126,10 +126,9 @@ zone_info = ExtResource("3_wyepd")
 [node name="AnimationTree" parent="XROrigin3D/LeftHand/CollisionHandLeft/LeftHand" parent_id_path=PackedInt32Array(1262692693) index="1"]
 tree_root = SubResource("AnimationNodeBlendTree_airyt")
 
-[node name="WristUI" parent="XROrigin3D/LeftHand/CollisionHandLeft" parent_id_path=PackedInt32Array(77907517) index="6" unique_id=1543098121 node_paths=PackedStringArray("replay")]
+[node name="WristUI" parent="XROrigin3D/LeftHand/CollisionHandLeft" parent_id_path=PackedInt32Array(77907517) index="6" unique_id=1543098121]
 transform = Transform3D(-0.028981717, 0.04315899, -0.5224197, -0.38772458, -0.35388562, -0.007726386, -0.35278141, 0.3853924, 0.051409554, -0.061103046, 0.10772964, 0.08755696)
-scene_properties_keys = PackedStringArray("zone_wrist_ui.gd", "replay")
-replay = NodePath("../../../../Replay")
+unshaded = false
 
 [node name="Poke" parent="XROrigin3D/RightHand/CollisionHandRight/RightHand/Hand_Nails_low_R/Armature/Skeleton3D/BoneAttachment3D" parent_id_path=PackedInt32Array(696095898) index="0" unique_id=2110704474]
 enabled = true
