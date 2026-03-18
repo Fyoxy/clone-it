@@ -81,21 +81,70 @@ func play():
 			"data": []
 		})
 		
-	# Reset player position and tick limit and counter
-	# Bumps player pos 1 up so spawn not in ground hopefully
-	player_node.global_position = player_initial_position + Vector3(0, 1, 0)
+
+	reset_player_pos()
 	maxTicks = tickCounter
 	tickCounter = 0
 
+# Advances clone number and creates new clone with base data
+# Resets all bodies grabbed to false so they would not be ignored every tick
+func delete_last_clone():
+	var last_clone = clones.pop_back()
+	
+	if last_clone:
+		last_clone.queue_free()
+	
+		# Not sure if needed for later to perhaps reset object grabbed status?
+		#for body in tracked_bodies[clone_num]:
+			#if body["node"] is PersistentItem:
+				#body["node"]._object_grabbed = false
+				
+		if tracked_bodies.erase(clone_num):
+			print("Removed!")
+		else:
+			print("Key not found")
+			
+		clone_num -= 1
+		
+		# Init new clone
+		tracked_bodies[clone_num] = []
+		for body in persistent_objects:
+			tracked_bodies[clone_num].append({
+				"name": body.name,
+				"node": body,
+				"data": []
+			})
+			
+		reset_player_pos()
+		# Reset ticks to max in order to record a fresh clone? I think at least
+		maxTicks = 999999999999999999
+		
+		# Check if there even exists a clone before current one
+		if clone_num > 0 and clone_num - 1 < tracked_bodies.size():
+			var last_clone_ticks = tracked_bodies[clone_num - 1][0]["data"].size()
+			# If it exists then take the tick length from the clone
+			if last_clone_ticks:
+				maxTicks = last_clone_ticks
+				
+		tickCounter = 0
 
+func reset_player_pos():
+	# Reset player position and tick limit and counter
+	# Bumps player pos 1 up so spawn not in ground hopefully
+	player_node.global_position = player_initial_position + Vector3(0, 1, 0)
+	
 	
 func _input(event):
+	if event is InputEventKey and event.pressed and event.keycode == KEY_3:
+		delete_last_clone()
+		
 	if event is InputEventKey and event.pressed and event.keycode == KEY_4:
 		print_tracked_bodies()
 		
 	# Advances clone and resets the movement tracking ticks
 	if event is InputEventKey and event.pressed and event.keycode == KEY_5:
 		play()
+		
 		
 	# idk wtf this is
 	if event is InputEventKey and event.pressed and event.keycode == KEY_6:

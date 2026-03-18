@@ -6,8 +6,9 @@ func _on_rewind_button_button_down() -> void:
 		replay.play()
 
 func _on_delete_button_button_down() -> void:
-	print("deleting da guy2")
-	pass # Replace with function body.
+	var replay = get_tree().root.find_child("Replay", true, false)
+	if replay:
+		replay.delete_last_clone()
 
 
 func _on_quit_button_down() -> void:
