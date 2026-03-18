@@ -7,6 +7,8 @@ extends Node3D
 var tracked_bodies: Dictionary = {}			# Write object and clone data into
 var persistent_objects: Array[Node] = [] 	# Holds all objects that will be tracked
 var clones: Array[Node] = []
+var player_node: Node3D
+var player_initial_position: Vector3 = Vector3.ZERO
 
 var clone_num: int = 0						# Currently active clone that is being recroded to
 var tickCounter: int = 0					# Tick counter for syncing objects to
@@ -20,6 +22,14 @@ func add_data(node_name: String, pos: Vector3):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
+	# Get player initial pos
+	var player_body_node = get_tree().get_first_node_in_group("player_body")
+	player_node = player_body_node.get_parent()
+	
+	if player_node:
+		player_initial_position = player_node.global_position
+		
 	persistent_objects = get_tree().get_nodes_in_group("tracked")
 	
 	tracked_bodies[clone_num] = [] # Init emtpy array to record into
@@ -71,6 +81,9 @@ func play():
 			"data": []
 		})
 		
+	# Reset player position and tick limit and counter
+	# Bumps player pos 1 up so spawn not in ground hopefully
+	player_node.global_position = player_initial_position + Vector3(0, 1, 0)
 	maxTicks = tickCounter
 	tickCounter = 0
 
