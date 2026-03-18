@@ -1,11 +1,9 @@
 extends PanelContainer
-@export var replay: Node3D
-
-signal rewind_pressed
 
 func _on_rewind_button_button_down() -> void:
-	rewind_pressed.emit()
-
+	var replay = get_tree().root.find_child("Replay", true, false)
+	if replay:
+		replay.play()
 
 func _on_delete_button_button_down() -> void:
 	print("deleting da guy2")
