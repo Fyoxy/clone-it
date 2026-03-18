@@ -67,7 +67,7 @@ func play():
 	add_child(newClone)
 	
 	for body in tracked_bodies[clone_num]:
-		if body["node"] is PersistentItem:
+		if body["node"] is XRToolsPickable:
 			body["node"]._object_grabbed = false
 		
 	clone_num += 1
@@ -83,7 +83,7 @@ func play():
 		
 
 	reset_player_pos()
-	maxTicks = tickCounter
+	maxTicks = 99999999999999
 	tickCounter = 0
 
 # Advances clone number and creates new clone with base data
@@ -120,11 +120,15 @@ func delete_last_clone():
 		maxTicks = 999999999999999999
 		
 		# Check if there even exists a clone before current one
+		
 		if clone_num > 0 and clone_num - 1 < tracked_bodies.size():
 			var last_clone_ticks = tracked_bodies[clone_num - 1][0]["data"].size()
 			# If it exists then take the tick length from the clone
 			if last_clone_ticks:
 				maxTicks = last_clone_ticks
+		else:
+			# TODO: RESET trackedbodies to default spot!!!
+			pass
 				
 		tickCounter = 0
 
@@ -132,6 +136,7 @@ func reset_player_pos():
 	# Reset player position and tick limit and counter
 	# Bumps player pos 1 up so spawn not in ground hopefully
 	player_node.global_position = player_initial_position + Vector3(0, 1, 0)
+	tick_timer.start()
 	
 	
 func _input(event):
@@ -155,6 +160,17 @@ func _input(event):
 func _on_tick_timer_timeout():
 	# TODO: Maybe just stop timer, but this check also for extra safety
 	if tickCounter >= maxTicks:
+		## Reset tracked bodies to not frozen, kind of broken
+		# I have lost all fkin hope and dont know how to unfuck the freeze
+		# But freezing and zeroing stops stuff from flying the fck around
+		# So this is now a game mechanic and I am not fixing it
+		if tracked_bodies.size() > 1:
+			for body in tracked_bodies[tracked_bodies.size()-2]:
+				if body["node"] is XRToolsPickable:
+					body["node"].freeze = false
+					body["node"].linear_velocity = Vector3.ZERO
+					body["node"].angular_velocity = Vector3.ZERO
+		tick_timer.stop()
 		return
 
 	for body in tracked_bodies[tracked_bodies.size()-1]:
@@ -165,11 +181,13 @@ func _on_tick_timer_timeout():
 	# and unfreeze if no longer playing or object grabbed?
 	
 	if tracked_bodies.size() > 1:
-		# First loop through PersistentItems and follow set path
+		# First loop through Pickable Items and follow set path
 		for body in tracked_bodies[tracked_bodies.size()-2]:
-			if body["node"] is PersistentItem and !body["node"]._object_grabbed:
-				var tween = get_tree().create_tween()
-				tween.tween_property(body["node"], "global_position", body["data"][tickCounter], 0.05)
+			if body["node"] is XRToolsPickable and !body["node"]._object_grabbed:
+				if tickCounter < body["data"].size():
+					var tween = get_tree().create_tween()
+					body["node"].freeze = true
+					tween.tween_property(body["node"], "global_position", body["data"][tickCounter], 0.05)
 		
 		# Secondly loop through the clone bodies
 		for key in tracked_bodies:
@@ -177,8 +195,9 @@ func _on_tick_timer_timeout():
 				# If tracking clone movement now and with key ignore the current player movement
 				# since tracked_bodies also contains currently tracked movement
 				if body["node"] is XRToolsPlayerBody and key != clones.size():
-					var tween = get_tree().create_tween()
-					tween.tween_property(clones[key], "global_position", body["data"][tickCounter], 0.05)
+					if tickCounter < body["data"].size():
+						var tween = get_tree().create_tween()
+						tween.tween_property(clones[key], "global_position", body["data"][tickCounter], 0.05)
 
 	# TODO: If tick counter 0 then set position rather than tweening it
 	tickCounter += 1
