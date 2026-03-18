@@ -2,10 +2,12 @@
 
 [ext_resource type="Script" uid="uid://dllbo6vkh7wox" path="res://game/zones/zone_wrist_ui.gd" id="1_3c68p"]
 
-[node name="ZoneWristMenu" type="PanelContainer" unique_id=93822667]
+[node name="ZoneWristMenu" type="PanelContainer" unique_id=93822667 node_paths=PackedStringArray("rewind_button", "delete_button")]
 offset_right = 400.0
 offset_bottom = 200.0
 script = ExtResource("1_3c68p")
+rewind_button = NodePath("MarginContainer/HBoxContainer/rewind_button")
+delete_button = NodePath("MarginContainer/HBoxContainer/delete_button")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1544171346]
 layout_mode = 2
@@ -14,25 +16,25 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=883014011]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=333301364]
 layout_mode = 2
-theme_override_constants/separation = 21
-alignment = 1
 
-[node name="rewind_button" type="Button" parent="MarginContainer/VBoxContainer" unique_id=593930084]
-layout_mode = 2
-theme_override_font_sizes/font_size = 41
-text = "REWIND"
-
-[node name="delete_button" type="Button" parent="MarginContainer/VBoxContainer" unique_id=280721482]
-layout_mode = 2
-theme_override_font_sizes/font_size = 19
-text = "DELETE LAST CLONE"
-
-[node name="quit" type="Button" parent="MarginContainer/VBoxContainer" unique_id=893054303]
+[node name="quit" type="Button" parent="MarginContainer/HBoxContainer" unique_id=893054303]
 layout_mode = 2
 text = "QUIT"
 
-[connection signal="button_down" from="MarginContainer/VBoxContainer/rewind_button" to="." method="_on_rewind_button_button_down"]
-[connection signal="button_down" from="MarginContainer/VBoxContainer/delete_button" to="." method="_on_delete_button_button_down"]
-[connection signal="button_down" from="MarginContainer/VBoxContainer/quit" to="." method="_on_quit_button_down"]
+[node name="delete_button" type="Button" parent="MarginContainer/HBoxContainer" unique_id=280721482]
+layout_mode = 2
+theme_override_font_sizes/font_size = 19
+text = "DELETE 
+LAST CLONE"
+
+[node name="rewind_button" type="Button" parent="MarginContainer/HBoxContainer" unique_id=593930084]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 41
+text = "REWIND"
+
+[connection signal="button_down" from="MarginContainer/HBoxContainer/quit" to="." method="_on_quit_button_down"]
+[connection signal="button_down" from="MarginContainer/HBoxContainer/delete_button" to="." method="_on_delete_button_button_down"]
+[connection signal="button_down" from="MarginContainer/HBoxContainer/rewind_button" to="." method="_on_rewind_button_button_down"]
