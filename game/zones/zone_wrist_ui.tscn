@@ -2,12 +2,10 @@
 
 [ext_resource type="Script" uid="uid://dllbo6vkh7wox" path="res://game/zones/zone_wrist_ui.gd" id="1_3c68p"]
 
-[node name="ZoneWristMenu" type="PanelContainer" unique_id=93822667 node_paths=PackedStringArray("rewind_button", "delete_button")]
+[node name="ZoneWristMenu" type="PanelContainer" unique_id=93822667]
 offset_right = 400.0
 offset_bottom = 200.0
 script = ExtResource("1_3c68p")
-rewind_button = NodePath("MarginContainer/HBoxContainer/rewind_button")
-delete_button = NodePath("MarginContainer/HBoxContainer/delete_button")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1544171346]
 layout_mode = 2
