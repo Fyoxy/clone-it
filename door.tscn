@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ih3vbe87mk4l"]
 
 [ext_resource type="Script" uid="uid://cgnrt30oqb87u" path="res://door.gd" id="1_ba8gm"]
-[ext_resource type="Texture2D" uid="uid://1h07cftwcy24" path="res://new_assets/textures/concrete_1.jpg" id="2_v6xrn"]
+[ext_resource type="Texture2D" uid="uid://cokp6j8qwymd6" path="res://assets/main_texture.png" id="2_v6xrn"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hun61"]
 size = Vector3(1, 2.3083496, 1)
