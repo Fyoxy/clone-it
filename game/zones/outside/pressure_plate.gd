@@ -7,7 +7,7 @@ extends StaticBody3D
 
 var pressed := false
 var tween: Tween
-
+var press_count: int = 0
 func _ready():
 	pass
 
@@ -32,24 +32,28 @@ func _animate(target_y_offset: float):
 
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
-	if  !pressed:
+	press_count += 1
+	if  press_count == 1:
 		pressed = true
 		_animate(0.03)
 
 
 func _on_area_3d_area_exited(area: Area3D) -> void:
-	if pressed:
+	press_count -= 1
+	if press_count <= 0:
 		pressed = false
 		_animate(0.0)
 
 
 func _on_area_3d_body_shape_entered(body_rid: RID, body: Node3D, body_shape_index: int, local_shape_index: int) -> void:
-	if  !pressed:
+	press_count += 1
+	if  press_count == 1:
 		pressed = true
 		_animate(0.03)
 
 
 func _on_area_3d_body_shape_exited(body_rid: RID, body: Node3D, body_shape_index: int, local_shape_index: int) -> void:
-	if pressed:
+	press_count -= 1
+	if press_count <= 0:
 		pressed = false
 		_animate(0.0)

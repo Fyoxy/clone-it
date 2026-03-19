@@ -230,8 +230,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, -7.185285)
 environment = ExtResource("2_42k30")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="World" index="1" unique_id=784328701]
-transform = Transform3D(-0.7071068, -0.49999994, 0.5000001, 0, 0.70710695, 0.7071067, -0.7071068, 0.49999994, -0.5000001, 0, 5.9760957, 0)
-light_energy = 1.792
+transform = Transform3D(-0.7071068, -0.49999994, 0.5000001, 0, 0.70710695, 0.7071067, -0.7071068, 0.49999994, -0.5000001, 0, 2.7566028, 0)
+light_energy = 2.742
 
 [node name="Ground" type="StaticBody3D" parent="World" index="2" unique_id=1689538805]
 
@@ -290,12 +290,15 @@ shape = SubResource("BoxShape3D_65y34")
 
 [node name="Rock" parent="World" index="7" unique_id=1474957477 instance=ExtResource("8_4agua")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2780657, 1.0227361, 4.831503)
+release_mode = 1
 
 [node name="Rock2" parent="World" index="8" unique_id=1210195402 instance=ExtResource("8_4agua")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2780657, 1.0227361, 3.9143462)
+release_mode = 1
 
 [node name="Rock3" parent="World" index="9" unique_id=495458965 instance=ExtResource("8_4agua")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2780657, 1.0227361, 3.1578465)
+release_mode = 1
 
 [node name="House" type="Node3D" parent="." index="2" unique_id=1519174226]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7.185285)
@@ -471,9 +474,6 @@ mesh = SubResource("BoxMesh_tmdhs")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="House/BackYardWall/Door" index="1" unique_id=219318087]
 shape = SubResource("BoxShape3D_hamto")
-
-[node name="RoundTable" type="StaticBody3D" parent="House" index="6" unique_id=1713771490]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 6)
 
 [node name="ToOutside" parent="." index="3" unique_id=1266377791 instance=ExtResource("7_jpwgk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.4147153)

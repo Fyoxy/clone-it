@@ -82,7 +82,7 @@ material = ExtResource("2_2nr20")
 size = Vector2(20, 20)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uk6lx"]
-size = Vector3(20, 1, 20)
+size = Vector3(4.9731445, 1, 7.246338)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0unhl"]
 albedo_texture = ExtResource("6_4lii0")
@@ -119,6 +119,9 @@ size = Vector3(1, 3, 0.2)
 [node name="HouseBackYard" unique_id=421931104 instance=ExtResource("1_30op8")]
 zone_info = ExtResource("3_m4v83")
 
+[node name="XROrigin3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8.191486)
+
 [node name="AnimationTree" parent="XROrigin3D/LeftHand/CollisionHandLeft/LeftHand" parent_id_path=PackedInt32Array(1262692693) index="1"]
 tree_root = SubResource("AnimationNodeBlendTree_0rgil")
 
@@ -142,7 +145,6 @@ omni_attenuation = 0.687
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="World" index="2" unique_id=904626862]
 transform = Transform3D(-0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, 0.5, -0.5, 0, 8, 0)
-visible = false
 light_energy = 3.376
 
 [node name="Ground" type="StaticBody3D" parent="World" index="3" unique_id=1836857747]
@@ -153,7 +155,7 @@ material_override = SubResource("StandardMaterial3D_yedqn")
 mesh = SubResource("QuadMesh_tg51c")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Ground" index="1" unique_id=429896191]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0031738281, -0.5, 7.1243896)
 shape = SubResource("BoxShape3D_uk6lx")
 
 [node name="Boundary1" type="StaticBody3D" parent="World" index="4" unique_id=2031796086]
