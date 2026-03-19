@@ -69,6 +69,8 @@ func play():
 	for body in tracked_bodies[clone_num]:
 		if body["node"] is XRToolsPickable:
 			body["node"]._object_grabbed = false
+			# Fixed deletion area, not the best method but works as temp for jam
+			body["node"].get_node("DeletionArea").reset()
 		
 	clone_num += 1
 	
@@ -129,6 +131,12 @@ func delete_last_clone():
 		else:
 			# TODO: RESET trackedbodies to default spot!!!
 			pass
+			
+		for object in persistent_objects:
+			# Fixed deletion area, not the best method but works as temp for jam
+			var deletion_area = object.get_node("DeletionArea")
+			if deletion_area: 
+				deletion_area.reset()
 				
 		tickCounter = 0
 
