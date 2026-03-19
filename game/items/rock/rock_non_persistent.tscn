@@ -32,7 +32,10 @@ closed_pose = ExtResource("8_7arsy")
 
 [node name="Rock" unique_id=1474957477 groups=["tracked"] instance=ExtResource("1_2bf8v")]
 collision_layer = 65540
+collision_mask = 65639
 script = ExtResource("2_2bf8v")
+ranged_grab_method = 2
+ranged_grab_speed = 10.0
 
 [node name="CollisionShape3D" parent="." index="0"]
 shape = SubResource("ConvexPolygonShape3D_ys4vs")
@@ -49,3 +52,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16, 0.045, -0.045)
 hand_pose = SubResource("Resource_vx8u2")
 
 [node name="HighlightRing" parent="." index="4" unique_id=673050213 instance=ExtResource("9_phgbo")]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

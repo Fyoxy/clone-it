@@ -6,9 +6,11 @@
 sky_material = SubResource("ProceduralSkyMaterial_qmfyt")
 
 [resource]
-background_mode = 2
+background_mode = 1
+background_energy_multiplier = 0.18
 sky = SubResource("1")
 sky_rotation = Vector3(0, 2.35619, 0)
+tonemap_exposure = 0.18
 fog_enabled = true
 fog_mode = 1
 fog_sun_scatter = 0.01

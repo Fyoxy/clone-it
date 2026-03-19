@@ -1,31 +1,28 @@
-extends Node3D
+extends StaticBody3D
 
 @export var top: Area3D
 @export var plate: StaticBody3D
 @export var door: StaticBody3D
+@export var platform: StaticBody3D
 
 var pressed := false
 var tween: Tween
 
 func _ready():
-	top.body_entered.connect(_on_body_entered)
-	top.body_exited.connect(_on_body_exited)
+	pass
 
-func _on_body_entered(body):
-	if  !pressed:
-		pressed = true
-		_animate(0.03)
-
-func _on_body_exited(body):
-	if pressed:
-		pressed = false
-		_animate(0.0)
 
 func _process(delta: float) -> void:
 	if pressed:
-		door.open()
+		if door:
+			door.open()
+		if platform:
+			platform.move()
 	else:
-		door.close()
+		if door:
+			door.close()
+		if platform:
+			platform.move_back()
 func _animate(target_y_offset: float):
 	if tween:
 		tween.kill()
@@ -41,6 +38,18 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 
 
 func _on_area_3d_area_exited(area: Area3D) -> void:
+	if pressed:
+		pressed = false
+		_animate(0.0)
+
+
+func _on_area_3d_body_shape_entered(body_rid: RID, body: Node3D, body_shape_index: int, local_shape_index: int) -> void:
+	if  !pressed:
+		pressed = true
+		_animate(0.03)
+
+
+func _on_area_3d_body_shape_exited(body_rid: RID, body: Node3D, body_shape_index: int, local_shape_index: int) -> void:
 	if pressed:
 		pressed = false
 		_animate(0.0)

@@ -1,9 +1,13 @@
 [gd_scene format=3 uid="uid://ih3vbe87mk4l"]
 
 [ext_resource type="Script" uid="uid://cgnrt30oqb87u" path="res://door.gd" id="1_ba8gm"]
+[ext_resource type="Texture2D" uid="uid://1h07cftwcy24" path="res://new_assets/textures/concrete_1.jpg" id="2_v6xrn"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hun61"]
 size = Vector3(1, 2.3083496, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0phs7"]
+albedo_texture = ExtResource("2_v6xrn")
 
 [sub_resource type="BoxMesh" id="BoxMesh_ba8gm"]
 size = Vector3(0.415, 2.215, 1)
@@ -17,4 +21,5 @@ shape = SubResource("BoxShape3D_hun61")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2100423417]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1089289, 0)
+material_override = SubResource("StandardMaterial3D_0phs7")
 mesh = SubResource("BoxMesh_ba8gm")

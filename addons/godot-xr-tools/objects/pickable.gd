@@ -2,7 +2,7 @@
 class_name XRToolsPickable
 extends RigidBody3D
 
-
+var starting_pos
 ## XR Tools Pickable Object
 ##
 ## This script allows a [RigidBody3D] to be picked up by an
@@ -122,9 +122,14 @@ var _highlighted : bool = false
 func is_xr_class(xr_name:  String) -> bool:
 	return xr_name == "XRToolsPickable"
 
+func reset():
+	angular_velocity = Vector3.ZERO
+	linear_velocity = Vector3.ZERO
+	global_position = starting_pos
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	starting_pos = global_position
 	# Get all grab points
 	for child in get_children():
 		var grab_point := child as XRToolsGrabPoint
@@ -152,7 +157,6 @@ func can_pick_up(by: Node3D) -> bool:
 	# Refuse if not enabled
 	if not enabled:
 		return false
-
 	# Allow if not held by anything
 	if not is_picked_up():
 		return true
@@ -442,3 +446,7 @@ func _get_grab_point(grabber : Node3D, current : XRToolsGrabPoint) -> XRToolsGra
 func _set_ranged_grab_method(new_value: int) -> void:
 	ranged_grab_method = new_value
 	can_ranged_grab = new_value != RangedMethod.NONE
+
+
+func _on_area_3d_area_entered(area: Area3D) -> void:
+	reset()

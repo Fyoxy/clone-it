@@ -91,6 +91,7 @@ pose = &"grip"
 show_when_tracked = true
 
 [node name="CollisionHandLeft" type="AnimatableBody3D" parent="XROrigin3D/LeftHand" index="0" unique_id=77907517 node_paths=PackedStringArray("hand_skeleton")]
+collision_layer = 0
 sync_to_physics = false
 script = ExtResource("3_d4qbf")
 hand_skeleton = NodePath("LeftHand/Hand_Nails_low_L/Armature/Skeleton3D")
@@ -101,7 +102,7 @@ metadata/_custom_type_script = "uid://c8vnltn217quj"
 [node name="Hand_Nails_low_L" parent="XROrigin3D/LeftHand/CollisionHandLeft/LeftHand" index="0"]
 transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, -0.01, 0.03535534, 0.03535534)
 
-[node name="Skeleton3D" parent="XROrigin3D/LeftHand/CollisionHandLeft/LeftHand/Hand_Nails_low_L/Armature" index="0" unique_id=852297490]
+[node name="Skeleton3D" parent="XROrigin3D/LeftHand/CollisionHandLeft/LeftHand/Hand_Nails_low_L/Armature" index="0" unique_id=229332591]
 bones/1/rotation = Quaternion(0.323537, -2.5658142e-05, -0.027220426, 0.9458239)
 bones/2/rotation = Quaternion(-0.09044407, -0.04151748, -0.16629349, 0.98104167)
 bones/3/rotation = Quaternion(-0.04661986, 0.02097099, 0.010327632, 0.9986392)
@@ -130,6 +131,7 @@ bone_idx = 9
 [node name="Poke" parent="XROrigin3D/LeftHand/CollisionHandLeft/LeftHand/Hand_Nails_low_L/Armature/Skeleton3D/BoneAttachment3D" index="0" unique_id=1808082787 instance=ExtResource("6_3jgly")]
 transform = Transform3D(0.54083, -0.0826267, 0.837064, 0.840813, 0.0805243, -0.535303, -0.0231736, 0.993322, 0.113024, 0, 0, 0)
 enabled = false
+mask = 4194304
 
 [node name="AnimationTree" parent="XROrigin3D/LeftHand/CollisionHandLeft/LeftHand" index="1"]
 root_node = NodePath("../Hand_Nails_low_L")
@@ -137,12 +139,15 @@ tree_root = SubResource("AnimationNodeBlendTree_bp8r4")
 
 [node name="FunctionPointer" parent="XROrigin3D/LeftHand/CollisionHandLeft" index="1" unique_id=2055156181 instance=ExtResource("7_573pv")]
 transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0.02, -0.03535534, -0.10606602)
+distance = 5.0
 show_laser = 2
 laser_length = 1
+target_radius = 0.09
 
 [node name="FunctionPickup" parent="XROrigin3D/LeftHand/CollisionHandLeft" index="2" unique_id=472699193 instance=ExtResource("8_7p3lb")]
 transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 0, 0)
 grab_distance = 0.15
+grab_collision_mask = 262148
 ranged_angle = 15.0
 
 [node name="MovementDirect" parent="XROrigin3D/LeftHand/CollisionHandLeft" index="3" unique_id=448946267 instance=ExtResource("9_cv4ub")]
@@ -155,7 +160,7 @@ jump_button_action = "ax_button"
 crouch_button_action = "by_button"
 
 [node name="WristUI" parent="XROrigin3D/LeftHand/CollisionHandLeft" index="6" unique_id=1543098121 instance=ExtResource("12_jg4e1")]
-transform = Transform3D(0.006840281, 0.043022774, -0.5031176, -0.3728882, -0.3388527, -0.03404573, -0.34049034, 0.37195903, 0.027177852, -0.057199955, 0.10604951, 0.08651054)
+transform = Transform3D(-0.014174839, 0.04396043, -0.5028834, -0.37278017, -0.34013414, -0.019225808, -0.3403823, 0.37067765, 0.041997775, -0.06086135, 0.10604954, 0.08651054)
 screen_size = Vector2(0.16, 0.08)
 collision_layer = 4194304
 scene = ExtResource("13_w2gnj")
@@ -175,6 +180,7 @@ pose = &"grip"
 show_when_tracked = true
 
 [node name="CollisionHandRight" type="AnimatableBody3D" parent="XROrigin3D/RightHand" index="0" unique_id=414524659 node_paths=PackedStringArray("hand_skeleton")]
+collision_layer = 0
 sync_to_physics = false
 script = ExtResource("3_d4qbf")
 hand_skeleton = NodePath("RightHand/Hand_Nails_low_R/Armature/Skeleton3D")
@@ -185,7 +191,7 @@ metadata/_custom_type_script = "uid://c8vnltn217quj"
 [node name="Hand_Nails_low_R" parent="XROrigin3D/RightHand/CollisionHandRight/RightHand" index="0"]
 transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0.01, 0.03535534, 0.03535534)
 
-[node name="Skeleton3D" parent="XROrigin3D/RightHand/CollisionHandRight/RightHand/Hand_Nails_low_R/Armature" index="0" unique_id=577110268]
+[node name="Skeleton3D" parent="XROrigin3D/RightHand/CollisionHandRight/RightHand/Hand_Nails_low_R/Armature" index="0" unique_id=636985840]
 bones/1/rotation = Quaternion(0.323537, 2.5658142e-05, 0.027220426, 0.9458239)
 bones/2/rotation = Quaternion(-0.09044407, 0.04151748, 0.16629349, 0.98104167)
 bones/3/rotation = Quaternion(-0.04661986, -0.020970985, -0.010327632, 0.9986392)
@@ -212,18 +218,23 @@ bone_name = "Index_Tip_R"
 bone_idx = 9
 
 [node name="Poke" parent="XROrigin3D/RightHand/CollisionHandRight/RightHand/Hand_Nails_low_R/Armature/Skeleton3D/BoneAttachment3D" index="0" unique_id=2110704474 instance=ExtResource("6_3jgly")]
+mask = 4194304
+push_bodies = false
 
 [node name="AnimationTree" parent="XROrigin3D/RightHand/CollisionHandRight/RightHand" index="1"]
 tree_root = SubResource("AnimationNodeBlendTree_i6y08")
 
 [node name="FunctionPointer" parent="XROrigin3D/RightHand/CollisionHandRight" index="1" unique_id=132222768 instance=ExtResource("7_573pv")]
 transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, -0.02, -0.03535534, -0.10606602)
+distance = 5.0
 show_laser = 2
 laser_length = 1
+target_radius = 0.09
 
 [node name="FunctionPickup" parent="XROrigin3D/RightHand/CollisionHandRight" index="2" unique_id=705308326 instance=ExtResource("8_7p3lb")]
 transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 0, 0)
 grab_distance = 0.15
+grab_collision_mask = 262148
 ranged_angle = 15.0
 
 [node name="MovementDirect" parent="XROrigin3D/RightHand/CollisionHandRight" index="3" unique_id=1501538499 instance=ExtResource("9_cv4ub")]
@@ -237,6 +248,7 @@ jump_button_action = "ax_button"
 crouch_button_action = "by_button"
 
 [node name="PlayerBody" parent="XROrigin3D" index="3" unique_id=1003560517 groups=["clone_body", "tracked"] instance=ExtResource("15_x1dm3")]
+collision_mask = 1019
 
 [node name="MovementSprint" parent="XROrigin3D" index="4" unique_id=781212283 instance=ExtResource("18_l4ed5")]
 

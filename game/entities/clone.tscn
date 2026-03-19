@@ -11,7 +11,7 @@ radius = 0.34033203
 
 [node name="Clone" type="Area3D" unique_id=1340369401]
 collision_layer = 128
-collision_mask = 128
+collision_mask = 0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1535869286]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5435816, 0)
