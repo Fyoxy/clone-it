@@ -237,14 +237,13 @@ grab_distance = 0.15
 grab_collision_mask = 262148
 ranged_angle = 15.0
 
-[node name="MovementDirect" parent="XROrigin3D/RightHand/CollisionHandRight" index="3" unique_id=1501538499 instance=ExtResource("9_cv4ub")]
+[node name="MovementTurn" parent="XROrigin3D/RightHand/CollisionHandRight" index="3" unique_id=1789677111 instance=ExtResource("14_yb1jn")]
+turn_mode = 2
 
-[node name="MovementTurn" parent="XROrigin3D/RightHand/CollisionHandRight" index="4" unique_id=1789677111 instance=ExtResource("14_yb1jn")]
-
-[node name="MovementJump" parent="XROrigin3D/RightHand/CollisionHandRight" index="5" unique_id=667737219 instance=ExtResource("10_6ajyr")]
+[node name="MovementJump" parent="XROrigin3D/RightHand/CollisionHandRight" index="4" unique_id=667737219 instance=ExtResource("10_6ajyr")]
 jump_button_action = "ax_button"
 
-[node name="MovementCrouch" parent="XROrigin3D/RightHand/CollisionHandRight" index="6" unique_id=1671685744 instance=ExtResource("11_5npet")]
+[node name="MovementCrouch" parent="XROrigin3D/RightHand/CollisionHandRight" index="5" unique_id=1671685744 instance=ExtResource("11_5npet")]
 crouch_button_action = "by_button"
 
 [node name="PlayerBody" parent="XROrigin3D" index="3" unique_id=1003560517 groups=["clone_body", "tracked"] instance=ExtResource("15_x1dm3")]

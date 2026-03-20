@@ -5,7 +5,7 @@ size = Vector3(10.87, 3.608, 0.166)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_03wo2"]
 transparency = 4
-albedo_color = Color(0.6901961, 0, 0.09019608, 0.36078432)
+albedo_color = Color(0.6901961, 0, 0.09019608, 0.5764706)
 
 [sub_resource type="BoxMesh" id="BoxMesh_oo0g1"]
 lightmap_size_hint = Vector2i(60, 96)

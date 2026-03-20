@@ -1,10 +1,7 @@
 [gd_scene format=3 uid="uid://bfaf757s1ds0k"]
 
-[ext_resource type="Texture2D" uid="uid://1h07cftwcy24" path="res://new_assets/textures/concrete_1.jpg" id="1_mi635"]
 [ext_resource type="Script" uid="uid://bxvjuefh10kqu" path="res://platform.gd" id="1_s8bxr"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s8bxr"]
-albedo_texture = ExtResource("1_mi635")
+[ext_resource type="Material" uid="uid://dcnyr8ib7lbni" path="res://new_assets/textures/ground_texture.tres" id="2_s8bxr"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_c1gtx"]
 size = Vector3(2.45, 0.095, 1)
@@ -16,7 +13,7 @@ size = Vector3(2.445, 0.105, 0.99)
 script = ExtResource("1_s8bxr")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=987953691]
-material_override = SubResource("StandardMaterial3D_s8bxr")
+material_override = ExtResource("2_s8bxr")
 mesh = SubResource("BoxMesh_c1gtx")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1484878659]

@@ -22,4 +22,4 @@ func _on_area_entered(area):
 	var mat = mesh_instance_3d.get_active_material(0).duplicate()
 	mesh_instance_3d.set_surface_override_material(0, mat)
 	var tween = create_tween()
-	tween.tween_property(mat, "albedo_color:a", 0.0, 2.0)
+	tween.tween_property(mat, "albedo_color:a", 0.0, 0.5)
