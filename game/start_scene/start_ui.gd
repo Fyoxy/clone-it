@@ -1,5 +1,5 @@
 extends CenterContainer
-
+@export var starting_zone: PackedScene
 @onready var save_list_node = $LoadGame/SaveList
 var save_list : Array
 
@@ -35,7 +35,7 @@ func _on_load_game_btn_pressed():
 	if not scene_base:
 		return
 
-	scene_base.load_scene("res://game/zones/house_back_yard/house_back_yard_zone.tscn")
+	scene_base.load_scene("res://game/zones/fourth_level/fourth_level_zone.tscn")
 		
 	#_set_pane(3)
 

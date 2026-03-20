@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cl8q8f32imusk"]
 
 [ext_resource type="Script" uid="uid://due0hc3nvo6ag" path="res://game/start_scene/start_ui.gd" id="1_n87es"]
+[ext_resource type="PackedScene" uid="uid://d25hexs4dq748" path="res://game/zones/fourth_level/fourth_level_zone.tscn" id="2_1y4uq"]
 
 [node name="StartUI" type="CenterContainer" unique_id=115347459]
 anchors_preset = 15
@@ -10,9 +11,9 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 script = ExtResource("1_n87es")
+starting_zone = ExtResource("2_1y4uq")
 
 [node name="MainMenu" type="VBoxContainer" parent="." unique_id=1725534199]
-visible = false
 layout_mode = 2
 
 [node name="NewGameBtn" type="Button" parent="MainMenu" unique_id=2088577737]

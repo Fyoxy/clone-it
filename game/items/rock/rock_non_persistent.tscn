@@ -47,11 +47,10 @@ hand_pose = SubResource("Resource_vx8u2")
 
 [node name="HighlightRing" parent="." index="3" unique_id=673050213 instance=ExtResource("9_phgbo")]
 
-[node name="DeletionArea" type="Area3D" parent="." index="4" unique_id=461780453 node_paths=PackedStringArray("mesh_instance_3d", "item")]
+[node name="DeletionArea" type="Area3D" parent="." index="4" unique_id=461780453 node_paths=PackedStringArray("item")]
 collision_layer = 0
 collision_mask = 4
 script = ExtResource("10_11n5c")
-mesh_instance_3d = NodePath("")
 item = NodePath("..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DeletionArea" index="0" unique_id=1944668443]
