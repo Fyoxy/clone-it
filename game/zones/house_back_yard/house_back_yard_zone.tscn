@@ -143,22 +143,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0591965, -0.49784547, -0.1
 shape = SubResource("BoxShape3D_uk6lx")
 
 [node name="Ground2" type="StaticBody3D" parent="World" index="4" unique_id=26705548]
-transform = Transform3D(0.09, 0, 0, 0, 1, 0, 0, 0, 0.115, 0, 0, -3.319591)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.319591)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="World/Ground2" index="0" unique_id=1172723718]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -0.5006769, 0)
+transform = Transform3D(0.205, 0, 0, 0, -8.960835e-09, -0.205, 0, 0.205, -8.960835e-09, -0.003721118, -0.5006771, -0.0029177666)
 material_override = ExtResource("4_inkkc")
 mesh = SubResource("BoxMesh_xl8gc")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Ground2" index="1" unique_id=394180823]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0591965, -0.49784547, -0.19525146)
+transform = Transform3D(0.205, 0, 0, 0, 0.205, 0, 0, 0, 0.205, -0.0591965, -0.49784547, -0.19525146)
 shape = SubResource("BoxShape3D_uk6lx")
 
 [node name="Ground3" type="StaticBody3D" parent="World" index="5" unique_id=1392946631]
-transform = Transform3D(0.29, 0, 0, 0, 1, 0, 0, 0, 0.115, 0, 0, -13.866167)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -19.51301)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="World/Ground3" index="0" unique_id=1570307387]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -0.5006769, 0)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -0.5006769, -0.7447338)
 material_override = ExtResource("4_inkkc")
 mesh = SubResource("BoxMesh_xl8gc")
 

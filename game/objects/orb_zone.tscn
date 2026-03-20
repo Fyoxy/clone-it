@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://8nkd5dqhuixp"]
+
+[ext_resource type="Script" uid="uid://c70v1moguyy6o" path="res://game/objects/orb_zone.gd" id="1_je671"]
+[ext_resource type="PackedScene" uid="uid://ns04nk6k3hhh" path="res://assets/player/orb_zone.glb" id="2_juonq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_je671"]
+size = Vector3(0.5782623, 0.5430298, 0.53149414)
+
+[node name="OrbZone" type="Area3D" unique_id=598565327 node_paths=PackedStringArray("my_objects")]
+collision_layer = 0
+collision_mask = 65540
+script = ExtResource("1_je671")
+my_objects = [NodePath("orb_zone/OrbZone/Ring1"), NodePath("orb_zone/OrbZone/Ring2"), NodePath("orb_zone/OrbZone/Ring3"), NodePath("orb_zone/OrbZone/Ring4")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1263970116]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.03968048, 0.0010681152, 0.04333496)
+shape = SubResource("BoxShape3D_je671")
+
+[node name="orb_zone" parent="." unique_id=780945289 instance=ExtResource("2_juonq")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[editable path="orb_zone"]
