@@ -120,18 +120,8 @@ tree_root = SubResource("AnimationNodeBlendTree_0unhl")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="World" index="0" unique_id=1182930446]
 environment = ExtResource("2_a5ktn")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="World" index="1" unique_id=980596320]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.43045, -0.071395874)
-light_energy = 16.0
-omni_range = 26.287
-omni_attenuation = 0.982
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="World" index="2" unique_id=904626862]
-transform = Transform3D(-0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, 0.5, -0.5, 0, 8, 0)
-light_energy = 3.376
-
-[node name="Ground" type="StaticBody3D" parent="World" index="3" unique_id=1836857747]
-transform = Transform3D(0.26, 0, 0, 0, 1, 0, 0, 0, 0.4, 0, 0, 7.5142465)
+[node name="Ground" type="StaticBody3D" parent="World" index="1" unique_id=1836857747]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 13.082577)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="World/Ground" index="0" unique_id=409200389]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -0.5006769, 0)
@@ -142,11 +132,40 @@ mesh = SubResource("BoxMesh_xl8gc")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0591965, -0.49784547, -0.19525146)
 shape = SubResource("BoxShape3D_uk6lx")
 
+[node name="OmniLight3D" type="OmniLight3D" parent="World/Ground" index="2" unique_id=980596320]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -15.582577)
+light_energy = 16.0
+omni_range = 70.0
+
+[node name="Ground4" type="StaticBody3D" parent="World" index="2" unique_id=1119604262]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.770992, -6.434483)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World/Ground4" index="0" unique_id=1670038604]
+transform = Transform3D(2, 0, 0, 0, -8.742278e-08, -2, 0, 2, -8.742278e-08, 0, 0.8298025, 0)
+material_override = ExtResource("4_inkkc")
+mesh = SubResource("BoxMesh_xl8gc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Ground4" index="1" unique_id=471859488]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0591965, -0.49784547, -0.19525146)
+shape = SubResource("BoxShape3D_uk6lx")
+
+[node name="Ground5" type="StaticBody3D" parent="World" index="3" unique_id=1049894905]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -58.71192, -6.434483)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World/Ground5" index="0" unique_id=1773615189]
+transform = Transform3D(2, 0, 0, 0, -8.742278e-08, -2, 0, 2, -8.742278e-08, 0, 0.8298025, 0)
+material_override = ExtResource("4_inkkc")
+mesh = SubResource("BoxMesh_xl8gc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Ground5" index="1" unique_id=1470029633]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0591965, -0.49784547, -0.19525146)
+shape = SubResource("BoxShape3D_uk6lx")
+
 [node name="Ground2" type="StaticBody3D" parent="World" index="4" unique_id=26705548]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.319591)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.32)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="World/Ground2" index="0" unique_id=1172723718]
-transform = Transform3D(0.205, 0, 0, 0, -8.960835e-09, -0.205, 0, 0.205, -8.960835e-09, -0.003721118, -0.5006771, -0.0029177666)
+transform = Transform3D(0.205, 0, 0, 0, -8.960835e-09, -0.205, 0, 0.205, -8.960835e-09, 0, 0, 0)
 material_override = ExtResource("4_inkkc")
 mesh = SubResource("BoxMesh_xl8gc")
 
@@ -170,7 +189,7 @@ shape = SubResource("BoxShape3D_uk6lx")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -10)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="World/Boundary1" index="0" unique_id=519491799]
-transform = Transform3D(1, 0, 0, 0, 10.84, 0, 0, 0, 1, 0, 0, -5.812731)
+transform = Transform3D(1, 0, 0, 0, 50, 0, 0, 0, 1, 0, 0, -5.812731)
 material_override = ExtResource("5_2t4qn")
 mesh = SubResource("QuadMesh_iva63")
 
@@ -182,7 +201,7 @@ shape = SubResource("BoxShape3D_db0th")
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 10, 2, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="World/Boundary2" index="0" unique_id=1816125216]
-transform = Transform3D(1, 0, 0, 0, 13.185, 0, 0, 0, 1, 0, 0, 0.5)
+transform = Transform3D(1, 0, 0, 0, 50, 0, 0, 0, 1, 0, 0, 0.5)
 material_override = ExtResource("5_2t4qn")
 mesh = SubResource("QuadMesh_iva63")
 
@@ -193,7 +212,7 @@ shape = SubResource("BoxShape3D_db0th")
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 2, 10)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="World/Boundary3" index="0" unique_id=185344947]
-transform = Transform3D(1, 0, 0, 0, 11.42, 0, 0, 0, 1, 0, 0, 0.5)
+transform = Transform3D(1, 0, 0, 0, 50, 0, 0, 0, 1, 0, 0, 0.5)
 material_override = ExtResource("5_2t4qn")
 mesh = SubResource("QuadMesh_iva63")
 
@@ -204,7 +223,7 @@ shape = SubResource("BoxShape3D_db0th")
 transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -10, 2, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="World/Boundary4" index="0" unique_id=998820732]
-transform = Transform3D(1, 0, 0, 0, 10.17, 0, 0, 0, 1, 0, 0, 0.5)
+transform = Transform3D(1, 0, 0, 0, 20, 0, 0, 0, 1, 1.2943606, -27.202526, 0.5)
 material_override = ExtResource("5_2t4qn")
 mesh = SubResource("QuadMesh_iva63")
 
@@ -253,12 +272,12 @@ transform = Transform3D(1, 0, 0, 0, 0.99999917, 0.00127409, 0, -0.00127409, 0.99
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8.017361)
 
 [node name="platform2" parent="." index="6" unique_id=118022216 instance=ExtResource("10_6x1n0")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.4794734, 0, 2.2839484)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.479, 0, 2.284)
 move_distance = 7.0
 move_direction = Vector3(0, 0, -1)
 
 [node name="platform" parent="." index="7" unique_id=1672319164 instance=ExtResource("10_6x1n0")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.6447258, 0, -3.3458834)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.6410484, 0, -3.3458834)
 move_distance = 8.0
 move_direction = Vector3(0, 0, -1)
 
