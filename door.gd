@@ -7,6 +7,7 @@ var _trigger_count = 0
 var _tween: Tween
 
 func _ready():
+	add_to_group("door")
 	for trigger in triggers:
 		trigger.triggered.connect(adjust_trigger)
 
@@ -24,6 +25,9 @@ func close():
 
 func adjust_trigger(value: int):
 	_trigger_count += value
+	if _trigger_count < 0:
+		_trigger_count = 0
+		
 	if _trigger_count >= triggers_required:
 		open()
 	else:

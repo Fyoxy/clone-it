@@ -143,28 +143,12 @@ func delete_last_clone():
 func reset_player_pos():
 	# Reset player position and tick limit and counter
 	# Bumps player pos 1 up so spawn not in ground hopefully
+	for triggerable in get_tree().get_nodes_in_group("door"):
+		triggerable._trigger_count = 0
+		
 	player_node.global_position = player_initial_position + Vector3(0, 1, 0)
 	tick_timer.start()
 	
-	
-func _input(event):
-	if event is InputEventKey and event.pressed and event.keycode == KEY_3:
-		delete_last_clone()
-		
-	if event is InputEventKey and event.pressed and event.keycode == KEY_4:
-		print_tracked_bodies()
-		
-	# Advances clone and resets the movement tracking ticks
-	if event is InputEventKey and event.pressed and event.keycode == KEY_5:
-		play()
-		
-		
-	# idk wtf this is
-	if event is InputEventKey and event.pressed and event.keycode == KEY_6:
-		timer.start()
-		tickCounter = 0
-
-
 func _on_tick_timer_timeout():
 	# TODO: Maybe just stop timer, but this check also for extra safety
 	if tickCounter >= maxTicks:
