@@ -30,7 +30,14 @@ func _on_new_game_btn_pressed():
 	#_set_pane(2)
 
 func _on_load_game_btn_pressed():
-	_set_pane(3)
+	# Find our scene base
+	var scene_base : XRToolsSceneBase = XRTools.find_xr_ancestor(self, "*", "XRToolsSceneBase")
+	if not scene_base:
+		return
+
+	scene_base.load_scene("res://game/zones/house_back_yard/house_back_yard_zone.tscn")
+		
+	#_set_pane(3)
 
 func _on_options_btn_pressed():
 	_set_pane(4)

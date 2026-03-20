@@ -29,21 +29,21 @@ size = Vector2(12, 4)
 [sub_resource type="BoxShape3D" id="BoxShape3D_w6gh2"]
 size = Vector3(12, 4, 1)
 
-[sub_resource type="QuadMesh" id="QuadMesh_mbxkw"]
+[sub_resource type="QuadMesh" id="QuadMesh_o3q1p"]
 resource_local_to_scene = true
 size = Vector2(3, 2)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_gawvq"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_mmkt7"]
 viewport_path = NodePath("Screen/Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_woss6"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vljj3"]
 transparency = 1
 cull_mode = 2
 shading_mode = 0
-albedo_texture = SubResource("ViewportTexture_gawvq")
+albedo_texture = SubResource("ViewportTexture_mmkt7")
 texture_filter = 1
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_17c22"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_mbxkw"]
 resource_local_to_scene = true
 size = Vector3(3, 2, 0.02)
 
@@ -152,10 +152,10 @@ unshaded = true
 scene_properties_keys = PackedStringArray("start_ui.gd")
 
 [node name="Screen" parent="Screen" index="1"]
-mesh = SubResource("QuadMesh_mbxkw")
-surface_material_override/0 = SubResource("StandardMaterial3D_woss6")
+mesh = SubResource("QuadMesh_o3q1p")
+surface_material_override/0 = SubResource("StandardMaterial3D_vljj3")
 
 [node name="CollisionShape3D" parent="Screen/StaticBody3D" index="0"]
-shape = SubResource("BoxShape3D_17c22")
+shape = SubResource("BoxShape3D_mbxkw")
 
 [editable path="Screen"]
