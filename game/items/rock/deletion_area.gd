@@ -9,7 +9,8 @@ func reset():
 	
 	set_collision_mask_value(3, true)
 	item.enabled = true
-	mesh_instance_3d.set_surface_override_material(0, null)
+	if mesh_instance_3d:
+		mesh_instance_3d.set_surface_override_material(0, null)
 
 func _on_area_entered(area):
 	print("CANCELING ROCK")

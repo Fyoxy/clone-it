@@ -219,7 +219,7 @@ shape = SubResource("BoxShape3D_rpfc0")
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -14.685285)
 
 [node name="door" parent="." index="7" unique_id=1633390491 instance=ExtResource("11_2m2tq")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1.28, 0, -1, 0, -4.371139e-08, 0, 0, -15.4811125)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, -15.4811125)
 
 [node name="rock_table" parent="." index="8" unique_id=1563888683 node_paths=PackedStringArray("door") instance=ExtResource("8_jwofx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9312797, 0, -13.990355)

@@ -1,16 +1,28 @@
 extends StaticBody3D
+@export var triggers_required: int = 3
+@export var triggers: Array[Node]
+var _trigger_count = 0
+var _tween: Tween
 
-@export var trigger:StaticBody3D
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+func _ready():
+	for trigger in triggers:
+		trigger.triggered.connect(adjust_trigger)
+
 func open():
-	var tween = create_tween()
-	tween.tween_property(self, "position:y", 3.0, 3.0)
-	
+	if _tween:
+		_tween.kill()
+	_tween = create_tween()
+	_tween.tween_property(self, "position:y", 3.0, 3.0)
+
 func close():
-	var tween = create_tween()
-	tween.tween_property(self, "position:y", 0.0, 0.5)
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+	if _tween:
+		_tween.kill()
+	_tween = create_tween()
+	_tween.tween_property(self, "position:y", 0.0, 0.5)
+
+func adjust_trigger(value: int):
+	_trigger_count += value
+	if _trigger_count >= triggers_required:
+		open()
+	else:
+		close()

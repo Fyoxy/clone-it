@@ -1,44 +1,31 @@
-[gd_scene format=3 uid="uid://c321ptldlqtnj"]
+[gd_scene format=3 uid="uid://jxyltxn0rpqt"]
 
 [ext_resource type="Script" uid="uid://cu8tlp5udl3hq" path="res://game/zones/outside/pressure_plate.gd" id="1_uot4y"]
 [ext_resource type="Material" uid="uid://c7prktlpm7tmm" path="res://assets/prototype_materials/forest.tres" id="2_8bqyo"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_twjr1"]
+size = Vector3(0.9, 0.2727539, 0.9)
 
 [sub_resource type="BoxMesh" id="BoxMesh_jodmb"]
 lightmap_size_hint = Vector2i(14, 12)
 size = Vector3(1, 0.15, 1)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_ixvyx"]
-size = Vector3(1, 0.1, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_twjr1"]
-size = Vector3(0.9, 0.2727539, 0.9)
-
-[node name="pressure_plate" type="StaticBody3D" unique_id=1616913905 node_paths=PackedStringArray("top", "plate", "mesh_instance_3d")]
-collision_layer = 0
-collision_mask = 4
-script = ExtResource("1_uot4y")
-top = NodePath("Area3D")
-plate = NodePath(".")
-mesh_instance_3d = NodePath("MeshInstance3D")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=401438601]
-material_override = ExtResource("2_8bqyo")
-mesh = SubResource("BoxMesh_jodmb")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=61423713]
-shape = SubResource("BoxShape3D_ixvyx")
-disabled = true
-
-[node name="Area3D" type="Area3D" parent="." unique_id=2076339699]
+[node name="PressurePlate" type="Area3D" unique_id=2007060334]
 collision_layer = 0
 collision_mask = 524416
+script = ExtResource("1_uot4y")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=796320175]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=39991439]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.12130432, 0)
 shape = SubResource("BoxShape3D_twjr1")
 debug_color = Color(0, 0.6, 0.69803923, 0.99607843)
 
-[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
-[connection signal="area_exited" from="Area3D" to="." method="_on_area_3d_area_exited"]
-[connection signal="body_shape_entered" from="Area3D" to="." method="_on_area_3d_body_shape_entered"]
-[connection signal="body_shape_exited" from="Area3D" to="." method="_on_area_3d_body_shape_exited"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=400825345]
+material_override = ExtResource("2_8bqyo")
+mesh = SubResource("BoxMesh_jodmb")
+skeleton = NodePath("../..")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
