@@ -114,7 +114,7 @@ light_energy = 5.0
 omni_range = 70.0
 
 [node name="anti_rock_wall" parent="." index="6" unique_id=2089020263 instance=ExtResource("6_6xm2n")]
-transform = Transform3D(4.67, 0, 0, 0, 1, 0, 0, 0, 1, -0.254, 1.212, -8.081)
+transform = Transform3D(6.03, 0, 0, 0, 1, 0, 0, 0, 1, -0.254, 1.212, -8.081)
 
 [node name="anti_rock_ground" parent="." index="7" unique_id=216925156 instance=ExtResource("6_ha3p3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24, -0.039051056, -4.048)
@@ -162,13 +162,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.6005306, 1.2832515, -14.329
 snap_zone = NodePath("SnapZone")
 
 [node name="SnapZone" parent="OrbZone" index="2" unique_id=1591559586 instance=ExtResource("13_p1vo2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.665514, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.059188843, 0)
 
 [node name="OrbZone2" parent="." index="14" unique_id=355930017 node_paths=PackedStringArray("snap_zone") instance=ExtResource("12_4a6db")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.346596, 1.1617064, -14.098917)
 snap_zone = NodePath("SnapZone")
 
 [node name="SnapZone" parent="OrbZone2" index="2" unique_id=196446404 instance=ExtResource("13_p1vo2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.013338089, 0)
 
 [node name="ZoneSwitchArea" parent="." index="15" unique_id=1777215817 instance=ExtResource("14_p1vo2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1098721, -0.04396993, -20.62424)
@@ -180,13 +181,11 @@ shape = SubResource("BoxShape3D_bliy4")
 
 [node name="Rock" parent="." index="16" unique_id=1474957477 instance=ExtResource("14_7dimg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.44363785, 0.84910166, -3.0620534)
-collision_layer = 65540
-collision_mask = 65635
+collision_mask = 103
 
 [node name="Rock2" parent="." index="17" unique_id=136481074 instance=ExtResource("14_7dimg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8316846, 0.84910166, -3.339911)
-collision_layer = 65540
-collision_mask = 65635
+collision_mask = 103
 
 [node name="falling_into_hole_check" parent="." index="18" unique_id=349897076 instance=ExtResource("15_7dimg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.055441618, -13.148917, -8.372471)

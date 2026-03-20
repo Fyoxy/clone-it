@@ -7,7 +7,7 @@
 size = Vector3(2.76, 9.74, 0.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ha3p3"]
-size = Vector3(19.99208, 0.9390707, 18.599207)
+size = Vector3(2.693943, 0.46660566, 9.812816)
 
 [node name="anti_rock_ground" type="StaticBody3D" unique_id=216925156]
 
@@ -17,7 +17,7 @@ material_override = ExtResource("1_nq8fa")
 mesh = SubResource("BoxMesh_6xm2n")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=590435223]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0591965, -0.49784547, -0.19525146)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.03800392, -0.26161295, 0.0012965202)
 shape = SubResource("BoxShape3D_ha3p3")
 
 [node name="anti_rock_wall2" parent="." unique_id=2089020263 instance=ExtResource("2_ivldy")]
