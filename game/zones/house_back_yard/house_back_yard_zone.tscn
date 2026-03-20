@@ -10,9 +10,10 @@
 [ext_resource type="Material" uid="uid://cjylinr1vdjcw" path="res://assets/prototype_materials/dark_brown.tres" id="5_goc1s"]
 [ext_resource type="PackedScene" uid="uid://vm423o6hdlya" path="res://components/helpers/zone_switch_area.tscn" id="6_tlcot"]
 [ext_resource type="PackedScene" uid="uid://caibmcep4qklc" path="res://new_assets/textures/falling_in_hole_check.tscn" id="7_2t4qn"]
-[ext_resource type="PackedScene" uid="uid://c321ptldlqtnj" path="res://pressure_plate.tscn" id="7_4lii0"]
+[ext_resource type="PackedScene" uid="uid://jxyltxn0rpqt" path="res://pressure_plate.tscn" id="7_4lii0"]
 [ext_resource type="Material" uid="uid://203vupf345t2" path="res://new_assets/textures/door_texture.tres" id="7_inkkc"]
 [ext_resource type="PackedScene" uid="uid://bfaf757s1ds0k" path="res://platform.tscn" id="10_6x1n0"]
+[ext_resource type="PackedScene" uid="uid://ih3vbe87mk4l" path="res://door.tscn" id="14_o7oqv"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2t4qn"]
 animation = &"Grip"
@@ -134,7 +135,12 @@ shape = SubResource("BoxShape3D_uk6lx")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="World/Ground" index="2" unique_id=980596320]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -15.582577)
-light_energy = 16.0
+light_energy = 10.0
+omni_range = 70.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="World/Ground" index="3" unique_id=2053816779]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -6.750743)
+light_energy = 5.0
 omni_range = 70.0
 
 [node name="Ground4" type="StaticBody3D" parent="World" index="2" unique_id=1119604262]
@@ -170,7 +176,7 @@ material_override = ExtResource("4_inkkc")
 mesh = SubResource("BoxMesh_xl8gc")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Ground2" index="1" unique_id=394180823]
-transform = Transform3D(0.205, 0, 0, 0, 0.205, 0, 0, 0, 0.205, -0.0591965, -0.49784547, -0.19525146)
+transform = Transform3D(0.205, 0, 0, 0, 0.205, 0, 0, 0, 0.205, 0, 0, 0)
 shape = SubResource("BoxShape3D_uk6lx")
 
 [node name="Ground3" type="StaticBody3D" parent="World" index="5" unique_id=1392946631]
@@ -242,7 +248,7 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5187667e-07, 0, 6.312731)
 material_override = ExtResource("7_inkkc")
 use_collision = true
-polygon = PackedVector2Array(-3, 0, -3, 3, 0, 5, 3, 3, 3, 0, 0.5, 0, 0.5, 3, -0.5, 3, -0.5, 0)
+polygon = PackedVector2Array(-3, 0, -0.010841161, 4.1738467, 3, 0, 0.5, 0, 0.47491914, 2.1358533, -0.48124626, 2.137765, -0.5, 0)
 material = ExtResource("4_j3su2")
 
 [node name="Door" type="StaticBody3D" parent="HouseEntrance" index="1" unique_id=1739130610]
@@ -271,23 +277,28 @@ transform = Transform3D(1, 0, 0, 0, 0.99999917, 0.00127409, 0, -0.00127409, 0.99
 [node name="Replay" parent="." index="5" unique_id=164384423]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8.017361)
 
-[node name="platform2" parent="." index="6" unique_id=118022216 instance=ExtResource("10_6x1n0")]
+[node name="platform2" parent="." index="6" unique_id=118022216 node_paths=PackedStringArray("triggers") instance=ExtResource("10_6x1n0")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.479, 0, 2.284)
 move_distance = 7.0
 move_direction = Vector3(0, 0, -1)
+triggers_required = 1
+triggers = [NodePath("../pressure_plate2")]
 
-[node name="platform" parent="." index="7" unique_id=1672319164 instance=ExtResource("10_6x1n0")]
+[node name="platform" parent="." index="7" unique_id=1672319164 node_paths=PackedStringArray("triggers") instance=ExtResource("10_6x1n0")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.6410484, 0, -3.3458834)
 move_distance = 8.0
 move_direction = Vector3(0, 0, -1)
+triggers_required = 1
+triggers = [NodePath("../pressure_plate")]
 
-[node name="pressure_plate" parent="." index="8" unique_id=1616913905 node_paths=PackedStringArray("platform") instance=ExtResource("7_4lii0")]
+[node name="pressure_plate" parent="." index="8" unique_id=1616913905 instance=ExtResource("7_4lii0")]
 transform = Transform3D(0.9999938, -0.0011288981, 0.0033226123, 0.0011424964, 0.99999094, -0.0040933294, -0.0033179608, 0.0040971003, 0.9999861, 1.5469933, 0.050170988, 4.840131)
-platform = NodePath("../platform")
 
-[node name="pressure_plate2" parent="." index="9" unique_id=1513728679 node_paths=PackedStringArray("platform") instance=ExtResource("7_4lii0")]
+[node name="pressure_plate2" parent="." index="9" unique_id=1513728679 instance=ExtResource("7_4lii0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4468975, 0.03409815, 4.8127093)
-platform = NodePath("../platform2")
+
+[node name="door" parent="." index="10" unique_id=1633390491 instance=ExtResource("14_o7oqv")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.0019364059, -0.02831012, -14.75761)
 
 [editable path="XROrigin3D/LeftHand/CollisionHandLeft/LeftHand"]
 [editable path="XROrigin3D/LeftHand/CollisionHandLeft/LeftHand/Hand_Nails_low_L"]
