@@ -1,28 +1,32 @@
 extends Area3D
 
-@export var mesh_instance_3d: MeshInstance3D
 @export var item: XRToolsPickable
+@export var animation_player: AnimationPlayer
+@export var orb: MeshInstance3D
+
+func _ready():
+	reset()
 
 # Reset all settings
 func reset():
 	#item.freeze = false # Freeze causes some weird physics bugs
 	
-	set_collision_mask_value(3, true)
+	set_collision_mask_value(32, true)
 	item.enabled = true
-	if mesh_instance_3d:
-		mesh_instance_3d.set_surface_override_material(0, null)
+	if animation_player:
+		animation_player.play("Main")
+		# Why the fuck this works, but not resetting the animation player????
+		# IT IS BASICALLY DOING THE SAME THING
+		orb.get_active_material(0).albedo_color = "#2b5fedc8"
+
 
 func _on_area_entered(area):
-	print("CANCELING ROCK")
-	return
 	#item.freeze = true # Freeze causes some weird physics bugs
 	
 	# Turn off collisions with area
-	set_collision_mask_value(3, false)
+	set_collision_mask_value(32, false)
 	
 	item.enabled = false
 	
-	var mat = mesh_instance_3d.get_active_material(0).duplicate()
-	mesh_instance_3d.set_surface_override_material(0, mat)
-	var tween = create_tween()
-	tween.tween_property(mat, "albedo_color:a", 0.0, 2.0)
+	if animation_player:
+		animation_player.play("Delete")
