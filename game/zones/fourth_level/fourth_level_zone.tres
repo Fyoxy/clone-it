@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="PersistentZoneInfo" format=3 uid="uid://bm41a8gk2yfkn"]
+
+[ext_resource type="Script" uid="uid://diipcou46cwqh" path="res://components/persistent/persistent_zone_info.gd" id="1_m7qrc"]
+
+[resource]
+script = ExtResource("1_m7qrc")
+zone_id = "fourth_level_zone"
+instance_scene = "uid://d25hexs4dq748"
