@@ -3,10 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cokp6j8qwymd6" path="res://assets/main_texture.png" id="1_8gqph"]
 
 [resource]
-vertex_color_use_as_albedo = true
 albedo_color = Color(1.3955264, 1.5231006, 1.9972706, 1)
 albedo_texture = ExtResource("1_8gqph")
-metallic = 1.0
-uv1_scale = Vector3(0.51, 0.51, 0.51)
-uv1_offset = Vector3(2.745, 0, 0)
+uv1_scale = Vector3(2, 2, 2)
 uv1_triplanar = true
