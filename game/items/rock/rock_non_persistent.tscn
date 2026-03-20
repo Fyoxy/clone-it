@@ -28,7 +28,7 @@ closed_pose = ExtResource("8_7arsy")
 size = Vector3(0.25, 0.25, 0.25)
 
 [node name="Rock" unique_id=1474957477 groups=["tracked"] instance=ExtResource("1_2bf8v")]
-collision_layer = 65540
+collision_layer = 65536
 collision_mask = 65639
 script = ExtResource("2_2bf8v")
 ranged_grab_method = 2

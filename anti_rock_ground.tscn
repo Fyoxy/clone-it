@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://42kr3ftbau0a"]
+
+[ext_resource type="Material" uid="uid://dcnyr8ib7lbni" path="res://new_assets/textures/ground_texture.tres" id="1_nq8fa"]
+[ext_resource type="PackedScene" uid="uid://ccgk42ncykgfo" path="res://game/objects/anti_rock_wall.tscn" id="2_ivldy"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_6xm2n"]
+size = Vector3(2.76, 9.74, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ha3p3"]
+size = Vector3(19.99208, 0.9390707, 18.599207)
+
+[node name="anti_rock_ground" type="StaticBody3D" unique_id=216925156]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1702850455]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -0.26609004, 0)
+material_override = ExtResource("1_nq8fa")
+mesh = SubResource("BoxMesh_6xm2n")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=590435223]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0591965, -0.49784547, -0.19525146)
+shape = SubResource("BoxShape3D_ha3p3")
+
+[node name="anti_rock_wall2" parent="." unique_id=2089020263 instance=ExtResource("2_ivldy")]
+transform = Transform3D(0.95, 0, 0, 0, -1.42062e-07, -1, 0, 3.25, -4.371139e-08, -0.001819849, 0.009314239, -0.007209778)
