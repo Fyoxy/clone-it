@@ -5,7 +5,7 @@ extends CenterContainer
 var save_list : Array
 
 var levels: Dictionary = {
-	"Level 1": "outside_level",
+	"Level 1": "outside",
 	"Level 2": "house_interior",
 	"Level 3": "house_back_yard",
 	"Level 4": "fourth",
