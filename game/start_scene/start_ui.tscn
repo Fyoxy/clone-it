@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://cl8q8f32imusk"]
 
 [ext_resource type="Script" uid="uid://due0hc3nvo6ag" path="res://game/start_scene/start_ui.gd" id="1_n87es"]
-[ext_resource type="PackedScene" uid="uid://d25hexs4dq748" path="res://game/zones/fourth_level/fourth_level_zone.tscn" id="2_1y4uq"]
+[ext_resource type="PackedScene" uid="uid://d25hexs4dq748" path="res://game/zones/fourth/fourth_zone.tscn" id="2_1y4uq"]
 
-[node name="StartUI" type="CenterContainer" unique_id=115347459]
+[node name="StartUI" type="CenterContainer" unique_id=115347459 node_paths=PackedStringArray("level_buttons")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -12,18 +12,34 @@ grow_vertical = 2
 size_flags_horizontal = 3
 script = ExtResource("1_n87es")
 starting_zone = ExtResource("2_1y4uq")
+level_buttons = [NodePath("MainMenu/NewGameBtn"), NodePath("MainMenu/NewGameBtn2"), NodePath("MainMenu/NewGameBtn3"), NodePath("MainMenu/NewGameBtn4"), NodePath("MainMenu/NewGameBtn5"), NodePath("MainMenu/LoadGameBtn")]
 
 [node name="MainMenu" type="VBoxContainer" parent="." unique_id=1725534199]
 layout_mode = 2
 
 [node name="NewGameBtn" type="Button" parent="MainMenu" unique_id=2088577737]
 layout_mode = 2
-text = "New game"
+text = "Level 1"
+
+[node name="NewGameBtn2" type="Button" parent="MainMenu" unique_id=2029138511]
+layout_mode = 2
+text = "Level 2"
+
+[node name="NewGameBtn3" type="Button" parent="MainMenu" unique_id=523342722]
+layout_mode = 2
+text = "Level 3"
+
+[node name="NewGameBtn4" type="Button" parent="MainMenu" unique_id=2076949927]
+layout_mode = 2
+text = "Level 4"
+
+[node name="NewGameBtn5" type="Button" parent="MainMenu" unique_id=186298384]
+layout_mode = 2
+text = "Level 5"
 
 [node name="LoadGameBtn" type="Button" parent="MainMenu" unique_id=1372269634]
 layout_mode = 2
-text = "Load game
-"
+text = "Level 6"
 
 [node name="OptionsBtn" type="Button" parent="MainMenu" unique_id=1284208285]
 layout_mode = 2
@@ -56,6 +72,7 @@ layout_mode = 2
 text = "Back"
 
 [node name="LoadGame" type="VBoxContainer" parent="." unique_id=771632789]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 5
@@ -95,8 +112,6 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "Back	"
 
-[connection signal="pressed" from="MainMenu/NewGameBtn" to="." method="_on_new_game_btn_pressed"]
-[connection signal="pressed" from="MainMenu/LoadGameBtn" to="." method="_on_load_game_btn_pressed"]
 [connection signal="pressed" from="MainMenu/OptionsBtn" to="." method="_on_options_btn_pressed"]
 [connection signal="pressed" from="MainMenu/ExitBtn" to="." method="_on_exit_btn_pressed"]
 [connection signal="pressed" from="NewGame/EasyBtn" to="." method="_on_easy_btn_pressed"]
