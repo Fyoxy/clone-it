@@ -11,6 +11,7 @@ var levels: Dictionary = {
 	"Level 4": "fourth",
 	"Level 5": "fifth",
 	"Level 6": "sixth",
+	"Level 7": "seventh",
 }
 
 # Called when the node enters the scene tree for the first time.
