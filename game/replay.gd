@@ -62,6 +62,7 @@ func print_tracked_bodies():
 # Advances clone number and creates new clone with base data
 # Resets all bodies grabbed to false so they would not be ignored every tick
 func play():
+	reset_player_pos()
 	var newClone = clone.instantiate()
 	clones.append(newClone)
 	add_child(newClone)
@@ -94,6 +95,7 @@ func play():
 # Advances clone number and creates new clone with base data
 # Resets all bodies grabbed to false so they would not be ignored every tick
 func delete_last_clone():
+	reset_player_pos()
 	var last_clone = clones.pop_back()
 	
 	if last_clone:
