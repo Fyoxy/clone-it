@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://bfaf757s1ds0k" path="res://platform.tscn" id="14_0fop0"]
 [ext_resource type="Material" uid="uid://dcnyr8ib7lbni" path="res://new_assets/textures/ground_texture.tres" id="15_7ppec"]
 [ext_resource type="PackedScene" uid="uid://jxyltxn0rpqt" path="res://pressure_plate.tscn" id="16_caoxr"]
+[ext_resource type="PackedScene" uid="uid://cjyilbm4ucc7s" path="res://addons/godot-xr-tools/objects/climbable.tscn" id="17_1cgky"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3x547"]
 animation = &"Grip"
@@ -89,17 +90,17 @@ size = Vector3(1, 3, 0.1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_bliy4"]
 size = Vector3(1, 2.5821533, 1.6069336)
 
-[sub_resource type="BoxMesh" id="BoxMesh_0k8cp"]
-size = Vector3(20, 19, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_n27nl"]
-size = Vector3(19.72625, 1.2465475, 18.812048)
-
 [sub_resource type="BoxMesh" id="BoxMesh_exm5q"]
 size = Vector3(20, 19, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4nnh0"]
 size = Vector3(19.99208, 0.9390707, 18.599207)
+
+[sub_resource type="BoxMesh" id="BoxMesh_l7txy"]
+size = Vector3(5, 10, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k2bym"]
+size = Vector3(4.982544, 0.9960327, 10.453947)
 
 [node name="FourthZoneLevel" unique_id=1616403681 instance=ExtResource("1_vrxpb")]
 zone_info = ExtResource("2_8234a")
@@ -125,20 +126,20 @@ light_energy = 10.0
 omni_range = 70.0
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="." index="5" unique_id=1471799728]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -3.2204208)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.0438027, -8.26186)
 light_energy = 5.0
-omni_range = 70.0
+omni_range = 105.678
 
 [node name="rock_table" parent="." index="6" unique_id=2039648538 instance=ExtResource("4_io4c1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.64121366, -0.04743457, -3.2003345)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1578166, -0.04743457, -3.8119917)
 
 [node name="door" parent="." index="7" unique_id=1633390491 node_paths=PackedStringArray("triggers") instance=ExtResource("5_sot2j")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.005839467, -0.043970406, -18.99082)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.005839467, -0.043970406, -42.2323)
 triggers_required = 1
-triggers = [NodePath("../PressurePlate")]
+triggers = [NodePath("../OrbZone")]
 
 [node name="HouseEntrance" type="Node3D" parent="." index="8" unique_id=816986522]
-transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 0, -0.048377395, -13.876391)
+transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 0, -0.048377395, -37.112865)
 
 [node name="Exterior" type="CSGPolygon3D" parent="HouseEntrance" index="0" unique_id=2039157367]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5187667e-07, 0, 6.312731)
@@ -158,8 +159,26 @@ mesh = SubResource("BoxMesh_p1vo2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5187667e-07, 0, 6.312731)
 shape = SubResource("BoxShape3D_7dimg")
 
-[node name="OrbZone" parent="." index="9" unique_id=355930017 node_paths=PackedStringArray("snap_zone") instance=ExtResource("9_dc81h")]
-transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -2.94481, 1.1617064, -4.734183)
+[node name="ZoneSwitchArea" parent="." index="9" unique_id=1777215817 instance=ExtResource("11_1ueus")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1098721, -0.04396993, -45.554092)
+zone_scene = "uid://b64v7w5y3yghi"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ZoneSwitchArea" index="0" unique_id=1628994749]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.79107666, 3.1329575)
+shape = SubResource("BoxShape3D_bliy4")
+
+[node name="Rock" parent="." index="10" unique_id=1474957477 instance=ExtResource("12_p1yme")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1937488, 0.84910166, -3.7809007)
+
+[node name="falling_into_hole_check" parent="." index="11" unique_id=349897076 node_paths=PackedStringArray("replay") instance=ExtResource("13_j4pjh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.055441618, -13.148917, -8.372471)
+replay = NodePath("../Replay")
+
+[node name="PressurePlate" parent="." index="12" unique_id=2007060334 instance=ExtResource("16_caoxr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.067314625, 0.08731747, -5.492482)
+
+[node name="OrbZone" parent="." index="13" unique_id=355930017 node_paths=PackedStringArray("snap_zone") instance=ExtResource("9_dc81h")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -2.94481, 1.1617064, -42.751312)
 snap_zone = NodePath("SnapZone")
 
 [node name="SnapZone" parent="OrbZone" index="2" unique_id=196446404 instance=ExtResource("10_rd1wc")]
@@ -167,44 +186,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.013338089, 0)
 grab_distance = 0.5
 snap_mode = 1
 
-[node name="ZoneSwitchArea" parent="." index="10" unique_id=1777215817 instance=ExtResource("11_1ueus")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1098721, -0.04396993, -20.62424)
-zone_scene = "uid://b64v7w5y3yghi"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ZoneSwitchArea" index="0" unique_id=1628994749]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.79107666, 0.3034668)
-shape = SubResource("BoxShape3D_bliy4")
-
-[node name="Rock" parent="." index="11" unique_id=1474957477 instance=ExtResource("12_p1yme")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.44363785, 0.84910166, -3.0620534)
-
-[node name="falling_into_hole_check" parent="." index="12" unique_id=349897076 node_paths=PackedStringArray("replay") instance=ExtResource("13_j4pjh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.055441618, -13.148917, -8.372471)
-replay = NodePath("../Replay")
-
-[node name="platform" parent="." index="13" unique_id=118022216 node_paths=PackedStringArray("triggers") instance=ExtResource("14_0fop0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.351176, -0.12741697, -1.4286969)
-move_distance = 8.0
-triggers_required = 1
-triggers = [NodePath("../OrbZone")]
-
-[node name="Ground" type="StaticBody3D" parent="." index="14" unique_id=1577630627]
-transform = Transform3D(0.13, 0, 0, 0, 0.13, 0, 0, 0, 0.13, 2.2210135, 1.0106908, -5.9617796)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground" index="0" unique_id=929459634]
-transform = Transform3D(1, 0, 0, 0, -4.3711392e-08, -1, 0, 1, -4.3711392e-08, 0, 0, -6.2426586)
-material_override = ExtResource("15_7ppec")
-mesh = SubResource("BoxMesh_0k8cp")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground" index="1" unique_id=36925898]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0983714, -0.047589302)
-shape = SubResource("BoxShape3D_n27nl")
-
-[node name="PressurePlate" parent="." index="15" unique_id=2007060334 instance=ExtResource("16_caoxr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2445273, 1.0765824, -6.8313904)
-
-[node name="Ground2" type="StaticBody3D" parent="." index="16" unique_id=838004037]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9.635899)
+[node name="Ground2" type="StaticBody3D" parent="." index="14" unique_id=838004037]
+transform = Transform3D(0.215, 0, 0, 0, 1, 0, 0, 0, 0.385, 0, 0, -3.2707822)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground2" index="0" unique_id=2056683957]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -0.5006769, 0)
@@ -215,8 +198,64 @@ mesh = SubResource("BoxMesh_exm5q")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0591965, -0.49784547, -0.19525146)
 shape = SubResource("BoxShape3D_4nnh0")
 
-[node name="falling_into_hole_check2" parent="." index="17" unique_id=1289523049 instance=ExtResource("13_j4pjh")]
+[node name="Ground5" type="StaticBody3D" parent="Ground2" index="2" unique_id=390106132]
+transform = Transform3D(9.255001, 0, 0, 0, 1, 0, 0, 0, 1, 0.4717359, 0.55643225, -97.71915)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground2/Ground5" index="0" unique_id=798876803]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 0.99999994, -4.371139e-08, 0, -0.97653246, 1.0661926)
+material_override = ExtResource("15_7ppec")
+mesh = SubResource("BoxMesh_l7txy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground2/Ground5" index="1" unique_id=724478774]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.9999998, -0.040579796, -0.9686403, 0.83290863)
+shape = SubResource("BoxShape3D_k2bym")
+
+[node name="falling_into_hole_check2" parent="." index="15" unique_id=1289523049 instance=ExtResource("13_j4pjh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.208046, -17.69836, -8.89982)
+
+[node name="platform" parent="." index="16" unique_id=118022216 node_paths=PackedStringArray("triggers") instance=ExtResource("14_0fop0")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1, 2, -7)
+move_distance = 16.0
+move_direction = Vector3(0, 0, -1)
+triggers_required = 1
+triggers = [NodePath("../PressurePlate")]
+
+[node name="Climbable" parent="platform" index="2" unique_id=1019366363 instance=ExtResource("17_1cgky")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 2, 0, 1, 0, -4.371139e-08, -1.0631485, -0.093575, 0.33704275)
+
+[node name="Climbable2" parent="platform" index="3" unique_id=188774361 instance=ExtResource("17_1cgky")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 2, 0, 1, 0, -4.371139e-08, -0.45813465, -0.093575, 0.2844432)
+
+[node name="Climbable3" parent="platform" index="4" unique_id=620175447 instance=ExtResource("17_1cgky")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 2, 0, 1, 0, -4.371139e-08, 0.2591133, -0.093575, 0.23418319)
+
+[node name="Climbable4" parent="platform" index="5" unique_id=1825151043 instance=ExtResource("17_1cgky")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 2, 0, 1, 0, -4.371139e-08, 0.93700695, -0.093575, 0.23793286)
+
+[node name="Climbable5" parent="platform" index="6" unique_id=622914318 instance=ExtResource("17_1cgky")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 2, 0, 1, 0, -4.371139e-08, 1.1800241, -0.093575, 0.47416258)
+
+[node name="platform2" parent="." index="17" unique_id=2010796067 node_paths=PackedStringArray("triggers") instance=ExtResource("14_0fop0")]
+transform = Transform3D(-0.010960491, 0, 0.9999399, 0, 1, 0, -0.9999399, 0, -0.010960491, 0.5, 2, -39.5)
+move_distance = 16.0
+move_direction = Vector3(0, 0, 1)
+triggers_required = 1
+triggers = [NodePath("../PressurePlate")]
+
+[node name="Climbable6" parent="platform2" index="2" unique_id=1772831150 instance=ExtResource("17_1cgky")]
+transform = Transform3D(-0.010960523, 0, -0.99994004, 0, 2, 0, 0.99994004, 0, -0.010960523, -1.2013092, -0.093575, -0.42725158)
+
+[node name="Climbable7" parent="platform2" index="3" unique_id=1691606258 instance=ExtResource("17_1cgky")]
+transform = Transform3D(-0.010960525, 0, -0.9999403, 0, 2, 0, 0.9999403, 0, -0.010960525, -0.8325691, -0.093575, -0.13088423)
+
+[node name="Climbable8" parent="platform2" index="4" unique_id=361884570 instance=ExtResource("17_1cgky")]
+transform = Transform3D(-0.010960524, 0, -0.99994016, 0, 2, 0, 0.99994016, 0, -0.010960524, -0.26844406, -0.093575, -0.111742854)
+
+[node name="Climbable9" parent="platform2" index="5" unique_id=1834240201 instance=ExtResource("17_1cgky")]
+transform = Transform3D(-0.010960524, 0, -0.99994016, 0, 2, 0, 0.99994016, 0, -0.010960524, 0.48840332, -0.093575, -0.20020652)
+
+[node name="Climbable10" parent="platform2" index="6" unique_id=1464725944 instance=ExtResource("17_1cgky")]
+transform = Transform3D(-0.010960524, 0, -0.99994016, 0, 2, 0, 0.99994016, 0, -0.010960524, 1.1085854, -0.093575, -0.1421138)
 
 [editable path="XROrigin3D/LeftHand/CollisionHandLeft/LeftHand"]
 [editable path="XROrigin3D/LeftHand/CollisionHandLeft/LeftHand/Hand_Nails_low_L"]
