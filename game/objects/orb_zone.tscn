@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://8nkd5dqhuixp"]
 
-[ext_resource type="Script" uid="uid://c70v1moguyy6o" path="res://game/objects/orb_zone.gd" id="1_je671"]
+[ext_resource type="Script" path="res://game/objects/orb_zone.gd" id="1_je671"]
 [ext_resource type="PackedScene" uid="uid://ns04nk6k3hhh" path="res://assets/player/orb_zone.glb" id="2_juonq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_je671"]

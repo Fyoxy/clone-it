@@ -31,4 +31,4 @@ func _on_area_entered(area):
 		if _tween:
 			_tween.kill()
 		_tween = create_tween()
-		_tween.tween_property(orb_material, "albedo_color:a", 0.0, 2.0)
+		_tween.tween_property(orb_material, "albedo_color:a", 0.0, 0.5)
