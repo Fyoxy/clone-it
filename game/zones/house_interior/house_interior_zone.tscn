@@ -223,18 +223,9 @@ mesh = SubResource("BoxMesh_aqhwm")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_7waf7")
 
-[node name="ToOutside" parent="." index="3" unique_id=1266377791 instance=ExtResource("7_jpwgk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.4147153)
-zone_scene = "res://game/zones/outside/outside_zone.tscn"
-spawn_node_name = "FromHouseInterior"
+[node name="FromOutside" type="Marker3D" parent="." index="3" unique_id=10841227]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ToOutside" index="0" unique_id=980466214]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
-shape = SubResource("BoxShape3D_rpfc0")
-
-[node name="FromOutside" type="Marker3D" parent="." index="4" unique_id=10841227]
-
-[node name="ToBackYard" parent="." index="5" unique_id=1995633734 instance=ExtResource("7_jpwgk")]
+[node name="ToBackYard" parent="." index="4" unique_id=1995633734 instance=ExtResource("7_jpwgk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15.785285)
 zone_scene = "res://game/zones/house_back_yard/house_back_yard_zone.tscn"
 spawn_node_name = "FromHouseInterior"
@@ -243,38 +234,38 @@ spawn_node_name = "FromHouseInterior"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 shape = SubResource("BoxShape3D_rpfc0")
 
-[node name="FromBackYard" type="Marker3D" parent="." index="6" unique_id=2018119737]
+[node name="FromBackYard" type="Marker3D" parent="." index="5" unique_id=2018119737]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -14.685285)
 
-[node name="door" parent="." index="7" unique_id=1633390491 node_paths=PackedStringArray("triggers") instance=ExtResource("11_2m2tq")]
+[node name="door" parent="." index="6" unique_id=1633390491 node_paths=PackedStringArray("triggers") instance=ExtResource("11_2m2tq")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, -15.4811125)
 triggers_required = 1
 triggers = [NodePath("../World/OrbZone")]
 
-[node name="anti_rock_wall" parent="." index="8" unique_id=2089020263 instance=ExtResource("13_4agua")]
+[node name="anti_rock_wall" parent="." index="7" unique_id=2089020263 instance=ExtResource("13_4agua")]
 transform = Transform3D(3, 0, 0, 0, 10.215, 0, 0, 0, 1, 0.08267217, 0.7535876, -7.1456313)
 
-[node name="rock_table2" parent="." index="10" unique_id=2039648538 instance=ExtResource("15_jplqq")]
+[node name="rock_table2" parent="." index="9" unique_id=2039648538 instance=ExtResource("15_jplqq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9335008, 0, -2.3087268)
 
-[node name="SpotLight3D" type="SpotLight3D" parent="." index="11" unique_id=1655176747]
+[node name="SpotLight3D" type="SpotLight3D" parent="." index="10" unique_id=1655176747]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2.182104, 3.093472, -2.278822)
 light_energy = 0.107
 spot_range = 3.000126
 spot_attenuation = -2.38
 spot_angle = 24.06
 
-[node name="OmniLight3D" type="OmniLight3D" parent="." index="12" unique_id=424960877]
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="11" unique_id=424960877]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5309815, -8.745548)
 light_energy = 7.811
 omni_range = 116.57
 omni_attenuation = 1.434
 
-[node name="falling_into_hole_check" parent="." index="13" unique_id=349897076 node_paths=PackedStringArray("replay") instance=ExtResource("5_jplqq")]
+[node name="falling_into_hole_check" parent="." index="12" unique_id=349897076 node_paths=PackedStringArray("replay") instance=ExtResource("5_jplqq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0344243, -15.810426, -8.51602)
 replay = NodePath("../Replay")
 
-[node name="HouseEntrance" type="Node3D" parent="." index="14" unique_id=1068771345]
+[node name="HouseEntrance" type="Node3D" parent="." index="13" unique_id=1068771345]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -10.374647)
 
 [node name="Exterior" type="CSGPolygon3D" parent="HouseEntrance" index="0" unique_id=441334523]

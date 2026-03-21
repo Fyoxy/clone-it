@@ -11,6 +11,7 @@ size = Vector3(2.445, 0.105, 0.99)
 
 [node name="platform" type="StaticBody3D" unique_id=118022216]
 script = ExtResource("1_s8bxr")
+speed = 5.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=987953691]
 material_override = ExtResource("2_s8bxr")

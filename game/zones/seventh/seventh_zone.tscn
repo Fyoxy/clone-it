@@ -132,7 +132,7 @@ light_energy = 5.0
 omni_range = 105.678
 
 [node name="rock_table" parent="." index="6" unique_id=2039648538 instance=ExtResource("4_u6kvp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4130533, -0.04743457, -3.6386337)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4130533, -0.04743457, -0.7930238)
 
 [node name="door" parent="." index="7" unique_id=1633390491 instance=ExtResource("5_i6jp6")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.005839467, -0.043970406, -42.2323)
@@ -167,7 +167,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.79107666, 2.309723)
 shape = SubResource("BoxShape3D_bliy4")
 
 [node name="Rock" parent="." index="10" unique_id=1474957477 instance=ExtResource("10_jd1pa")]
-transform = Transform3D(0.5401082, 0, 0.8415957, 0, 1, 0, -0.8415957, 0, 0.5401082, 1.479688, 0.94310385, -3.9181335)
+transform = Transform3D(0.5401082, 0, 0.8415957, 0, 1, 0, -0.8415957, 0, 0.5401082, 1.3118991, 0.94310385, -0.7334709)
 
 [node name="falling_into_hole_check" parent="." index="11" unique_id=349897076 node_paths=PackedStringArray("replay") instance=ExtResource("11_7hd5x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.055441618, -13.148917, -19.48639)
@@ -192,7 +192,7 @@ shape = SubResource("BoxShape3D_k2bym")
 transform = Transform3D(0.215, 0, 0, 0, 1, 0, 0, 0, 0.385, 0, 0, -3.2707822)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground2" index="0" unique_id=2056683957]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -0.5006769, 0)
+transform = Transform3D(1.49, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -0.5006769, 0)
 material_override = ExtResource("15_gkhvf")
 mesh = SubResource("BoxMesh_exm5q")
 
@@ -204,10 +204,10 @@ shape = SubResource("BoxShape3D_dsuij")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.208046, -17.69836, -8.89982)
 
 [node name="rock_table2" parent="." index="17" unique_id=909710147 instance=ExtResource("4_u6kvp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.444767, -0.02831012, -3.6830816)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.444767, -0.02831012, -1.1296062)
 
 [node name="Rock2" parent="." index="18" unique_id=2010914093 instance=ExtResource("10_jd1pa")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.447226, 0.8964851, -3.602537)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.447226, 0.8964851, -1.0490615)
 
 [node name="Ground3" type="StaticBody3D" parent="." index="19" unique_id=1092598044]
 transform = Transform3D(-2.1855695e-09, 0, 0.385, 0, 1, 0, -0.05, 0, -1.6828885e-08, 5.7947507, 0, -3.2707822)
@@ -234,13 +234,13 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -
 shape = SubResource("BoxShape3D_dsuij")
 
 [node name="anti_rock_wall" parent="." index="21" unique_id=2089020263 instance=ExtResource("14_aeo0c")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 4.695, 0, -1, 0, -4.371139e-08, -7.167707, 1.4993234, -3.2676222)
+transform = Transform3D(-9.113825e-08, 0, 1, 0, 4.695, 0, -2.085, 0, -4.371139e-08, -7.167707, 1.4993234, -3.2676222)
 
 [node name="anti_rock_wall2" parent="." index="22" unique_id=727414 instance=ExtResource("14_aeo0c")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 4.695, 0, -1, 0, -4.371139e-08, 7.057406, 1.4993234, -3.5071058)
+transform = Transform3D(-8.917123e-08, 0, 1, 0, 4.695, 0, -2.04, 0, -4.371139e-08, 7.057406, 1.4993234, -3.1641142)
 
 [node name="OrbZone" parent="." index="23" unique_id=598565327 node_paths=PackedStringArray("snap_zone") instance=ExtResource("13_houiv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.733273, 0.46244967, -3.4843147)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.733273, 1.3138024, -3.4843147)
 snap_zone = NodePath("SnapZone")
 
 [node name="SnapZone" parent="OrbZone" index="2" unique_id=1510801392 instance=ExtResource("14_t1nlm")]
@@ -248,7 +248,7 @@ grab_distance = 0.5
 snap_mode = 1
 
 [node name="OrbZone2" parent="." index="24" unique_id=1852745157 node_paths=PackedStringArray("snap_zone") instance=ExtResource("13_houiv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.587421, 0.46245039, -3.3015027)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.587421, 1.4934772, -3.3015027)
 snap_zone = NodePath("SnapZone")
 
 [node name="SnapZone" parent="OrbZone2" index="2" unique_id=41752671 instance=ExtResource("14_t1nlm")]
@@ -256,55 +256,48 @@ grab_distance = 0.5
 snap_mode = 1
 
 [node name="platform" parent="." index="25" unique_id=118022216 node_paths=PackedStringArray("triggers") instance=ExtResource("16_f6vxx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.571835, 0, -7.948)
+transform = Transform3D(1.4, 0, 0, 0, 1, 0, 0, 0, 1.5, -9.592485, -0.077807486, -7.4221754)
 move_distance = 20.0
 triggers_required = 1
 triggers = [NodePath("../PressurePlate")]
 
-[node name="platform2" parent="." index="26" unique_id=945652212 node_paths=PackedStringArray("triggers") instance=ExtResource("16_f6vxx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 0, -9.285)
-move_distance = 20.0
-move_direction = Vector3(-1, 0, 0)
-triggers_required = 1
-triggers = [NodePath("../PressurePlate")]
-
-[node name="platform3" parent="." index="27" unique_id=1005005837 node_paths=PackedStringArray("triggers") instance=ExtResource("16_f6vxx")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.067, 1.877, -5)
+[node name="platform3" parent="." index="26" unique_id=1005005837 node_paths=PackedStringArray("triggers") instance=ExtResource("16_f6vxx")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.9216456, 1.877, -5)
 move_distance = 35.0
 move_direction = Vector3(0, 0, -1)
 triggers_required = 2
 triggers = [NodePath("../OrbZone"), NodePath("../OrbZone2")]
 
-[node name="OrbZone3" parent="." index="28" unique_id=455860986 node_paths=PackedStringArray("snap_zone") instance=ExtResource("13_houiv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0926136, 0.46244976, -0.9958851)
+[node name="Climbable" parent="platform3" index="2" unique_id=1019366363 instance=ExtResource("17_5uprl")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.1537335, -0.093575, 0.032764085)
+
+[node name="Climbable2" parent="platform3" index="3" unique_id=1244544187 instance=ExtResource("17_5uprl")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.8819065, -0.093575, 0.021306515)
+
+[node name="Climbable3" parent="platform3" index="4" unique_id=518054533 instance=ExtResource("17_5uprl")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.5853634, -0.093575, 0.021290071)
+
+[node name="Climbable4" parent="platform3" index="5" unique_id=1835931168 instance=ExtResource("17_5uprl")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.22806358, -0.093575, 0.028464556)
+
+[node name="Climbable5" parent="platform3" index="6" unique_id=1013474382 instance=ExtResource("17_5uprl")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.17711163, -0.093575, -0.0038003922)
+
+[node name="Climbable6" parent="platform3" index="7" unique_id=1490653029 instance=ExtResource("17_5uprl")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.7879305, -0.093575, -0.037532922)
+
+[node name="OrbZone3" parent="." index="27" unique_id=455860986 node_paths=PackedStringArray("snap_zone") instance=ExtResource("13_houiv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0926136, 1.1589804, 0.8086284)
 snap_zone = NodePath("SnapZone")
 
 [node name="SnapZone" parent="OrbZone3" index="2" unique_id=1079515513 instance=ExtResource("14_t1nlm")]
 grab_distance = 0.5
 snap_mode = 1
 
-[node name="Climbable" parent="." index="29" unique_id=1019366363 instance=ExtResource("17_5uprl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09976413, 1.783425, -3.8462665)
-
-[node name="Climbable2" parent="." index="30" unique_id=1244544187 instance=ExtResource("17_5uprl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08830655, 1.783425, -4.1180935)
-
-[node name="Climbable3" parent="." index="31" unique_id=518054533 instance=ExtResource("17_5uprl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.088290095, 1.783425, -4.4146366)
-
-[node name="Climbable4" parent="." index="32" unique_id=1835931168 instance=ExtResource("17_5uprl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.095464565, 1.783425, -4.7719364)
-
-[node name="Climbable5" parent="." index="33" unique_id=1013474382 instance=ExtResource("17_5uprl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0631996, 1.783425, -5.1771116)
-
-[node name="Climbable6" parent="." index="34" unique_id=1490653029 instance=ExtResource("17_5uprl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.029467043, 1.783425, -5.7879305)
-
-[node name="rock_table3" parent="." index="35" unique_id=1825027160 instance=ExtResource("4_u6kvp")]
+[node name="rock_table3" parent="." index="28" unique_id=1825027160 instance=ExtResource("4_u6kvp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7575994, 0.08580828, -40.389694)
 
-[node name="Rock3" parent="." index="36" unique_id=2121191151 instance=ExtResource("10_jd1pa")]
+[node name="Rock3" parent="." index="29" unique_id=2121191151 instance=ExtResource("10_jd1pa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7736156, 1.0519996, -40.38953)
 
 [editable path="XROrigin3D/LeftHand/CollisionHandLeft/LeftHand"]

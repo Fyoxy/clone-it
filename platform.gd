@@ -8,10 +8,10 @@ func open():
 	if _tween:
 		_tween.kill()
 	_tween = create_tween()
-	_tween.tween_property(self, "global_position", forward_pos, 3.0)
+	_tween.tween_property(self, "global_position", forward_pos, speed)
 
 func close():
 	if _tween:
 		_tween.kill()
 	_tween = create_tween()
-	_tween.tween_property(self, "global_position", starting_pos, 3.0)
+	_tween.tween_property(self, "global_position", starting_pos, speed)

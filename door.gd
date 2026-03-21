@@ -1,6 +1,6 @@
 class_name BaseDoor
 extends StaticBody3D
-
+@export var speed: float = 3
 @export var triggers_required: int = 3
 @export var triggers: Array[Node]
 var _trigger_count = 0
