@@ -17,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://vm423o6hdlya" path="res://components/helpers/zone_switch_area.tscn" id="14_p1vo2"]
 [ext_resource type="PackedScene" uid="uid://caibmcep4qklc" path="res://new_assets/textures/falling_in_hole_check.tscn" id="15_7dimg"]
 [ext_resource type="PackedScene" uid="uid://bfaf757s1ds0k" path="res://platform.tscn" id="16_3omw2"]
-[ext_resource type="PackedScene" uid="uid://c321ptldlqtnj" path="res://pressure_plate.tscn" id="18_vwrnl"]
+[ext_resource type="PackedScene" uid="uid://jxyltxn0rpqt" path="res://pressure_plate.tscn" id="18_vwrnl"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3omw2"]
 animation = &"Grip"
@@ -100,6 +100,9 @@ size = Vector3(19.72625, 1.2465475, 18.812048)
 [node name="FourthZoneLevel" unique_id=1616403681 instance=ExtResource("1_dww1u")]
 zone_info = ExtResource("2_iyxpr")
 
+[node name="XROrigin3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.2324053)
+
 [node name="AnimationTree" parent="XROrigin3D/LeftHand/CollisionHandLeft/LeftHand" parent_id_path=PackedInt32Array(1262692693) index="1"]
 tree_root = SubResource("AnimationNodeBlendTree_vk2ik")
 
@@ -123,11 +126,14 @@ light_energy = 5.0
 omni_range = 70.0
 
 [node name="anti_rock_wall" parent="." index="6" unique_id=2089020263 instance=ExtResource("6_6xm2n")]
-transform = Transform3D(6.03, 0, 0, 0, 1, 0, 0, 0, 1, -0.254, 1.212, -7.075749)
+transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 1, -2.0764544, 1.3778381, -7.7881613)
 collision_layer = 4
 
 [node name="anti_rock_ground" parent="." index="7" unique_id=216925156 instance=ExtResource("6_ha3p3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24, -0.039051056, -4.048)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15)
+
+[node name="anti_rock_wall2" parent="anti_rock_ground" index="2" unique_id=2089020263]
+transform = Transform3D(0.95, 0, 0, 0, -1.42062e-07, -1, 0, 3.25, -4.371139e-08, 0, 0, 0)
 
 [node name="rock_table" parent="." index="8" unique_id=2039648538 instance=ExtResource("7_enhcr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.64121366, -0.04743457, -3.2003345)
@@ -187,19 +193,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.055441618, -13.148917, -8.3
 replay = NodePath("../Replay")
 
 [node name="platform" parent="." index="17" unique_id=118022216 node_paths=PackedStringArray("triggers") instance=ExtResource("16_3omw2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.351176, -0.12741697, -0.61715126)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.351176, -0.12741697, -1.4286969)
 move_distance = 8.0
 triggers_required = 1
 triggers = [NodePath("../OrbZone2")]
 
 [node name="anti_rock_ground3" parent="." index="18" unique_id=442098609 instance=ExtResource("6_ha3p3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.225, -0.21100661, -0.08251119, -14.923237)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.25)
 
 [node name="Ground" type="StaticBody3D" parent="." index="19" unique_id=1577630627]
 transform = Transform3D(0.13, 0, 0, 0, 0.13, 0, 0, 0, 0.13, 11.46258, -0.109672666, -0.9469316)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground" index="0" unique_id=929459634]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, -4.3711392e-08, -1, 0, 1, -4.3711392e-08, 0, 0, -6.2426586)
 material_override = ExtResource("4_ym13e")
 mesh = SubResource("BoxMesh_0k8cp")
 
@@ -208,9 +214,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0983714, -0.047589302)
 shape = SubResource("BoxShape3D_n27nl")
 
 [node name="PressurePlate" parent="." index="20" unique_id=2007060334 instance=ExtResource("18_vwrnl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.4860935, -0.0437811, -1.0049963)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.4860935, -0.0437811, -1.8165419)
 
 [editable path="XROrigin3D/LeftHand/CollisionHandLeft/LeftHand"]
 [editable path="XROrigin3D/LeftHand/CollisionHandLeft/LeftHand/Hand_Nails_low_L"]
 [editable path="XROrigin3D/RightHand/CollisionHandRight/RightHand"]
 [editable path="XROrigin3D/RightHand/CollisionHandRight/RightHand/Hand_Nails_low_R"]
+[editable path="anti_rock_ground"]
