@@ -47,13 +47,13 @@ hand_pose = SubResource("Resource_vx8u2")
 
 [node name="HighlightRing" parent="." index="3" unique_id=673050213 instance=ExtResource("9_phgbo")]
 
-[node name="DeletionArea" type="Area3D" parent="." index="4" unique_id=461780453 node_paths=PackedStringArray("item", "animation_player", "orb")]
+[node name="DeletionArea" type="Area3D" parent="." index="4" unique_id=461780453 node_paths=PackedStringArray("item", "orb", "omni_light_3d")]
 collision_layer = 0
 collision_mask = 2147483648
 script = ExtResource("10_11n5c")
 item = NodePath("..")
-animation_player = NodePath("../orb/AnimationPlayer")
 orb = NodePath("../orb/Orb")
+omni_light_3d = NodePath("../orb/OmniLight3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DeletionArea" index="0" unique_id=1944668443]
 shape = SubResource("BoxShape3D_2bf8v")
