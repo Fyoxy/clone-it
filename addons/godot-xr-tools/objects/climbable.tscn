@@ -1,10 +1,26 @@
-[gd_scene load_steps=2 format=3 uid="uid://cjyilbm4ucc7s"]
+[gd_scene format=3 uid="uid://cjyilbm4ucc7s"]
 
 [ext_resource type="Script" uid="uid://bqb3cy0ekk685" path="res://addons/godot-xr-tools/objects/climbable.gd" id="1"]
 
-[node name="Climbable" type="StaticBody3D"]
-collision_layer = 262145
+[sub_resource type="BoxShape3D" id="BoxShape3D_rlsat"]
+size = Vector3(0.22592774, 0.18717249, 0.22152905)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rlsat"]
+albedo_color = Color(0.18039216, 1, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5sd3k"]
+material = SubResource("StandardMaterial3D_rlsat")
+size = Vector3(0.22, 0.155, 0.19)
+
+[node name="Climbable" type="StaticBody3D" unique_id=1019366363]
+collision_layer = 262144
 collision_mask = 0
 script = ExtResource("1")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=845671904]
+transform = Transform3D(0.565, 0, 0, 0, 0.565, 0, 0, 0, 0.565, 0.0023193322, -0.0019888356, -0.026593126)
+shape = SubResource("BoxShape3D_rlsat")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=538010461]
+transform = Transform3D(0.53, 0, 0, 0, 0.53, 0, 0, 0, 0.53, 0, 0, -0.024664655)
+mesh = SubResource("BoxMesh_5sd3k")
