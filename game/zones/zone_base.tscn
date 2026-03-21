@@ -162,11 +162,11 @@ jump_button_action = "ax_button"
 crouch_button_action = "by_button"
 
 [node name="WristUI" parent="XROrigin3D/LeftHand/CollisionHandLeft" index="6" unique_id=1543098121 instance=ExtResource("12_jg4e1")]
-transform = Transform3D(-0.014174839, 0.04396043, -0.5028834, -0.37278017, -0.34013414, -0.019225808, -0.3403823, 0.37067765, 0.041997775, -0.06086135, 0.10604954, 0.08651054)
-screen_size = Vector2(0.16, 0.08)
+transform = Transform3D(-0.014174841, 0.043960433, -0.50288326, -0.38416377, -0.3273041, -0.017783366, -0.3274804, 0.38205412, 0.0426286, -0.0626148, 0.11005288, 0.093337595)
+screen_size = Vector2(0.25, 0.1)
 collision_layer = 4194304
 scene = ExtResource("13_w2gnj")
-viewport_size = Vector2(400, 200)
+viewport_size = Vector2(600, 300)
 update_mode = 2
 throttle_fps = 15.0
 transparent = 0
@@ -174,7 +174,7 @@ unshaded = true
 scene_properties_keys = PackedStringArray("zone_wrist_ui.gd")
 
 [node name="pipboy" parent="XROrigin3D/LeftHand/CollisionHandLeft" index="7" unique_id=526557188 instance=ExtResource("13_mub2s")]
-transform = Transform3D(0.04998787, 0.00032473408, -0.0010512533, -0.00060945784, -0.03160212, -0.038741928, -0.00091605866, 0.03874537, -0.031590503, -0.00060272217, 0.11232811, 0.09006041)
+transform = Transform3D(0.049987894, 0.00032473681, -0.0014717658, -0.0006094579, -0.031602092, -0.05423869, -0.00091605977, 0.03874535, -0.04422668, -0.00060272217, 0.12140852, 0.09914082)
 
 [node name="MovementClimb" parent="XROrigin3D/LeftHand/CollisionHandLeft" index="8" unique_id=1141128938 instance=ExtResource("13_c4gvi")]
 
