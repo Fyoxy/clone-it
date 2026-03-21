@@ -136,7 +136,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4130533, -0.04743457, -3.63
 
 [node name="door" parent="." index="7" unique_id=1633390491 instance=ExtResource("5_i6jp6")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.005839467, -0.043970406, -42.2323)
-triggers_required = 1
 
 [node name="HouseEntrance" type="Node3D" parent="." index="8" unique_id=816986522]
 transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 0, -0.048377395, -37.112865)
@@ -168,7 +167,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.79107666, 2.309723)
 shape = SubResource("BoxShape3D_bliy4")
 
 [node name="Rock" parent="." index="10" unique_id=1474957477 instance=ExtResource("10_jd1pa")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3727757, 0.84910166, -3.5989037)
+transform = Transform3D(0.5401082, 0, 0.8415957, 0, 1, 0, -0.8415957, 0, 0.5401082, 1.479688, 0.94310385, -3.9181335)
 
 [node name="falling_into_hole_check" parent="." index="11" unique_id=349897076 node_paths=PackedStringArray("replay") instance=ExtResource("11_7hd5x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.055441618, -13.148917, -19.48639)
@@ -235,22 +234,26 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -
 shape = SubResource("BoxShape3D_dsuij")
 
 [node name="anti_rock_wall" parent="." index="21" unique_id=2089020263 instance=ExtResource("14_aeo0c")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 4.695, 0, -1, 0, -4.371139e-08, -7.167707, 1.4993234, -3.136962)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 4.695, 0, -1, 0, -4.371139e-08, -7.167707, 1.4993234, -3.2676222)
 
 [node name="anti_rock_wall2" parent="." index="22" unique_id=727414 instance=ExtResource("14_aeo0c")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 4.695, 0, -1, 0, -4.371139e-08, 7.057406, 1.4993234, -3.136962)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 4.695, 0, -1, 0, -4.371139e-08, 7.057406, 1.4993234, -3.5071058)
 
 [node name="OrbZone" parent="." index="23" unique_id=598565327 node_paths=PackedStringArray("snap_zone") instance=ExtResource("13_houiv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.067099, 0.46244967, -3.4843147)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.733273, 0.46244967, -3.4843147)
 snap_zone = NodePath("SnapZone")
 
 [node name="SnapZone" parent="OrbZone" index="2" unique_id=1510801392 instance=ExtResource("14_t1nlm")]
+grab_distance = 0.5
+snap_mode = 1
 
 [node name="OrbZone2" parent="." index="24" unique_id=1852745157 node_paths=PackedStringArray("snap_zone") instance=ExtResource("13_houiv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.903378, 0.46245039, -3.3015027)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.587421, 0.46245039, -3.3015027)
 snap_zone = NodePath("SnapZone")
 
 [node name="SnapZone" parent="OrbZone2" index="2" unique_id=41752671 instance=ExtResource("14_t1nlm")]
+grab_distance = 0.5
+snap_mode = 1
 
 [node name="platform" parent="." index="25" unique_id=118022216 node_paths=PackedStringArray("triggers") instance=ExtResource("16_f6vxx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.571835, 0, -7.948)
@@ -277,6 +280,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0926136, 0.46244976, -0.995
 snap_zone = NodePath("SnapZone")
 
 [node name="SnapZone" parent="OrbZone3" index="2" unique_id=1079515513 instance=ExtResource("14_t1nlm")]
+grab_distance = 0.5
+snap_mode = 1
 
 [node name="Climbable" parent="." index="29" unique_id=1019366363 instance=ExtResource("17_5uprl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09976413, 1.783425, -3.8462665)

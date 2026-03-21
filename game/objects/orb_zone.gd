@@ -22,7 +22,7 @@ func _ready():
 		
 func _on_picked_up(what):
 	triggered.emit(1)
-	audio_stream_player_3d.play()
+	#audio_stream_player_3d.play()
 	reset_rotation(1.0)
 
 func _on_dropped():
