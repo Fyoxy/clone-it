@@ -1,4 +1,5 @@
 extends Area3D
+
 @export var item: XRToolsPickable
 @export var orb: MeshInstance3D
 @export var omni_light_3d: OmniLight3D
@@ -26,12 +27,17 @@ func reset():
 		orb_material.albedo_color = Color("#2b5fedc8")
 
 func _on_area_entered(area):
-	audio_stream_player_3d.play()
-	set_collision_mask_value(32, false)
-	item.enabled = false
-	if omni_light_3d:
-		omni_light_3d.light_energy = 0.0
-		if _tween:
-			_tween.kill()
-		_tween = create_tween()
-		_tween.tween_property(orb_material, "albedo_color:a", 0.0, 0.5)
+	if area is not XRToolsSnapZone:
+		audio_stream_player_3d.play()
+		set_collision_mask_value(32, false)
+		item.enabled = false
+		if omni_light_3d:
+			omni_light_3d.light_energy = 0.0
+			if _tween:
+				_tween.kill()
+			_tween = create_tween()
+			_tween.tween_property(orb_material, "albedo_color:a", 0.0, 0.5)
+
+func _on_area_exited(area):
+	if area is XRToolsSnapZone and area.picked_up_object == get_parent_node_3d():
+		area.drop_object()
