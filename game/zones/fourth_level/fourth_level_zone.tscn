@@ -173,6 +173,8 @@ snap_zone = NodePath("SnapZone")
 
 [node name="SnapZone" parent="OrbZone2" index="2" unique_id=196446404 instance=ExtResource("13_p1vo2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.013338089, 0)
+grab_distance = 0.5
+snap_mode = 1
 
 [node name="ZoneSwitchArea" parent="." index="13" unique_id=1777215817 instance=ExtResource("14_p1vo2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1098721, -0.04396993, -20.62424)
