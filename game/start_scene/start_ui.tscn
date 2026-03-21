@@ -45,6 +45,11 @@ text = "Level 6"
 layout_mode = 2
 text = "Level 7"
 
+[node name="LoadGameBtn" type="Button" parent="MainMenu" unique_id=1554119550]
+visible = false
+layout_mode = 2
+text = "Level 7"
+
 [node name="OptionsBtn" type="Button" parent="MainMenu" unique_id=1284208285]
 layout_mode = 2
 text = "Options
