@@ -101,6 +101,9 @@ size = Vector2(20, 100)
 [sub_resource type="BoxShape3D" id="BoxShape3D_rt8ms"]
 size = Vector3(20, 4, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_hbt5f"]
+size = Vector3(4.982544, 1, 10.453947)
+
 [node name="FourthZoneLevel" unique_id=1616403681 instance=ExtResource("1_3kcpp")]
 zone_info = ExtResource("2_gaah3")
 
@@ -502,14 +505,7 @@ mesh = SubResource("BoxMesh_exm5q")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground5" index="1" unique_id=1118646093]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.040579796, -0.49784565, 0.8329172)
-shape = SubResource("BoxShape3D_4nnh0")
-
-[node name="Ground6" type="StaticBody3D" parent="." index="23" unique_id=2122433513]
-transform = Transform3D(0.69, 0, 0, 0, 1, 0, 0, 0, 1, -0.04598713, 8.394184, -16.799227)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground6" index="0" unique_id=1850969727]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0591965, -0.49784547, -0.19525146)
-shape = SubResource("BoxShape3D_4nnh0")
+shape = SubResource("BoxShape3D_hbt5f")
 
 [editable path="XROrigin3D/LeftHand/CollisionHandLeft/LeftHand"]
 [editable path="XROrigin3D/LeftHand/CollisionHandLeft/LeftHand/Hand_Nails_low_L"]

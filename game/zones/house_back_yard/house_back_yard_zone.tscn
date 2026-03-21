@@ -10,7 +10,7 @@
 [ext_resource type="Material" uid="uid://cjylinr1vdjcw" path="res://assets/prototype_materials/dark_brown.tres" id="5_goc1s"]
 [ext_resource type="PackedScene" uid="uid://vm423o6hdlya" path="res://components/helpers/zone_switch_area.tscn" id="6_tlcot"]
 [ext_resource type="PackedScene" uid="uid://caibmcep4qklc" path="res://new_assets/textures/falling_in_hole_check.tscn" id="7_2t4qn"]
-[ext_resource type="PackedScene" uid="uid://c321ptldlqtnj" path="res://pressure_plate.tscn" id="7_4lii0"]
+[ext_resource type="PackedScene" uid="uid://jxyltxn0rpqt" path="res://pressure_plate.tscn" id="7_4lii0"]
 [ext_resource type="Material" uid="uid://203vupf345t2" path="res://new_assets/textures/door_texture.tres" id="7_inkkc"]
 [ext_resource type="PackedScene" uid="uid://bfaf757s1ds0k" path="res://platform.tscn" id="10_6x1n0"]
 
@@ -80,7 +80,7 @@ node_connections = [&"output", 0, &"Grip", &"Grip", 0, &"Trigger", &"Grip", 1, &
 size = Vector3(20, 19, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uk6lx"]
-size = Vector3(19.99208, 0.9390707, 18.599207)
+size = Vector3(19.99208, 0.9390707, 18.24992)
 
 [sub_resource type="QuadMesh" id="QuadMesh_iva63"]
 material = ExtResource("2_2nr20")
@@ -182,7 +182,7 @@ material_override = ExtResource("4_inkkc")
 mesh = SubResource("BoxMesh_xl8gc")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Ground3" index="1" unique_id=1856459192]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0591965, -0.49784547, -0.19525146)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0591965, -0.49784547, -0.36989403)
 shape = SubResource("BoxShape3D_uk6lx")
 
 [node name="Boundary1" type="StaticBody3D" parent="World" index="6" unique_id=2031796086]

@@ -83,9 +83,6 @@ size = Vector3(5, 50, 24)
 [sub_resource type="BoxMesh" id="BoxMesh_i3o1q"]
 size = Vector3(25, 24, 1)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_j0qyq"]
-size = Vector3(25, 24, 1)
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_ixvyx"]
 size = Vector3(5, 24, 50.272705)
 
@@ -151,17 +148,7 @@ surface_material_override/0 = ExtResource("4_7d1xl")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Ground" index="1" unique_id=1331070080]
 shape = SubResource("BoxShape3D_cuabg")
 
-[node name="Ground2" type="StaticBody3D" parent="World" index="3" unique_id=940814897]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 10.706406, 4.6799187e-07)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="World/Ground2" index="0" unique_id=1435227912]
-mesh = SubResource("BoxMesh_i3o1q")
-surface_material_override/0 = ExtResource("4_7d1xl")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Ground2" index="1" unique_id=653971989]
-shape = SubResource("BoxShape3D_j0qyq")
-
-[node name="Ground3" type="StaticBody3D" parent="World" index="4" unique_id=1501950567]
+[node name="Ground3" type="StaticBody3D" parent="World" index="3" unique_id=1501950567]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -51.322544, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="World/Ground3" index="0" unique_id=1450197615]
@@ -173,7 +160,7 @@ surface_material_override/0 = ExtResource("4_7d1xl")
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 shape = SubResource("BoxShape3D_ixvyx")
 
-[node name="Boundary1" type="StaticBody3D" parent="World" index="5" unique_id=1479318584]
+[node name="Boundary1" type="StaticBody3D" parent="World" index="4" unique_id=1479318584]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -10)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="World/Boundary1" index="0" unique_id=1704721806]
@@ -184,7 +171,7 @@ mesh = SubResource("QuadMesh_mq77n")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Boundary1" index="1" unique_id=781092005]
 shape = SubResource("BoxShape3D_cvifd")
 
-[node name="Boundary2" type="StaticBody3D" parent="World" index="6" unique_id=1187609916]
+[node name="Boundary2" type="StaticBody3D" parent="World" index="5" unique_id=1187609916]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 10, 2, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="World/Boundary2" index="0" unique_id=1517828612]
@@ -195,7 +182,7 @@ mesh = SubResource("QuadMesh_mq77n")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Boundary2" index="1" unique_id=509033912]
 shape = SubResource("BoxShape3D_cvifd")
 
-[node name="Boundary3" type="StaticBody3D" parent="World" index="7" unique_id=636775114]
+[node name="Boundary3" type="StaticBody3D" parent="World" index="6" unique_id=636775114]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 2, 10)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="World/Boundary3" index="0" unique_id=992939865]
@@ -206,7 +193,7 @@ mesh = SubResource("QuadMesh_mq77n")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Boundary3" index="1" unique_id=1813730508]
 shape = SubResource("BoxShape3D_cvifd")
 
-[node name="Boundary4" type="StaticBody3D" parent="World" index="8" unique_id=1483944208]
+[node name="Boundary4" type="StaticBody3D" parent="World" index="7" unique_id=1483944208]
 transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -10, 2, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="World/Boundary4" index="0" unique_id=2071227924]
@@ -217,16 +204,16 @@ mesh = SubResource("QuadMesh_mq77n")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Boundary4" index="1" unique_id=207228604]
 shape = SubResource("BoxShape3D_cvifd")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="World" index="9" unique_id=1908306326]
+[node name="OmniLight3D" type="OmniLight3D" parent="World" index="8" unique_id=1908306326]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.178031, -0.7463958)
 light_energy = 0.1
 light_bake_mode = 1
 omni_range = 31.057198
 omni_attenuation = -1.482
 
-[node name="LightmapGI" type="LightmapGI" parent="World" index="10" unique_id=475569744]
+[node name="LightmapGI" type="LightmapGI" parent="World" index="9" unique_id=475569744]
 
-[node name="Ground4" type="StaticBody3D" parent="World" index="11" unique_id=1867711183]
+[node name="Ground4" type="StaticBody3D" parent="World" index="10" unique_id=1867711183]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.8655353, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Ground4" index="0" unique_id=166429399]
