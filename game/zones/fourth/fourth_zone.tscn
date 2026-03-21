@@ -185,7 +185,7 @@ shape = SubResource("BoxShape3D_bliy4")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.485392, 0.92615604, -3.0454748)
 
 [node name="Rock2" parent="." index="14" unique_id=136481074 instance=ExtResource("14_lbw36")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8316846, 0.84910166, -3.339911)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.64457023, 0.84910166, -3.1076899)
 
 [node name="falling_into_hole_check" parent="." index="15" unique_id=349897076 node_paths=PackedStringArray("replay") instance=ExtResource("15_6csj5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.055441618, -13.148917, -8.372471)
