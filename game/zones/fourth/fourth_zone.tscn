@@ -113,7 +113,7 @@ tree_root = SubResource("AnimationNodeBlendTree_iqkah")
 environment = ExtResource("3_6fnxa")
 
 [node name="FromThirdLevel" type="Marker3D" parent="." index="3" unique_id=308033156]
-transform = Transform3D(1, 0, 0, 0, 0.99999917, 0.00127409, 0, -0.00127409, 0.99999917, 0, 0, 0.0022449493)
+transform = Transform3D(1, 0, 0, 0, 0.99999917, 0.00127409, 0, -0.00127409, 0.99999917, 0, 0.48213315, -1.4497237)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." index="4" unique_id=553509657]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -20.052317)
@@ -233,7 +233,13 @@ triggers_required = 1
 triggers = [NodePath("../PressurePlate")]
 
 [node name="anti_rock_wall" parent="." index="24" unique_id=980462381 instance=ExtResource("4_0dc8b")]
-transform = Transform3D(2.58, 0, 0, 0, 1, 0, 0, 0, 1, 0.09436941, 1.4716902, -7.7358747)
+transform = Transform3D(2.745, 0, 0, 0, 6.46, 0, 0, 0, 1, 0.09436941, 1.4716902, -7.7358747)
+
+[node name="anti_rock_ground5" parent="." index="26" unique_id=63718369 instance=ExtResource("5_hanac")]
+transform = Transform3D(-4.371139e-08, 0, 0.665, 0, 1, 0, -1, 0, -2.9068074e-08, -4.6232166, 0, -1.7692164)
+
+[node name="anti_rock_ground6" parent="." index="27" unique_id=1402696087 instance=ExtResource("5_hanac")]
+transform = Transform3D(0.8338857, 0, 0.38635588, 0, 1, 0, -0.5519369, 0, 0.58372, -7.828404, 0, -4.084296)
 
 [editable path="XROrigin3D/LeftHand/CollisionHandLeft/LeftHand"]
 [editable path="XROrigin3D/LeftHand/CollisionHandLeft/LeftHand/Hand_Nails_low_L"]

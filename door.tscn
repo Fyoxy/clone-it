@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cokp6j8qwymd6" path="res://assets/main_texture.png" id="2_v6xrn"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hun61"]
-size = Vector3(1, 2.3083496, 1)
+size = Vector3(0.4333496, 2.2556152, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0phs7"]
 albedo_texture = ExtResource("2_v6xrn")
@@ -16,7 +16,7 @@ size = Vector3(0.415, 2.215, 1)
 script = ExtResource("1_ba8gm")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=935444793]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1275635, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00036621094, 1.1011963, 0)
 shape = SubResource("BoxShape3D_hun61")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2100423417]

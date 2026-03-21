@@ -161,7 +161,7 @@ shape = SubResource("BoxShape3D_7dimg")
 
 [node name="ZoneSwitchArea" parent="." index="9" unique_id=1777215817 instance=ExtResource("11_1ueus")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1098721, -0.04396993, -45.554092)
-zone_scene = "uid://b64v7w5y3yghi"
+zone_scene = "uid://duvw4khnchviq"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ZoneSwitchArea" index="0" unique_id=1628994749]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.79107666, 2.309723)
