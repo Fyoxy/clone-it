@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cl8q8f32imusk" path="res://game/start_scene/start_ui.tscn" id="5_grt1o"]
 [ext_resource type="Material" uid="uid://dcnyr8ib7lbni" path="res://new_assets/textures/ground_texture.tres" id="5_mmkt7"]
 [ext_resource type="Material" uid="uid://bfw7to8v7lqhq" path="res://new_assets/textures/wall_texture.tres" id="7_vljj3"]
+[ext_resource type="PackedScene" uid="uid://d25hexs4dq748" path="res://game/zones/fourth/fourth_zone.tscn" id="10_mmkt7"]
 
 [sub_resource type="Environment" id="Environment_oplr7"]
 background_energy_multiplier = 0.34
@@ -29,21 +30,21 @@ size = Vector2(12, 4)
 [sub_resource type="BoxShape3D" id="BoxShape3D_w6gh2"]
 size = Vector3(12, 4, 1)
 
-[sub_resource type="QuadMesh" id="QuadMesh_o3q1p"]
+[sub_resource type="QuadMesh" id="QuadMesh_vljj3"]
 resource_local_to_scene = true
 size = Vector2(3, 2)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_mmkt7"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_mbxkw"]
 viewport_path = NodePath("Screen/Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vljj3"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gawvq"]
 transparency = 1
 cull_mode = 2
 shading_mode = 0
-albedo_texture = SubResource("ViewportTexture_mmkt7")
+albedo_texture = SubResource("ViewportTexture_mbxkw")
 texture_filter = 1
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_mbxkw"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_l8pcm"]
 resource_local_to_scene = true
 size = Vector3(3, 2, 0.02)
 
@@ -142,20 +143,29 @@ mesh = SubResource("QuadMesh_vi1r3")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_3ap0s")
 
-[node name="Screen" parent="." index="2" unique_id=785019571 instance=ExtResource("4_7pgy0")]
+[node name="Screen" parent="." index="2" unique_id=785019571 node_paths=PackedStringArray("level_buttons") instance=ExtResource("4_7pgy0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -3)
 scene = ExtResource("5_grt1o")
+viewport_size = Vector2(400, 300)
 update_mode = 2
 throttle_fps = 15.0
 transparent = 1
 unshaded = true
-scene_properties_keys = PackedStringArray("start_ui.gd")
+scene_properties_keys = PackedStringArray("start_ui.gd", "starting_zone", "level_buttons")
+starting_zone = ExtResource("10_mmkt7")
+level_buttons = []
+
+[node name="Viewport" parent="Screen" index="0"]
+size = Vector2i(400, 300)
 
 [node name="Screen" parent="Screen" index="1"]
-mesh = SubResource("QuadMesh_o3q1p")
-surface_material_override/0 = SubResource("StandardMaterial3D_vljj3")
+mesh = SubResource("QuadMesh_vljj3")
+surface_material_override/0 = SubResource("StandardMaterial3D_gawvq")
+
+[node name="StaticBody3D" parent="Screen" index="2"]
+viewport_size = Vector2(400, 300)
 
 [node name="CollisionShape3D" parent="Screen/StaticBody3D" index="0"]
-shape = SubResource("BoxShape3D_mbxkw")
+shape = SubResource("BoxShape3D_l8pcm")
 
 [editable path="Screen"]
