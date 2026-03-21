@@ -16,12 +16,13 @@ func _ready():
 func reset():
 	if _tween:
 		_tween.kill()
+		
 	get_parent().global_position = starting_position
 	set_collision_mask_value(32, true)
 	item.enabled = true
 	if orb and orb_material:
 		omni_light_3d.light_energy = 3.0
-		orb_material.albedo_color = Color("2b5fedc8")
+		orb_material.albedo_color = Color("#2b5fedc8")
 
 func _on_area_entered(area):
 	set_collision_mask_value(32, false)

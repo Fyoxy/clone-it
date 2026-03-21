@@ -257,7 +257,6 @@ func drop_and_free():
 # Called when this object is picked up
 func pick_up(by: Node3D) -> void:
 	freeze = false
-	_object_grabbed = true
 	
 	# Skip if not enabled
 	if not enabled:
@@ -326,6 +325,10 @@ func pick_up(by: Node3D) -> void:
 	# Report picked up and grabbed
 	picked_up.emit(self)
 	grabbed.emit(self, by)
+
+	# Check if picked up by hand only to trigger for rewind
+	if get_picked_up_by() is not Area3D:
+		_object_grabbed = true
 
 
 # Called when this object is dropped

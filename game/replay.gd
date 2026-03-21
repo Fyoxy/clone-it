@@ -58,7 +58,7 @@ func print_tracked_bodies():
 			for pair in entry["data"]:
 				print("    Pos: %s" % pair[0])
 			print("")
-			
+
 # Advances clone number and creates new clone with base data
 # Resets all bodies grabbed to false so they would not be ignored every tick
 func play():
@@ -67,10 +67,14 @@ func play():
 	add_child(newClone)
 	
 	for body in tracked_bodies[clone_num]:
+		#print_tracked_bodies()
 		if body["node"] is XRToolsPickable:
 			body["node"]._object_grabbed = false
 			# Fixed deletion area, not the best method but works as temp for jam
+			# Needs to be here so it would not start tweening final positions
+			# Kind of repeating itself since it is called in reset player pos also
 			body["node"].get_node("DeletionArea").reset()
+			
 		
 	clone_num += 1
 	
@@ -84,7 +88,6 @@ func play():
 		})
 		
 
-	reset_player_pos()
 	maxTicks = 99999999999999
 	tickCounter = 0
 
@@ -139,12 +142,22 @@ func delete_last_clone():
 				deletion_area.reset()
 				
 		tickCounter = 0
+		
 
 func reset_player_pos():
+	for snap_zone in get_tree().get_nodes_in_group("snap_zone"):
+		snap_zone.drop_object()
+		
+	for body in tracked_bodies[clone_num]:
+		#print_tracked_bodies()
+		if body["node"] is XRToolsPickable:
+			body["node"].get_node("DeletionArea").reset()
 	# Reset player position and tick limit and counter
 	# Bumps player pos 1 up so spawn not in ground hopefully
 	for triggerable in get_tree().get_nodes_in_group("door"):
 		triggerable._trigger_count = 0
+	
+
 		
 	player_node.global_position = player_initial_position + Vector3(0, 1, 0)
 	tick_timer.start()
@@ -164,22 +177,24 @@ func _on_tick_timer_timeout():
 					body["node"].angular_velocity = Vector3.ZERO
 		tick_timer.stop()
 		return
-
-	for body in tracked_bodies[tracked_bodies.size()-1]:
-			add_data(body["name"], body["node"].global_position)
 			
 	# TODO: Should also freeze bodies when force moving rigidbody objects
 	# body["node"].freeze = true
 	# and unfreeze if no longer playing or object grabbed?
 	
+	if tickCounter == 0:
+		reset_player_pos()
+	
 	if tracked_bodies.size() > 1:
-		# First loop through Pickable Items and follow set path
 		for body in tracked_bodies[tracked_bodies.size()-2]:
 			if body["node"] is XRToolsPickable and !body["node"]._object_grabbed:
 				if tickCounter < body["data"].size():
-					var tween = get_tree().create_tween()
 					body["node"].freeze = true
-					tween.tween_property(body["node"], "global_position", body["data"][tickCounter], 0.05)
+					if tickCounter == 0:
+						body["node"].global_position = body["data"][tickCounter]
+					else:
+						var tween = get_tree().create_tween()
+						tween.tween_property(body["node"], "global_position", body["data"][tickCounter], 0.05)
 		
 		# Secondly loop through the clone bodies
 		for key in tracked_bodies:
@@ -192,4 +207,6 @@ func _on_tick_timer_timeout():
 						tween.tween_property(clones[key], "global_position", body["data"][tickCounter], 0.05)
 
 	# TODO: If tick counter 0 then set position rather than tweening it
+	for body in tracked_bodies[tracked_bodies.size()-1]:
+		add_data(body["name"], body["node"].global_position)
 	tickCounter += 1
