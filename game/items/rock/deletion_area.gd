@@ -2,6 +2,7 @@ extends Area3D
 @export var item: XRToolsPickable
 @export var orb: MeshInstance3D
 @export var omni_light_3d: OmniLight3D
+@export var audio_stream_player_3d: AudioStreamPlayer3D
 var orb_material: StandardMaterial3D
 var _tween: Tween
 var starting_position: Vector3
@@ -25,6 +26,7 @@ func reset():
 		orb_material.albedo_color = Color("#2b5fedc8")
 
 func _on_area_entered(area):
+	audio_stream_player_3d.play()
 	set_collision_mask_value(32, false)
 	item.enabled = false
 	if omni_light_3d:

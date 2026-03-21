@@ -4,12 +4,12 @@
 [ext_resource type="Script" uid="uid://d3myrblac0u1o" path="res://game/entities/clone.gd" id="1_xxw7a"]
 [ext_resource type="PackedScene" uid="uid://c2rvnoqsaf1kl" path="res://assets/player/orb.glb" id="2_v8fyk"]
 [ext_resource type="AudioStream" uid="uid://bcxj6x0a6sbai" path="res://assets/audio/ROBTVox_Android Talking Wah Goofy 01_BOLT_ARP2600_2.ogg" id="3_k0y5m"]
-[ext_resource type="Material" uid="uid://23f2h0il40ia" path="res://assets/clone_mat.tres" id="3_xxw7a"]
+[ext_resource type="Material" uid="uid://23f2h0il40ia" path="res://assets/materials/clone_mat.tres" id="3_xxw7a"]
 [ext_resource type="AudioStream" uid="uid://c1h1b3hmg4ald" path="res://assets/audio/ROBTVox_Android Talking Wah Goofy 01_BOLT_ARP2600_3.ogg" id="4_pu8j4"]
 [ext_resource type="AudioStream" uid="uid://dv0xkodft7f10" path="res://assets/audio/ROBTVox_Android Talking Wah Goofy 01_BOLT_ARP2600_4.ogg" id="5_sjlbx"]
 [ext_resource type="AudioStream" uid="uid://dipmiv2c7fw0u" path="res://assets/audio/ROBTVox_Android Talking Wah Goofy 01_BOLT_ARP2600_1.ogg" id="5_vs11r"]
 [ext_resource type="AudioStream" uid="uid://ckqur4tu0a7e1" path="res://assets/audio/ROBTVox_Android Talking Wah Goofy 01_BOLT_ARP2600_5.ogg" id="6_aeoou"]
-[ext_resource type="Material" uid="uid://bbs5wvv1gnmy4" path="res://assets/clone_body_mat.tres" id="8_pu8j4"]
+[ext_resource type="Material" uid="uid://bbs5wvv1gnmy4" path="res://assets/materials/clone_body_mat.tres" id="8_pu8j4"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_xq7u0"]
 height = 1.0340576

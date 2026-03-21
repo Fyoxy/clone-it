@@ -14,10 +14,5 @@ script = ExtResource("1")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1704578721]
 shape = SubResource("1")
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1073157916]
-unit_size = 3.0
-max_db = 1.0
-max_distance = 100.0
-
 [connection signal="body_entered" from="." to="." method="_on_snap_zone_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_snap_zone_body_exited"]

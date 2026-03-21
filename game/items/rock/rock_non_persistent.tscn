@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://da2qgxxwwitl6" path="res://addons/godot-xr-tools/objects/highlight/highlight_ring.tscn" id="9_phgbo"]
 [ext_resource type="Script" uid="uid://c272vv6ooib0w" path="res://game/items/rock/deletion_area.gd" id="10_11n5c"]
 [ext_resource type="PackedScene" uid="uid://bbc1rsxei2we7" path="res://game/objects/orb.tscn" id="10_xok1q"]
+[ext_resource type="AudioStream" uid="uid://dbgsm0fy7cqil" path="res://assets/audio/Bluezone_BC0300_alien_interface_sci_fi_texture_046.wav" id="11_xok1q"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_g8alj"]
 radius = 0.15
@@ -47,19 +48,24 @@ hand_pose = SubResource("Resource_vx8u2")
 
 [node name="HighlightRing" parent="." index="3" unique_id=673050213 instance=ExtResource("9_phgbo")]
 
-[node name="DeletionArea" type="Area3D" parent="." index="4" unique_id=461780453 node_paths=PackedStringArray("item", "orb", "omni_light_3d")]
+[node name="DeletionArea" type="Area3D" parent="." index="4" unique_id=461780453 node_paths=PackedStringArray("item", "orb", "omni_light_3d", "audio_stream_player_3d")]
 collision_layer = 0
 collision_mask = 2147483648
 script = ExtResource("10_11n5c")
 item = NodePath("..")
 orb = NodePath("../orb/Orb")
 omni_light_3d = NodePath("../orb/OmniLight3D")
+audio_stream_player_3d = NodePath("../AudioStreamPlayer3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DeletionArea" index="0" unique_id=1944668443]
 shape = SubResource("BoxShape3D_2bf8v")
 
 [node name="orb" parent="." index="5" unique_id=1015132482 instance=ExtResource("10_xok1q")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="6" unique_id=1403885004]
+stream = ExtResource("11_xok1q")
+bus = &"SFX"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="area_entered" from="DeletionArea" to="." method="_on_deletion_area_area_entered"]

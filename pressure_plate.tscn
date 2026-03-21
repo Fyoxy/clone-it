@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cu8tlp5udl3hq" path="res://game/objects/pressure_plate.gd" id="1_uot4y"]
 [ext_resource type="Material" uid="uid://c7prktlpm7tmm" path="res://assets/prototype_materials/forest.tres" id="2_8bqyo"]
+[ext_resource type="AudioStream" uid="uid://xf44s3ubx36b" path="res://assets/audio/Bluezone_BC0304_retrofuturistic_computer_button_013.wav" id="3_djmga"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_twjr1"]
 size = Vector3(0.9, 0.2727539, 0.9)
@@ -10,10 +11,11 @@ size = Vector3(0.9, 0.2727539, 0.9)
 lightmap_size_hint = Vector2i(14, 12)
 size = Vector3(1, 0.15, 1)
 
-[node name="PressurePlate" type="Area3D" unique_id=2007060334]
+[node name="PressurePlate" type="Area3D" unique_id=2007060334 node_paths=PackedStringArray("audio_stream_player_3d")]
 collision_layer = 0
 collision_mask = 524416
 script = ExtResource("1_uot4y")
+audio_stream_player_3d = NodePath("AudioStreamPlayer3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=39991439]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.12130432, 0)
@@ -24,6 +26,10 @@ debug_color = Color(0, 0.6, 0.69803923, 0.99607843)
 material_override = ExtResource("2_8bqyo")
 mesh = SubResource("BoxMesh_jodmb")
 skeleton = NodePath("../..")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1224746709]
+stream = ExtResource("3_djmga")
+bus = &"SFX"
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]

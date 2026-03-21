@@ -3,6 +3,7 @@ signal triggered(value: int)
 
 @export var my_objects: Array[Node3D]
 @export var snap_zone: XRToolsSnapZone
+@export var audio_stream_player_3d: AudioStreamPlayer3D
 
 var original_rotations: Array[Vector3] = []
 var spin_tweens: Array[Tween] = []
@@ -21,6 +22,7 @@ func _ready():
 		
 func _on_picked_up(what):
 	triggered.emit(1)
+	audio_stream_player_3d.play()
 	reset_rotation(1.0)
 
 func _on_dropped():
