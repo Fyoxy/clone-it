@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dv0xkodft7f10"
+path="res://.godot/imported/ROBTVox_Android Talking Wah Goofy 01_BOLT_ARP2600_4.ogg-c874a9b0329b07c3fd8f698793e706f6.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/ROBTVox_Android Talking Wah Goofy 01_BOLT_ARP2600_4.ogg"
+dest_files=["res://.godot/imported/ROBTVox_Android Talking Wah Goofy 01_BOLT_ARP2600_4.ogg-c874a9b0329b07c3fd8f698793e706f6.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
