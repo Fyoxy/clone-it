@@ -132,16 +132,6 @@ mesh = SubResource("BoxMesh_xl8gc")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0591965, -0.49784547, -0.19525146)
 shape = SubResource("BoxShape3D_uk6lx")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="World/Ground" index="2" unique_id=980596320]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -15.582577)
-light_energy = 10.0
-omni_range = 70.0
-
-[node name="OmniLight3D2" type="OmniLight3D" parent="World/Ground" index="3" unique_id=2053816779]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -6.750743)
-light_energy = 5.0
-omni_range = 70.0
-
 [node name="Ground4" type="StaticBody3D" parent="World" index="2" unique_id=1119604262]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.770992, -6.434483)
 
@@ -244,6 +234,16 @@ shape = SubResource("BoxShape3D_db0th")
 [node name="falling_into_hole_check" parent="World" index="10" unique_id=349897076 node_paths=PackedStringArray("replay") instance=ExtResource("7_2t4qn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -17.09634, 0)
 replay = NodePath("../../Replay")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="World" index="11" unique_id=980596320]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -2.5)
+light_energy = 10.0
+omni_range = 70.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="World" index="12" unique_id=2053816779]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 6.331834)
+light_energy = 5.0
+omni_range = 70.0
 
 [node name="HouseEntrance" type="Node3D" parent="." index="2" unique_id=1048242944]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -9.567574)
