@@ -18,67 +18,71 @@
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="15_x1dm3"]
 [ext_resource type="PackedScene" uid="uid://chwahqlguus0m" path="res://game/replay.tscn" id="17_d4qbf"]
 [ext_resource type="PackedScene" uid="uid://drs4eeq721ojn" path="res://addons/godot-xr-tools/functions/movement_sprint.tscn" id="18_l4ed5"]
-[ext_resource type="AudioStream" uid="uid://bcva7w8vdfrhk" path="res://assets/audio/MUS050.wav" id="19_c4gvi"]
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_c4gvi"]
-animation = &"Grip"
+[ext_resource type="Script" uid="uid://dsg1c5mo5lmki" path="res://game/zones/audio_stream_player.gd" id="19_c4gvi"]
+[ext_resource type="AudioStream" uid="uid://dert1uswiijb" path="res://assets/audio/415913__erokia__hakren-jazzy-ambient-piano-mansion-414557-erokia-remix-2-ambient-piano-loop-64-ambiance-140-bpm.ogg" id="20_bvawa"]
+[ext_resource type="AudioStream" uid="uid://ciujovupnp6vd" path="res://assets/audio/477124__erokia__ambient-piano-loop-4-ambiance-90-bpm.ogg" id="21_jajng"]
+[ext_resource type="AudioStream" uid="uid://bqn4dptkwhbf1" path="res://assets/audio/477125__erokia__ambient-piano-loop-3_3-ambiance-full-90-bpm.ogg" id="22_em6w2"]
+[ext_resource type="AudioStream" uid="uid://22gj8w6ylp65" path="res://assets/audio/483452__erokia__ambient-piano-loop-21_2-ambiance-unknown-bpm.ogg" id="23_s115j"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lbyou"]
 animation = &"Grip"
 
-[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_tvd04"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tvd04"]
+animation = &"Grip"
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_bp8r4"]
 filter_enabled = true
 filters = ["Armature/Skeleton3D:Little_Distal_L", "Armature/Skeleton3D:Little_Intermediate_L", "Armature/Skeleton3D:Little_Metacarpal_L", "Armature/Skeleton3D:Little_Proximal_L", "Armature/Skeleton3D:Middle_Distal_L", "Armature/Skeleton3D:Middle_Intermediate_L", "Armature/Skeleton3D:Middle_Metacarpal_L", "Armature/Skeleton3D:Middle_Proximal_L", "Armature/Skeleton3D:Ring_Distal_L", "Armature/Skeleton3D:Ring_Intermediate_L", "Armature/Skeleton3D:Ring_Metacarpal_L", "Armature/Skeleton3D:Ring_Proximal_L", "Armature/Skeleton3D:Thumb_Distal_L", "Armature/Skeleton3D:Thumb_Metacarpal_L", "Armature/Skeleton3D:Thumb_Proximal_L", "Armature/Skeleton:Little_Distal_L", "Armature/Skeleton:Little_Intermediate_L", "Armature/Skeleton:Little_Proximal_L", "Armature/Skeleton:Middle_Distal_L", "Armature/Skeleton:Middle_Intermediate_L", "Armature/Skeleton:Middle_Proximal_L", "Armature/Skeleton:Ring_Distal_L", "Armature/Skeleton:Ring_Intermediate_L", "Armature/Skeleton:Ring_Proximal_L", "Armature/Skeleton:Thumb_Distal_L", "Armature/Skeleton:Thumb_Proximal_L"]
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bp8r4"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bvawa"]
 animation = &"Grip 5"
 
-[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_bvawa"]
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_jajng"]
 filter_enabled = true
 filters = ["Armature/Skeleton3D:Index_Distal_L", "Armature/Skeleton3D:Index_Intermediate_L", "Armature/Skeleton3D:Index_Metacarpal_L", "Armature/Skeleton3D:Index_Proximal_L", "Armature/Skeleton:Index_Distal_L", "Armature/Skeleton:Index_Intermediate_L", "Armature/Skeleton:Index_Proximal_L"]
 
-[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_jajng"]
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_em6w2"]
 graph_offset = Vector2(-536, 11)
-nodes/ClosedHand1/node = SubResource("AnimationNodeAnimation_c4gvi")
+nodes/ClosedHand1/node = SubResource("AnimationNodeAnimation_lbyou")
 nodes/ClosedHand1/position = Vector2(-600, 300)
-nodes/ClosedHand2/node = SubResource("AnimationNodeAnimation_lbyou")
+nodes/ClosedHand2/node = SubResource("AnimationNodeAnimation_tvd04")
 nodes/ClosedHand2/position = Vector2(-360, 300)
-nodes/Grip/node = SubResource("AnimationNodeBlend2_tvd04")
+nodes/Grip/node = SubResource("AnimationNodeBlend2_bp8r4")
 nodes/Grip/position = Vector2(0, 20)
-nodes/OpenHand/node = SubResource("AnimationNodeAnimation_bp8r4")
+nodes/OpenHand/node = SubResource("AnimationNodeAnimation_bvawa")
 nodes/OpenHand/position = Vector2(-600, 100)
-nodes/Trigger/node = SubResource("AnimationNodeBlend2_bvawa")
+nodes/Trigger/node = SubResource("AnimationNodeBlend2_jajng")
 nodes/Trigger/position = Vector2(-360, 20)
 node_connections = [&"output", 0, &"Grip", &"Grip", 0, &"Trigger", &"Grip", 1, &"ClosedHand2", &"Trigger", 0, &"OpenHand", &"Trigger", 1, &"ClosedHand1"]
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_em6w2"]
-animation = &"Grip"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_s115j"]
 animation = &"Grip"
 
-[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_6k8ts"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6k8ts"]
+animation = &"Grip"
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_i6y08"]
 filter_enabled = true
 filters = ["Armature/Skeleton3D:Little_Distal_R", "Armature/Skeleton3D:Little_Intermediate_R", "Armature/Skeleton3D:Little_Metacarpal_R", "Armature/Skeleton3D:Little_Proximal_R", "Armature/Skeleton3D:Middle_Distal_R", "Armature/Skeleton3D:Middle_Intermediate_R", "Armature/Skeleton3D:Middle_Metacarpal_R", "Armature/Skeleton3D:Middle_Proximal_R", "Armature/Skeleton3D:Ring_Distal_R", "Armature/Skeleton3D:Ring_Intermediate_R", "Armature/Skeleton3D:Ring_Metacarpal_R", "Armature/Skeleton3D:Ring_Proximal_R", "Armature/Skeleton3D:Thumb_Distal_R", "Armature/Skeleton3D:Thumb_Metacarpal_R", "Armature/Skeleton3D:Thumb_Proximal_R", "Armature/Skeleton:Little_Distal_R", "Armature/Skeleton:Little_Intermediate_R", "Armature/Skeleton:Little_Proximal_R", "Armature/Skeleton:Middle_Distal_R", "Armature/Skeleton:Middle_Intermediate_R", "Armature/Skeleton:Middle_Proximal_R", "Armature/Skeleton:Ring_Distal_R", "Armature/Skeleton:Ring_Intermediate_R", "Armature/Skeleton:Ring_Proximal_R", "Armature/Skeleton:Thumb_Distal_R", "Armature/Skeleton:Thumb_Proximal_R"]
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_i6y08"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5utma"]
 animation = &"Grip 5"
 
-[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_5utma"]
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_5ff7v"]
 filter_enabled = true
 filters = ["Armature/Skeleton3D:Index_Distal_R", "Armature/Skeleton3D:Index_Intermediate_R", "Armature/Skeleton3D:Index_Metacarpal_R", "Armature/Skeleton3D:Index_Proximal_R", "Armature/Skeleton:Index_Distal_R", "Armature/Skeleton:Index_Intermediate_R", "Armature/Skeleton:Index_Proximal_R"]
 
-[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_5ff7v"]
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_x2bnd"]
 graph_offset = Vector2(-552.664, 107.301)
-nodes/ClosedHand1/node = SubResource("AnimationNodeAnimation_em6w2")
+nodes/ClosedHand1/node = SubResource("AnimationNodeAnimation_s115j")
 nodes/ClosedHand1/position = Vector2(-600, 300)
-nodes/ClosedHand2/node = SubResource("AnimationNodeAnimation_s115j")
+nodes/ClosedHand2/node = SubResource("AnimationNodeAnimation_6k8ts")
 nodes/ClosedHand2/position = Vector2(-360, 300)
-nodes/Grip/node = SubResource("AnimationNodeBlend2_6k8ts")
+nodes/Grip/node = SubResource("AnimationNodeBlend2_i6y08")
 nodes/Grip/position = Vector2(0, 40)
-nodes/OpenHand/node = SubResource("AnimationNodeAnimation_i6y08")
+nodes/OpenHand/node = SubResource("AnimationNodeAnimation_5utma")
 nodes/OpenHand/position = Vector2(-600, 100)
-nodes/Trigger/node = SubResource("AnimationNodeBlend2_5utma")
+nodes/Trigger/node = SubResource("AnimationNodeBlend2_5ff7v")
 nodes/Trigger/position = Vector2(-360, 40)
 node_connections = [&"output", 0, &"Grip", &"Grip", 0, &"Trigger", &"Grip", 1, &"ClosedHand2", &"Trigger", 0, &"OpenHand", &"Trigger", 1, &"ClosedHand1"]
 
@@ -137,7 +141,7 @@ mask = 4194304
 
 [node name="AnimationTree" parent="XROrigin3D/LeftHand/CollisionHandLeft/LeftHand" index="1"]
 root_node = NodePath("../Hand_Nails_low_L")
-tree_root = SubResource("AnimationNodeBlendTree_jajng")
+tree_root = SubResource("AnimationNodeBlendTree_em6w2")
 
 [node name="FunctionPointer" parent="XROrigin3D/LeftHand/CollisionHandLeft" index="1" unique_id=2055156181 instance=ExtResource("7_573pv")]
 transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0.02, -0.03535534, -0.10606602)
@@ -226,7 +230,7 @@ mask = 4194304
 push_bodies = false
 
 [node name="AnimationTree" parent="XROrigin3D/RightHand/CollisionHandRight/RightHand" index="1"]
-tree_root = SubResource("AnimationNodeBlendTree_5ff7v")
+tree_root = SubResource("AnimationNodeBlendTree_x2bnd")
 
 [node name="FunctionPointer" parent="XROrigin3D/RightHand/CollisionHandRight" index="1" unique_id=132222768 instance=ExtResource("7_573pv")]
 transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, -0.02, -0.03535534, -0.10606602)
@@ -259,13 +263,19 @@ collision_mask = 1019
 
 [node name="Replay" parent="." index="1" unique_id=164384423 instance=ExtResource("17_d4qbf")]
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="2" unique_id=1574902577]
-stream = ExtResource("19_c4gvi")
-volume_db = -60.0
-unit_size = 200.0
-max_db = 0.0
-autoplay = true
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="2" unique_id=1313772625 node_paths=PackedStringArray("timer")]
+volume_db = -5.0
 bus = &"Music"
+script = ExtResource("19_c4gvi")
+songs = Array[AudioStreamOggVorbis]([ExtResource("20_bvawa"), ExtResource("21_jajng"), ExtResource("22_em6w2"), ExtResource("23_s115j")])
+timer = NodePath("Timer")
+
+[node name="Timer" type="Timer" parent="AudioStreamPlayer" index="0" unique_id=981626100]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="AudioStreamPlayer/Timer" to="AudioStreamPlayer" method="_on_timer_timeout"]
 
 [editable path="XROrigin3D/LeftHand/CollisionHandLeft/LeftHand"]
 [editable path="XROrigin3D/LeftHand/CollisionHandLeft/LeftHand/Hand_Nails_low_L"]
