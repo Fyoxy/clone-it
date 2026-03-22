@@ -81,14 +81,14 @@ node_connections = [&"output", 0, &"Grip", &"Grip", 0, &"Trigger", &"Grip", 1, &
 [sub_resource type="BoxMesh" id="BoxMesh_qimua"]
 size = Vector3(5, 50, 24)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_cuabg"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_vljgg"]
 size = Vector3(5, 50, 24)
 
 [sub_resource type="BoxMesh" id="BoxMesh_i3o1q"]
 size = Vector3(25, 24, 1)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_ixvyx"]
-size = Vector3(5, 24, 50.272705)
+[sub_resource type="BoxShape3D" id="BoxShape3D_tk2pl"]
+size = Vector3(25, 24, 1)
 
 [sub_resource type="QuadMesh" id="QuadMesh_mq77n"]
 size = Vector2(20, 20)
@@ -96,10 +96,19 @@ size = Vector2(20, 20)
 [sub_resource type="BoxShape3D" id="BoxShape3D_cvifd"]
 size = Vector3(20, 4, 1)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_ivc2m"]
-size = Vector3(5.7978516, 1, 20)
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_twjr1"]
+data = PackedVector3Array(10, -10, 0, -10, -10, 0, 10, 10, 0, -10, -10, 0, -10, 10, 0, 10, 10, 0)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_u7c0g"]
+size = Vector3(20, 20, 0.001)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gfaum"]
+size = Vector3(20, 20, 0.001)
 
 [sub_resource type="BoxMesh" id="BoxMesh_j0qyq"]
+size = Vector3(10, 1, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mpg1a"]
 size = Vector3(10, 1, 20)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_twjr1"]
@@ -155,8 +164,9 @@ material_override = ExtResource("4_j0qyq")
 mesh = SubResource("BoxMesh_qimua")
 surface_material_override/0 = ExtResource("4_7d1xl")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Ground" index="1" unique_id=1331070080]
-shape = SubResource("BoxShape3D_cuabg")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Ground" index="1" unique_id=1663564497]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.014259338, 0.026247025, 0.003458023)
+shape = SubResource("BoxShape3D_vljgg")
 
 [node name="Ground3" type="StaticBody3D" parent="World" index="2" unique_id=1501950567]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -51.322544, 0)
@@ -166,9 +176,9 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 3.9
 mesh = SubResource("BoxMesh_i3o1q")
 surface_material_override/0 = ExtResource("4_7d1xl")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Ground3" index="1" unique_id=2101973297]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
-shape = SubResource("BoxShape3D_ixvyx")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Ground3" index="1" unique_id=1782108708]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 3.9639826, -1.7327122e-07)
+shape = SubResource("BoxShape3D_tk2pl")
 
 [node name="Boundary1" type="StaticBody3D" parent="World" index="3" unique_id=1479318584]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -10)
@@ -189,8 +199,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.1582)
 material_override = ExtResource("6_cuabg")
 mesh = SubResource("QuadMesh_mq77n")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Boundary2" index="1" unique_id=509033912]
-shape = SubResource("BoxShape3D_cvifd")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Boundary2" index="1" unique_id=382940141]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.1582)
+shape = SubResource("ConcavePolygonShape3D_twjr1")
 
 [node name="Boundary3" type="StaticBody3D" parent="World" index="5" unique_id=636775114]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 2, 10)
@@ -200,8 +211,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0021290777, 0.007382393, 0
 material_override = ExtResource("6_cuabg")
 mesh = SubResource("QuadMesh_mq77n")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Boundary3" index="1" unique_id=1813730508]
-shape = SubResource("BoxShape3D_cvifd")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Boundary3" index="1" unique_id=1560945184]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0021290777, 0.007382393, 0.5020666)
+shape = SubResource("BoxShape3D_u7c0g")
 
 [node name="Boundary4" type="StaticBody3D" parent="World" index="6" unique_id=1483944208]
 transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -10, 2, 0)
@@ -211,27 +223,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0014386175, 0.008982897, 5
 material_override = ExtResource("6_cuabg")
 mesh = SubResource("QuadMesh_mq77n")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Boundary4" index="1" unique_id=207228604]
-shape = SubResource("BoxShape3D_cvifd")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Boundary4" index="1" unique_id=1307945143]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0014386175, 0.008982897, 5.6061764)
+shape = SubResource("BoxShape3D_gfaum")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="World" index="7" unique_id=1908306326]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.178031, -0.7463958)
 light_energy = 0.1
-light_bake_mode = 1
 omni_range = 31.057198
 omni_attenuation = -1.482
 
-[node name="LightmapGI" type="LightmapGI" parent="World" index="8" unique_id=475569744]
-visible = false
-
-[node name="Ground4" type="StaticBody3D" parent="World" index="9" unique_id=1867711183]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.8655353, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Ground4" index="0" unique_id=166429399]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14111328, -0.5, 0)
-shape = SubResource("BoxShape3D_ivc2m")
-
-[node name="Ground2" type="StaticBody3D" parent="World" index="10" unique_id=1352411859]
+[node name="Ground2" type="StaticBody3D" parent="World" index="8" unique_id=1352411859]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.9106584, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="World/Ground2" index="0" unique_id=108085412]
@@ -240,8 +242,11 @@ material_override = ExtResource("4_j0qyq")
 mesh = SubResource("BoxMesh_j0qyq")
 surface_material_override/0 = ExtResource("4_7d1xl")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Ground2" index="1" unique_id=705097337]
-shape = SubResource("BoxShape3D_cuabg")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Ground2" index="1" unique_id=371261009]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.014259338, 0.026247025, 0.003458023)
+shape = SubResource("BoxShape3D_mpg1a")
+
+[node name="LightmapGI" type="LightmapGI" parent="World" index="9" unique_id=2021797018]
 
 [node name="HouseEntrance" type="Node3D" parent="." index="2" unique_id=1388764678]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.6)
@@ -293,8 +298,16 @@ outline_modulate = Color(0, 0, 0, 0)
 text = "Level 1"
 font_size = 128
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="11" unique_id=26976974]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7875128, 1.2266374, -2.757437)
+[node name="Label3D2" type="Label3D" parent="." index="11" unique_id=1879479345]
+transform = Transform3D(0.9147121, -0.14651379, -0.37661043, 0.026585013, 0.9517581, -0.3056953, 0.4032307, 0.26961097, 0.87447965, 2.3604965, 3.1076713, -7.517104)
+modulate = Color(0, 0.30666682, 0.92, 1)
+outline_modulate = Color(0, 0, 0, 0)
+text = "Godot XR Game Jam
+March 2026"
+font_size = 64
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="12" unique_id=26976974]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7875128, 1.8275721, -2.757437)
 mesh = SubResource("BoxMesh_gfaum")
 
 [node name="Label3D2" type="Label3D" parent="MeshInstance3D" index="0" unique_id=1903008897]
@@ -320,8 +333,8 @@ transparent = 0
 unshaded = true
 scene_properties_keys = PackedStringArray("zone_wrist_ui.gd")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="." index="12" unique_id=1684549407]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7875128, 1.2266374, -4.9595947)
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." index="13" unique_id=1684549407]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7875128, 1.833293, -4.9595947)
 mesh = SubResource("BoxMesh_gfaum")
 
 [node name="Label3D2" type="Label3D" parent="MeshInstance3D2" index="0" unique_id=1054760369]
