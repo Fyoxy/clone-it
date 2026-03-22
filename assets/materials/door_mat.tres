@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" format=3 uid="uid://l37a20mfjflx"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://da4pvelhaodau"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_sph4c"]
 noise_type = 0
