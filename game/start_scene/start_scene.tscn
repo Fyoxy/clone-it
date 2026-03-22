@@ -3,12 +3,11 @@
 [ext_resource type="PackedScene" uid="uid://qbmx03iibuuu" path="res://addons/godot-xr-tools/staging/scene_base.tscn" id="1_2sv0p"]
 [ext_resource type="PackedScene" uid="uid://cqhw276realc" path="res://addons/godot-xr-tools/functions/function_pointer.tscn" id="3_du2hn"]
 [ext_resource type="PackedScene" uid="uid://b4kad2kuba1yn" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn" id="3_rfr2t"]
-[ext_resource type="Material" uid="uid://ccdofvku4c7w3" path="res://assets/prototype_materials/stone_grey.tres" id="3_uwduq"]
 [ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="4_7pgy0"]
 [ext_resource type="PackedScene" uid="uid://l2n30mpbkdyw" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_hand_low.tscn" id="5_5cr7c"]
 [ext_resource type="PackedScene" uid="uid://cl8q8f32imusk" path="res://game/start_scene/start_ui.tscn" id="5_grt1o"]
-[ext_resource type="Material" uid="uid://dcnyr8ib7lbni" path="res://new_assets/textures/ground_texture.tres" id="5_mmkt7"]
-[ext_resource type="Material" uid="uid://bfw7to8v7lqhq" path="res://new_assets/textures/wall_texture.tres" id="7_vljj3"]
+[ext_resource type="Material" uid="uid://dxn0ystmka04k" path="res://assets/materials/Tiles108_1K-PNG/Tiles108_1K-PNG.tres" id="5_o3q1p"]
+[ext_resource type="Material" uid="uid://emh56ve0r1p0" path="res://assets/materials/Tiles002_1K-JPG/Tiles002_1K-JPG.tres" id="6_mmkt7"]
 [ext_resource type="PackedScene" uid="uid://d25hexs4dq748" path="res://game/zones/fourth/fourth_zone.tscn" id="10_mmkt7"]
 
 [sub_resource type="Environment" id="Environment_oplr7"]
@@ -17,14 +16,14 @@ ambient_light_source = 1
 reflected_light_source = 1
 
 [sub_resource type="QuadMesh" id="QuadMesh_vi1r3"]
-material = ExtResource("3_uwduq")
+material = ExtResource("5_o3q1p")
 size = Vector2(12, 12)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3ap0s"]
 size = Vector3(12, 1, 12)
 
 [sub_resource type="QuadMesh" id="QuadMesh_l0e1e"]
-material = ExtResource("3_uwduq")
+material = ExtResource("6_mmkt7")
 size = Vector2(12, 4)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_w6gh2"]
@@ -71,16 +70,15 @@ laser_length = 1
 environment = SubResource("Environment_oplr7")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="World" index="1" unique_id=1686339960]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.3330836, 0)
-light_energy = 4.807
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.3330836, 1.3802478)
+light_energy = 5.599
 omni_range = 21.355
-omni_attenuation = 0.459
+omni_attenuation = 1.934
 
 [node name="Ground" type="StaticBody3D" parent="World" index="2" unique_id=1072843225]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="World/Ground" index="0" unique_id=347175675]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
-material_override = ExtResource("5_mmkt7")
 mesh = SubResource("QuadMesh_vi1r3")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Ground" index="1" unique_id=1263042748]
@@ -91,7 +89,6 @@ shape = SubResource("BoxShape3D_3ap0s")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -5)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="World/Wall1" index="0" unique_id=1523132738]
-material_override = ExtResource("7_vljj3")
 mesh = SubResource("QuadMesh_l0e1e")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Wall1" index="1" unique_id=652176066]
@@ -102,7 +99,6 @@ shape = SubResource("BoxShape3D_w6gh2")
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5, 2, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="World/Wall2" index="0" unique_id=1489350248]
-material_override = ExtResource("7_vljj3")
 mesh = SubResource("QuadMesh_l0e1e")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Wall2" index="1" unique_id=1434710050]
@@ -113,7 +109,6 @@ shape = SubResource("BoxShape3D_w6gh2")
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 2, 5)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="World/Wall3" index="0" unique_id=1921175695]
-material_override = ExtResource("7_vljj3")
 mesh = SubResource("QuadMesh_l0e1e")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Wall3" index="1" unique_id=1891387225]
@@ -124,7 +119,6 @@ shape = SubResource("BoxShape3D_w6gh2")
 transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -5, 2, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="World/Wall4" index="0" unique_id=1030505703]
-material_override = ExtResource("7_vljj3")
 mesh = SubResource("QuadMesh_l0e1e")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Wall4" index="1" unique_id=1222656351]
@@ -136,7 +130,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="World/Ceiling" index="0" unique_id=124699725]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
-material_override = ExtResource("5_mmkt7")
 mesh = SubResource("QuadMesh_vi1r3")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Ceiling" index="1" unique_id=1187782175]
@@ -153,7 +146,7 @@ transparent = 1
 unshaded = true
 scene_properties_keys = PackedStringArray("start_ui.gd", "starting_zone", "level_buttons")
 starting_zone = ExtResource("10_mmkt7")
-level_buttons = []
+level_buttons = [NodePath("Viewport/StartUI/MainMenu/NewGameBtn"), NodePath("Viewport/StartUI/MainMenu/NewGameBtn2"), NodePath("Viewport/StartUI/MainMenu/NewGameBtn3"), NodePath("Viewport/StartUI/MainMenu/NewGameBtn4"), NodePath("Viewport/StartUI/MainMenu/NewGameBtn5"), NodePath("Viewport/StartUI/MainMenu/NewGameBtn6"), NodePath("Viewport/StartUI/MainMenu/NewGameBtn7")]
 
 [node name="Viewport" parent="Screen" index="0"]
 size = Vector2i(400, 300)

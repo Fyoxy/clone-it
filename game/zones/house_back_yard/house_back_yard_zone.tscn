@@ -384,13 +384,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8.017361)
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.479, 0, 2.284)
 move_distance = 7.0
 move_direction = Vector3(0, 0, -1)
+speed = 8.0
 triggers_required = 1
 triggers = [NodePath("../pressure_plate2")]
 
 [node name="platform" parent="." index="7" unique_id=1672319164 node_paths=PackedStringArray("triggers") instance=ExtResource("10_6x1n0")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.6410484, 0, -3.3458834)
-move_distance = 8.0
+move_distance = 5.0
 move_direction = Vector3(0, 0, -1)
+speed = 2.0
 triggers_required = 1
 triggers = [NodePath("../pressure_plate")]
 
