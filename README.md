@@ -1,6 +1,6 @@
 # Clone IT!
 
-A VR puzzle game built for the **7 Day Godot XR Game Jam — March 2026**.
+A VR puzzle game built for the **7 Day Godot XR Game Jam — March 2026** [Gamejam](https://itch.io/jam/godot-xr-game-jam-mar-2026)
 
 ## About
 
