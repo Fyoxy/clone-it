@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://c70v1moguyy6o" path="res://game/objects/orb_zone.gd" id="1_je671"]
 [ext_resource type="PackedScene" uid="uid://ns04nk6k3hhh" path="res://assets/player/orb_zone.glb" id="2_juonq"]
-[ext_resource type="AudioStream" uid="uid://dbgsm0fy7cqil" path="res://assets/audio/Bluezone_BC0300_alien_interface_sci_fi_texture_046.wav" id="3_juonq"]
 [ext_resource type="Material" uid="uid://bbs5wvv1gnmy4" path="res://assets/materials/clone_body_mat.tres" id="3_vtwxh"]
+[ext_resource type="AudioStream" uid="uid://d2dicco4kp6co" path="res://assets/audio/plasmahit.wav" id="4_vtwxh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_je671"]
 size = Vector3(0.5782623, 0.5430298, 0.53149414)
@@ -22,20 +22,20 @@ shape = SubResource("BoxShape3D_je671")
 [node name="orb_zone" parent="." unique_id=780945289 instance=ExtResource("2_juonq")]
 transform = Transform3D(0.5, 0, 0, 0, 0.12096095, -0.48514786, 0, 0.48514786, 0.12096095, 0, 0, 0)
 
-[node name="Ring1" parent="orb_zone/OrbZone" parent_id_path=PackedInt32Array(780945289, 567149230) index="0" unique_id=1682231322]
+[node name="Ring1" parent="orb_zone/OrbZone" parent_id_path=PackedInt32Array(780945289, 928791059) index="0" unique_id=1119597986]
 material_override = ExtResource("3_vtwxh")
 
-[node name="Ring2" parent="orb_zone/OrbZone" parent_id_path=PackedInt32Array(780945289, 567149230) index="1" unique_id=1516580836]
+[node name="Ring2" parent="orb_zone/OrbZone" parent_id_path=PackedInt32Array(780945289, 928791059) index="1" unique_id=1749267161]
 material_override = ExtResource("3_vtwxh")
 
-[node name="Ring3" parent="orb_zone/OrbZone" parent_id_path=PackedInt32Array(780945289, 567149230) index="2" unique_id=1472350345]
+[node name="Ring3" parent="orb_zone/OrbZone" parent_id_path=PackedInt32Array(780945289, 928791059) index="2" unique_id=1955517508]
 material_override = ExtResource("3_vtwxh")
 
-[node name="Ring4" parent="orb_zone/OrbZone" parent_id_path=PackedInt32Array(780945289, 567149230) index="3" unique_id=134329641]
+[node name="Ring4" parent="orb_zone/OrbZone" parent_id_path=PackedInt32Array(780945289, 928791059) index="3" unique_id=1925095073]
 material_override = ExtResource("3_vtwxh")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1225921921]
-stream = ExtResource("3_juonq")
+stream = ExtResource("4_vtwxh")
 bus = &"SFX"
 
 [editable path="orb_zone"]

@@ -14,7 +14,7 @@ material = SubResource("StandardMaterial3D_03wo2")
 size = Vector3(3, 3, 0.1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_oo0g1"]
-size = Vector3(3, 3, 0.1)
+size = Vector3(6.568207, 2.9620361, 0.1)
 
 [node name="anti_rock_wall" type="Area3D" unique_id=2089020263]
 collision_layer = 2147483648

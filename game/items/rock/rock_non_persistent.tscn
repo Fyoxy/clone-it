@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://da2qgxxwwitl6" path="res://addons/godot-xr-tools/objects/highlight/highlight_ring.tscn" id="9_phgbo"]
 [ext_resource type="Script" uid="uid://c272vv6ooib0w" path="res://game/items/rock/deletion_area.gd" id="10_11n5c"]
 [ext_resource type="PackedScene" uid="uid://bbc1rsxei2we7" path="res://game/objects/orb.tscn" id="10_xok1q"]
-[ext_resource type="AudioStream" uid="uid://dbgsm0fy7cqil" path="res://assets/audio/Bluezone_BC0300_alien_interface_sci_fi_texture_046.wav" id="11_xok1q"]
+[ext_resource type="AudioStream" uid="uid://b31d0ijqofsnq" path="res://assets/audio/drag_error.wav" id="11_xok1q"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_g8alj"]
 radius = 0.15
