@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://c8v6mgsbi6avh" path="res://assets/materials/Tiles108_1K-PNG/Tiles108_1K-PNG_NormalGL.png" id="13_s8rbw"]
 [ext_resource type="Texture2D" uid="uid://dyjy2noc3hcd0" path="res://assets/materials/Tiles108_1K-PNG/Tiles108_1K-PNG_Roughness.png" id="14_m02e4"]
 [ext_resource type="PackedScene" uid="uid://b5wjtdg7im8nv" path="res://rock_table.tscn" id="15_jplqq"]
+[ext_resource type="LightmapGIData" uid="uid://d2ma470mydga5" path="res://game/zones/house_interior/house_interior_zone.lmbake" id="15_qjo1u"]
 [ext_resource type="Material" uid="uid://cjylinr1vdjcw" path="res://assets/prototype_materials/dark_brown.tres" id="16_318x7"]
 [ext_resource type="Material" path="res://assets/materials/Tiles072_1K-PNG/Tiles072_1K-PNG.tres" id="20_dlysg"]
 
@@ -104,6 +105,8 @@ size = Vector3(20, 20, 0.001)
 size = Vector3(20, 20, 0.001)
 
 [sub_resource type="BoxMesh" id="BoxMesh_sr6e8"]
+lightmap_size_hint = Vector2i(149, 136)
+add_uv2 = true
 size = Vector3(5, 1, 24)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nwc16"]
@@ -157,6 +160,8 @@ heightmap_texture = ExtResource("12_784yq")
 uv1_scale = Vector3(10, 20, 20)
 
 [sub_resource type="BoxMesh" id="BoxMesh_wc5ct"]
+lightmap_size_hint = Vector2i(64, 81)
+add_uv2 = true
 size = Vector3(3, 3, 9)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_stfm0"]
@@ -169,7 +174,9 @@ size = Vector3(3, 3, 9)
 size = Vector3(1, 3, 0.2)
 
 [sub_resource type="BoxMesh" id="BoxMesh_exxw5"]
+lightmap_size_hint = Vector2i(10, 41)
 material = ExtResource("16_318x7")
+add_uv2 = true
 size = Vector3(1, 3, 0.2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hm7rm"]
@@ -409,16 +416,20 @@ mesh = SubResource("BoxMesh_wc5ct")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.409986, 0, 1.9753027)
 shape = SubResource("BoxShape3D_c05s3")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="World" index="20" unique_id=727567632]
-transform = Transform3D(0.9945374, -0.033268094, -0.09893735, 0.1016776, 0.52308595, 0.84619313, 0.023601502, -0.85163045, 0.5236112, -1.466109, 5.284901, 8.481266)
-
-[node name="Label3D" type="Label3D" parent="World" index="21" unique_id=1615916977]
+[node name="Label3D" type="Label3D" parent="World" index="20" unique_id=1615916977]
 transform = Transform3D(0.92180204, 0.094733454, 0.37590772, 0.026847351, 0.95175284, -0.3056888, -0.3867302, 0.29187664, 0.8747843, -2.5265117, 3.1076713, 5.1534615)
 modulate = Color(0, 0, 0, 1)
 outline_modulate = Color(0, 0, 0, 0)
 text = "Level 2
 "
 font_size = 128
+
+[node name="ReflectionProbe" type="ReflectionProbe" parent="World" index="21" unique_id=1674980635]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.492428, 4.9638257)
+
+[node name="LightmapGI" type="LightmapGI" parent="World" index="22" unique_id=1527149929]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4670682, 5.904897)
+light_data = ExtResource("15_qjo1u")
 
 [node name="House" type="Node3D" parent="." index="2" unique_id=1519174226]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7.185285)
@@ -448,21 +459,37 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9335008, 0, -2.3087268)
 [node name="SpotLight3D" type="SpotLight3D" parent="." index="9" unique_id=1655176747]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2.182104, 3.093472, -2.278822)
 light_energy = 0.107
+light_bake_mode = 1
 spot_range = 3.000126
 spot_attenuation = -2.38
 spot_angle = 24.06
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." index="10" unique_id=424960877]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5309815, -8.745548)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.032532215, 3.6868124, -0.85347897)
 light_energy = 7.811
+light_bake_mode = 1
 omni_range = 116.57
 omni_attenuation = 1.434
 
-[node name="falling_into_hole_check" parent="." index="11" unique_id=349897076 node_paths=PackedStringArray("replay") instance=ExtResource("5_jplqq")]
+[node name="OmniLight3D2" type="OmniLight3D" parent="." index="11" unique_id=1438230468]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.7788396, 3.6868124, -5.778387)
+light_energy = 7.811
+light_bake_mode = 1
+omni_range = 116.57
+omni_attenuation = 1.434
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="." index="12" unique_id=233228065]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6888914, 3.6868124, -5.2797136)
+light_energy = 7.811
+light_bake_mode = 1
+omni_range = 116.57
+omni_attenuation = 1.434
+
+[node name="falling_into_hole_check" parent="." index="13" unique_id=349897076 node_paths=PackedStringArray("replay") instance=ExtResource("5_jplqq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.300224, -2.7747412, -4.5866704)
 replay = NodePath("../Replay")
 
-[node name="HouseEntrance" type="Node3D" parent="." index="12" unique_id=1068771345]
+[node name="HouseEntrance" type="Node3D" parent="." index="14" unique_id=1068771345]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -2.3211288)
 
 [node name="Exterior" type="CSGPolygon3D" parent="HouseEntrance" index="0" unique_id=441334523]
