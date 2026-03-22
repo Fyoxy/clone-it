@@ -32,21 +32,21 @@ size = Vector2(12, 4)
 [sub_resource type="BoxShape3D" id="BoxShape3D_w6gh2"]
 size = Vector3(12, 4, 1)
 
-[sub_resource type="QuadMesh" id="QuadMesh_o3q1p"]
+[sub_resource type="QuadMesh" id="QuadMesh_mmkt7"]
 resource_local_to_scene = true
 size = Vector2(3, 2)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_mmkt7"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_vljj3"]
 viewport_path = NodePath("Screen/Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vljj3"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mbxkw"]
 transparency = 1
 cull_mode = 2
 shading_mode = 0
-albedo_texture = SubResource("ViewportTexture_mmkt7")
+albedo_texture = SubResource("ViewportTexture_vljj3")
 texture_filter = 1
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_mbxkw"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_gawvq"]
 resource_local_to_scene = true
 size = Vector3(3, 2, 0.02)
 
@@ -156,14 +156,14 @@ level_buttons = [NodePath("Viewport/StartUI/MainMenu/NewGameBtn"), NodePath("Vie
 size = Vector2i(400, 350)
 
 [node name="Screen" parent="Screen" index="1"]
-mesh = SubResource("QuadMesh_o3q1p")
-surface_material_override/0 = SubResource("StandardMaterial3D_vljj3")
+mesh = SubResource("QuadMesh_mmkt7")
+surface_material_override/0 = SubResource("StandardMaterial3D_mbxkw")
 
 [node name="StaticBody3D" parent="Screen" index="2"]
 viewport_size = Vector2(400, 350)
 
 [node name="CollisionShape3D" parent="Screen/StaticBody3D" index="0"]
-shape = SubResource("BoxShape3D_mbxkw")
+shape = SubResource("BoxShape3D_gawvq")
 
 [node name="LightmapGI" type="LightmapGI" parent="." index="3" unique_id=1888686559]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0196106, 0)
@@ -171,5 +171,22 @@ light_data = ExtResource("10_vljj3")
 
 [node name="LightmapProbe" type="LightmapProbe" parent="." index="4" unique_id=553900576]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9806516, 0)
+
+[node name="Label3D" type="Label3D" parent="." index="5" unique_id=235828009]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.2318718, -3.0245202)
+text = "CLONE IT"
+font_size = 64
+
+[node name="Label3D2" type="Label3D" parent="." index="6" unique_id=1423620518]
+transform = Transform3D(0.7325429, 0, -0.68072087, 0, 1, 0, 0.68072087, 0, 0.7325429, 2.7137496, 2.7514222, -2.323306)
+text = "REWIND
+Godot XR Game Jam - Mar 2026
+Thanks for Playing!"
+
+[node name="Label3D3" type="Label3D" parent="." index="7" unique_id=30642905]
+transform = Transform3D(0.7325429, 0, -0.68072087, 0, 1, 0, 0.68072087, 0, 0.7325429, 2.7137496, 1.7376292, -2.323306)
+text = "Made by:
+Fyoxy (Marti Kingisepp)
+Emilgod(Emil Kattel)"
 
 [editable path="Screen"]
