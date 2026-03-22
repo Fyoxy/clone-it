@@ -1,10 +1,13 @@
 [gd_scene format=3 uid="uid://b5wjtdg7im8nv"]
 
+[ext_resource type="Material" uid="uid://cudrr1jdxyh5q" path="res://assets/materials/Tiles001_1K-JPG/Tiles001_1K-JPG.tres" id="1_mcr33"]
+
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_mcr33"]
 height = 0.7432709
 radius = 0.515625
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_37vnk"]
+material = ExtResource("1_mcr33")
 top_radius = 0.506
 bottom_radius = 0.15
 height = 0.726

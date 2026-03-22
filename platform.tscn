@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://bfaf757s1ds0k"]
 
 [ext_resource type="Script" uid="uid://bxvjuefh10kqu" path="res://platform.gd" id="1_s8bxr"]
-[ext_resource type="Material" uid="uid://dcnyr8ib7lbni" path="res://new_assets/textures/ground_texture.tres" id="2_s8bxr"]
+[ext_resource type="Material" uid="uid://cudrr1jdxyh5q" path="res://assets/materials/Tiles001_1K-JPG/Tiles001_1K-JPG.tres" id="2_s8bxr"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_c1gtx"]
+material = ExtResource("2_s8bxr")
 size = Vector3(2.45, 0.095, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ry5bi"]
@@ -14,7 +15,6 @@ script = ExtResource("1_s8bxr")
 speed = 5.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=987953691]
-material_override = ExtResource("2_s8bxr")
 mesh = SubResource("BoxMesh_c1gtx")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1484878659]

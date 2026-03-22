@@ -1,15 +1,13 @@
 [gd_scene format=3 uid="uid://cjyilbm4ucc7s"]
 
 [ext_resource type="Script" uid="uid://bqb3cy0ekk685" path="res://addons/godot-xr-tools/objects/climbable.gd" id="1"]
+[ext_resource type="Material" uid="uid://bofomcxxtit0f" path="res://assets/materials/Tiles072_1K-PNG/Tiles072_1K-PNG.tres" id="2_5sd3k"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rlsat"]
 size = Vector3(0.22592774, 0.18717249, 0.22152905)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rlsat"]
-albedo_color = Color(0.18039216, 1, 1, 1)
-
 [sub_resource type="BoxMesh" id="BoxMesh_5sd3k"]
-material = SubResource("StandardMaterial3D_rlsat")
+material = ExtResource("2_5sd3k")
 size = Vector3(0.22, 0.155, 0.19)
 
 [node name="Climbable" type="StaticBody3D" unique_id=1019366363]
