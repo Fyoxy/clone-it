@@ -281,7 +281,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.485392, 0.92615604, -3.045
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.64457023, 0.84910166, -3.1076899)
 
 [node name="falling_into_hole_check" parent="." index="15" unique_id=349897076 node_paths=PackedStringArray("replay") instance=ExtResource("15_6csj5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.055441618, -13.148917, -8.372471)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.055441618, -8.093278, -8.372471)
 replay = NodePath("../Replay")
 
 [node name="platform" parent="." index="16" unique_id=118022216 node_paths=PackedStringArray("triggers") instance=ExtResource("16_6w70t")]
