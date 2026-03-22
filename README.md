@@ -1,78 +1,66 @@
-# Godot XR Template
+# Clone IT!
 
-![GitHub forks](https://img.shields.io/github/forks/godotvr/godot-xr-template?style=plastic)
-![GitHub Repo stars](https://img.shields.io/github/stars/godotvr/godot-xr-template?style=plastic)
-![GitHub contributors](https://img.shields.io/github/contributors/godotvr/godot-xr-template?style=plastic)
-![GitHub](https://img.shields.io/github/license/godotvr/godot-xr-template?style=plastic)
+A VR puzzle game built for the **7 Day Godot XR Game Jam — March 2026**.
 
-This repository contains a template Godot project for building a simple VR game.
+## About
 
+Clone IT! is a time-bending VR puzzle game where you use a bracelet on your wrist to **REWIND** back to the start of a level — leaving behind a clone that replays your previous actions. By coordinating with your past selves, you'll solve increasingly complex puzzles across all seven levels.
 
-## Versions
+Stand on pressure plates, open doors, move platforms — then rewind and let your clone handle the job while you tackle the next piece of the puzzle.
 
-Official releases are tagged and can be found [here](https://github.com/GodotVR/godot-xr-template/releases).
+## How to Play
 
-The following branches are in active development:
-|  Branch  |  Description                  |  Godot version  |
-|----------|-------------------------------|-----------------|
-|   main   | Current development branch    |  Godot 4.6+     |
-|    4.2   | Godot 4.2 development branch  |  Godot 4.2-4.5  |
-|    4.1   | Godot 4.1 development branch  |  Godot 4.1      |
-|    3.x   | Godot 3.x development branch  |  Godot 3.5+     |
+- Use the **bracelet on your hand** to rewind time
+- Watch your **clone repeat your exact movements** from the previous loop
+- Stack multiple clones to solve multi-step puzzles
+- Complete all **7 levels**
 
+## Built With
 
-# Assets
+- [Godot Engine](https://godotengine.org/) (4.6+) with OpenXR
+- [Godot XR Tools](https://godotengine.org/asset-library/asset/1515)
+- [OpenXR Vendors](https://github.com/GodotVR/godot_openxr_vendors)
+- Built on top of the [Godot XR Template](https://github.com/GodotVR/godot-xr-template)
 
-This project uses the following assets:
- - [Godot XR Tools](https://godotengine.org/asset-library/asset/1515)
- - [OpenXR Vendors](https://github.com/GodotVR/godot_openxr_vendors)
+## Project Structure
 
-> [!NOTE]
-> OpenXR Vendors is not included in the repo but will be downloaded by CI scripts.
-> When cloning this repository, manually download the version correct for the version of
-> Godot you are using.
+| Directory | Contents |
+|-----------|----------|
+| `game/` | Level scenes and game logic |
+| `components/` | Reusable game components (clone system, rewind mechanics, etc.) |
+| `assets/` | Textures, models, and audio |
+| `addons/` | Godot XR Tools and other plugins |
+| `build/` | Build and export configuration |
 
-# Getting Started
+## Known Issues
 
-Start by downloading this asset from github; or by installing it from the Godot
-Asset Library.
+- **WebXR**: Controls do not currently work in the WebXR export. Native headset builds are recommended.
 
-The game should be playable with a splash screen and two example scenes the player
-can move between.
+## Getting Started
 
-The game should be customized by:
- - Modifying the splash-screen texture to represent the game
- - Modifying the icon.png for the game
- - Add game state variables to the game_state.gd singleton class
- - Replacing the demo zones with zones suitable to the game
+1. Clone the repository
+2. Open the project in **Godot 4.6+**
+3. Connect your VR headset and hit Play — or export to Android for standalone headsets
 
+## Credits
 
-# Exporting to Android
+### Sound Effects
+- **Sonniss** — [#GameAudioGDC Bundle](https://sonniss.com/) (Volumes 1–9)
+  - CREAMisc_Creature Power On 14 — DDUMAIS / MCSFX
+  - Bluezone_BC0304 — Retrofuturistic Computer Button 013
+  - Bluezone_BC0300 — Alien Interface Sci-Fi Texture 046
+  - ROBTVox_Android Talking Wah Goofy 01 — BOLT / ARP2600
+- **AstroMenace SFX** — Plasma Hit, Drag Error
 
-The template contains a copy of the XR loaders plugin
-and preconfigured exports for android based headsets that support OpenXR.
+### Materials
+- [AmbientCG](https://ambientcg.com/) — PBR textures (CC0)
 
-Before this can be used you do need to install the android build template.
-Select the menu `Editor->Manage Export Templates...` to download the templates.
-Select the menu `Project->Install Android Build Template...` to install the template.
+### Music
+- *Jazzy Ambient Piano (Mansion)* by **Hakren** — [freesound.org/s/414557](https://freesound.org/s/414557/) (CC0)
+- *Ambient Piano Loop 3_3* by **Erokia** — [freesound.org/s/477125](https://freesound.org/s/477125/) (CC BY-NC 4.0)
+- *Ambient Piano Loop 21_2* by **Erokia** — [freesound.org/s/483452](https://freesound.org/s/483452/) (CC BY-NC 4.0)
+- *Ambient Piano Loop 4* by **Erokia** — [freesound.org/s/477124](https://freesound.org/s/477124/) (CC BY-NC 4.0)
 
-Make sure you set the correct entry in the export templates to runable
-if you want to use one click deploy to your device.
+## License
 
-Please refer to the official documentation for Godots prerequisits for exporting to android:
-https://docs.godotengine.org/en/stable/tutorials/export/exporting_for_android.html
-
-# Recommended Asset Locations
-
-Common areas to find assets are:
- - [Godot Asset Library](https://godotengine.org/asset-library/asset)
- - [AmbientCG](https://ambientcg.com/) for object and sky textures
- - [FreePD.com](https://freepd.com/) for sound tracks
- - [FreeSound](https://freesound.org/) for sound effects
- - [Kenney.nl](https://kenney.nl/) 
-
-
-# More Information
-
-Information on the Godot XR Tools can be found on [the website](https://godotvr.github.io/godot-xr-tools/).
-
+This project is licensed under the [MIT License](LICENSE).
