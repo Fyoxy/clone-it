@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://jxyltxn0rpqt"]
 
 [ext_resource type="Script" uid="uid://cu8tlp5udl3hq" path="res://game/objects/pressure_plate.gd" id="1_uot4y"]
-[ext_resource type="Material" uid="uid://c7prktlpm7tmm" path="res://assets/prototype_materials/forest.tres" id="2_8bqyo"]
+[ext_resource type="Material" uid="uid://cudrr1jdxyh5q" path="res://assets/materials/Tiles001_1K-JPG/Tiles001_1K-JPG.tres" id="2_djmga"]
 [ext_resource type="AudioStream" uid="uid://xf44s3ubx36b" path="res://assets/audio/Bluezone_BC0304_retrofuturistic_computer_button_013.wav" id="3_djmga"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_twjr1"]
@@ -23,7 +23,7 @@ shape = SubResource("BoxShape3D_twjr1")
 debug_color = Color(0, 0.6, 0.69803923, 0.99607843)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=400825345]
-material_override = ExtResource("2_8bqyo")
+material_override = ExtResource("2_djmga")
 mesh = SubResource("BoxMesh_jodmb")
 skeleton = NodePath("../..")
 

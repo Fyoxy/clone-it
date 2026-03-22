@@ -32,8 +32,6 @@ func _ready():
 		button.pressed.connect(func(): _on_level_selected(button.text))
 
 func _on_level_selected(level: String):
-	print(level)
-	print(levels)
 	if not levels.has(level):
 		print("Unknown level: ", level)
 		return
