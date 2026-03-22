@@ -55,6 +55,9 @@ Stand on pressure plates, open doors, move platforms — then rewind and let you
 ### Materials
 - [AmbientCG](https://ambientcg.com/) — PBR textures (CC0)
 
+### Icons
+- Board Game Icons (1.1) Created by Kenney (www.kenney.nl)
+
 ### Music
 - *Jazzy Ambient Piano (Mansion)* by **Hakren** — [freesound.org/s/414557](https://freesound.org/s/414557/) (CC0)
 - *Ambient Piano Loop 3_3* by **Erokia** — [freesound.org/s/477125](https://freesound.org/s/477125/) (CC BY-NC 4.0)
