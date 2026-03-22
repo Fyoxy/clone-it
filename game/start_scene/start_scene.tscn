@@ -9,6 +9,7 @@
 [ext_resource type="Material" uid="uid://dxn0ystmka04k" path="res://assets/materials/Tiles108_1K-PNG/Tiles108_1K-PNG.tres" id="5_o3q1p"]
 [ext_resource type="Material" uid="uid://emh56ve0r1p0" path="res://assets/materials/Tiles002_1K-JPG/Tiles002_1K-JPG.tres" id="6_mmkt7"]
 [ext_resource type="PackedScene" uid="uid://d25hexs4dq748" path="res://game/zones/fourth/fourth_zone.tscn" id="10_mmkt7"]
+[ext_resource type="LightmapGIData" uid="uid://tl7nrl51w83l" path="res://game/start_scene/start_scene.lmbake" id="10_vljj3"]
 
 [sub_resource type="Environment" id="Environment_oplr7"]
 background_energy_multiplier = 0.34
@@ -16,7 +17,9 @@ ambient_light_source = 1
 reflected_light_source = 1
 
 [sub_resource type="QuadMesh" id="QuadMesh_vi1r3"]
+lightmap_size_hint = Vector2i(62, 62)
 material = ExtResource("5_o3q1p")
+add_uv2 = true
 size = Vector2(12, 12)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3ap0s"]
@@ -29,21 +32,21 @@ size = Vector2(12, 4)
 [sub_resource type="BoxShape3D" id="BoxShape3D_w6gh2"]
 size = Vector3(12, 4, 1)
 
-[sub_resource type="QuadMesh" id="QuadMesh_vljj3"]
+[sub_resource type="QuadMesh" id="QuadMesh_o3q1p"]
 resource_local_to_scene = true
 size = Vector2(3, 2)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_mbxkw"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_mmkt7"]
 viewport_path = NodePath("Screen/Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gawvq"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vljj3"]
 transparency = 1
 cull_mode = 2
 shading_mode = 0
-albedo_texture = SubResource("ViewportTexture_mbxkw")
+albedo_texture = SubResource("ViewportTexture_mmkt7")
 texture_filter = 1
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_l8pcm"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_mbxkw"]
 resource_local_to_scene = true
 size = Vector3(3, 2, 0.02)
 
@@ -70,8 +73,9 @@ laser_length = 1
 environment = SubResource("Environment_oplr7")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="World" index="1" unique_id=1686339960]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.3330836, 1.3802478)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5474942, 0.19794214)
 light_energy = 5.599
+light_bake_mode = 1
 omni_range = 21.355
 omni_attenuation = 1.934
 
@@ -139,7 +143,7 @@ shape = SubResource("BoxShape3D_3ap0s")
 [node name="Screen" parent="." index="2" unique_id=785019571 node_paths=PackedStringArray("level_buttons") instance=ExtResource("4_7pgy0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -3)
 scene = ExtResource("5_grt1o")
-viewport_size = Vector2(400, 300)
+viewport_size = Vector2(400, 350)
 update_mode = 2
 throttle_fps = 15.0
 transparent = 1
@@ -149,16 +153,23 @@ starting_zone = ExtResource("10_mmkt7")
 level_buttons = [NodePath("Viewport/StartUI/MainMenu/NewGameBtn"), NodePath("Viewport/StartUI/MainMenu/NewGameBtn2"), NodePath("Viewport/StartUI/MainMenu/NewGameBtn3"), NodePath("Viewport/StartUI/MainMenu/NewGameBtn4"), NodePath("Viewport/StartUI/MainMenu/NewGameBtn5"), NodePath("Viewport/StartUI/MainMenu/NewGameBtn6"), NodePath("Viewport/StartUI/MainMenu/NewGameBtn7")]
 
 [node name="Viewport" parent="Screen" index="0"]
-size = Vector2i(400, 300)
+size = Vector2i(400, 350)
 
 [node name="Screen" parent="Screen" index="1"]
-mesh = SubResource("QuadMesh_vljj3")
-surface_material_override/0 = SubResource("StandardMaterial3D_gawvq")
+mesh = SubResource("QuadMesh_o3q1p")
+surface_material_override/0 = SubResource("StandardMaterial3D_vljj3")
 
 [node name="StaticBody3D" parent="Screen" index="2"]
-viewport_size = Vector2(400, 300)
+viewport_size = Vector2(400, 350)
 
 [node name="CollisionShape3D" parent="Screen/StaticBody3D" index="0"]
-shape = SubResource("BoxShape3D_l8pcm")
+shape = SubResource("BoxShape3D_mbxkw")
+
+[node name="LightmapGI" type="LightmapGI" parent="." index="3" unique_id=1888686559]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0196106, 0)
+light_data = ExtResource("10_vljj3")
+
+[node name="LightmapProbe" type="LightmapProbe" parent="." index="4" unique_id=553900576]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9806516, 0)
 
 [editable path="Screen"]
