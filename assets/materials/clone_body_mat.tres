@@ -11,7 +11,7 @@ noise = SubResource("FastNoiseLite_sph4c")
 [resource]
 transparency = 1
 disable_fog = true
-albedo_color = Color(0, 0, 0, 0.78431374)
+albedo_color = Color(1, 1, 1, 0.78431374)
 metallic_specular = 1.0
 roughness = 0.0
 emission_enabled = true
