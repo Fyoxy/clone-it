@@ -271,7 +271,7 @@ songs = Array[AudioStreamOggVorbis]([ExtResource("20_bvawa"), ExtResource("21_ja
 timer = NodePath("Timer")
 
 [node name="Timer" type="Timer" parent="AudioStreamPlayer" index="0" unique_id=981626100]
-wait_time = 5.0
+wait_time = 30.0
 one_shot = true
 autostart = true
 
