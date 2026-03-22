@@ -412,7 +412,7 @@ triggers_required = 1
 triggers = [NodePath("../World/OrbZone")]
 
 [node name="anti_rock_wall" parent="." index="6" unique_id=2089020263 instance=ExtResource("13_4agua")]
-transform = Transform3D(3, 0, 0, 0, 10.215, 0, 0, 0, 1, 0.08267217, 0.7535876, -3.3916347)
+transform = Transform3D(2.03, 0, 0, 0, 6.912, 0, 0, 0, 0.677, 0.08267217, 0.7535876, -3.3916347)
 
 [node name="rock_table2" parent="." index="8" unique_id=2039648538 instance=ExtResource("15_jplqq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9335008, 0, -2.3087268)
@@ -510,3 +510,4 @@ shape = SubResource("BoxShape3D_4ehbb")
 [editable path="XROrigin3D/LeftHand/CollisionHandLeft/LeftHand/Hand_Nails_low_L"]
 [editable path="XROrigin3D/RightHand/CollisionHandRight/RightHand"]
 [editable path="XROrigin3D/RightHand/CollisionHandRight/RightHand/Hand_Nails_low_R"]
+[editable path="anti_rock_wall"]

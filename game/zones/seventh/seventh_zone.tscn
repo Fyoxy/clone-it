@@ -597,7 +597,7 @@ transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, -1, 0, 0.99999994, -4.371139
 shape = SubResource("BoxShape3D_3wj7u")
 
 [node name="trap_crush" type="StaticBody3D" parent="." index="46" unique_id=1988206020]
-transform = Transform3D(-1.425, 1.509958e-07, 0, -2.1516901e-07, -1, 0, 0, 0, 1.19, 0.16824651, 2.4076734, -5.9118576)
+transform = Transform3D(-1.425, 1.509958e-07, 0, -2.1516901e-07, -1, 0, 0, 0, 1.19, 0.16824651, 4.352045, -63.77234)
 script = ExtResource("17_2d7n6")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="trap_crush" index="0" unique_id=584924908]
@@ -713,18 +713,12 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.20
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2650208, 0)
 mesh = SubResource("BoxMesh_sbyi5")
 
-[node name="CollisionShape3D" parent="anti_rock_wall3" index="1" unique_id=953709364]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5484009, 0)
-
 [node name="anti_rock_wall4" parent="." index="58" unique_id=304425115 instance=ExtResource("14_aeo0c")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.1096277, 1.5325258, -3.248089)
 
 [node name="MeshInstance3D" parent="anti_rock_wall4" index="0" unique_id=878650702]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.865288, 0)
 mesh = SubResource("BoxMesh_ty6ah")
-
-[node name="CollisionShape3D" parent="anti_rock_wall4" index="1" unique_id=953709364]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.595459, 0)
 
 [node name="Boundary9" type="StaticBody3D" parent="." index="59" unique_id=882192636]
 transform = Transform3D(-1.4840016e-07, -1.93, -4.371139e-08, 0, -8.436298e-08, 1, -3.395, 8.436298e-08, 1.9106855e-15, -4.623654, -13.637643, -17.471237)
